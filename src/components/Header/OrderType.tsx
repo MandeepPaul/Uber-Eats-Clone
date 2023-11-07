@@ -1,12 +1,14 @@
 import Button from "../UI/Button";
 
-const OrderType = () => {
+const OrderType: React.FC<{ className?: string }> = (props) => {
   return (
-    <div className="bg-yellow-600 flex justify-between px-4">
-      <div className="flex flex-col">
-        <span className="font-light text-sm">Deliver now</span>
+    <div
+      className={`flex md:flex-row-reverse justify-between px-4 font-dosis ${props.className}`}
+    >
+      <div className="flex flex-col md:flex-none">
+        <span className="md:hidden">Deliver now</span>
         <Button className="flex items-center space-x-2">
-          <span>Pembina Highway</span>
+          <span className="font-semibold">Pembina Highway</span>
           <svg
             className="w-3 h-3 text-gray-800 dark:text-white"
             aria-hidden="true"
@@ -24,9 +26,9 @@ const OrderType = () => {
           </svg>
         </Button>
       </div>
-      <div className="self-end">
+      <div className="self-end md:self-start">
         <Button className="flex items-center space-x-2 bg-gray-200 rounded-full px-3 py-1">
-          <span>Delivery</span>
+          <span className="font-semibold">Delivery</span>
           <svg
             className="w-3 h-3 text-gray-800 dark:text-white"
             aria-hidden="true"

@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        title: ["Pacifico", "cursive"],
+        dosis: ["Dosis", "sans-serif"],
+        playpen: ["Playpen Sans", "cursive"],
       },
     },
   },

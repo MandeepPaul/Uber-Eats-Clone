@@ -1,7 +1,9 @@
+import SearchBar from "../Main/SearchBar";
 import Button from "../UI/Button";
+import OrderType from "./OrderType";
 const MainNavigation = () => {
   return (
-    <div className="flex flex-row justify-between p-3 bg-yellow-400">
+    <div className="flex flex-row justify-between p-3 md:items-center">
       <Button>
         <svg
           className="h-7 w-7"
@@ -29,11 +31,18 @@ const MainNavigation = () => {
           />
         </svg>
       </Button>
+
       <img
-        className="py-2"
+        className="py-2 md:h-[40px]"
+        alt="Uber_Eats Logo"
         src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg"
       />
-      <Button className="bg-black rounded-full px-3 text-white flex items-center space-x-1">
+
+      <OrderType className="hidden md:inline-flex md:gap-2" />
+
+      <SearchBar className="hidden md:inline-flex" />
+
+      <Button className="flex items-center space-x-1 bg-black rounded-full px-3 text-white">
         <svg
           className="w-4 h-4 text-white"
           aria-hidden="true"

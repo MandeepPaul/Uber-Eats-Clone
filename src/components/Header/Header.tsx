@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header>
       <MainNavigation />
-      <OrderType />
+      <OrderType className="md:hidden" />
     </header>
   );
 };
