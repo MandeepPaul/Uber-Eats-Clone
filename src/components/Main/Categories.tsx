@@ -1,5 +1,3 @@
-// import React, { useState } from "react";
-
 type item = {
   key: string;
   title: string;
@@ -65,26 +63,16 @@ const DUMMY_CATEGORIES: item = [
 ];
 
 const Categories = () => {
-  const prevHandler = () => {};
-
-  const forwardHandler = () => {};
-
   return (
-    <ul className="relative flex overflow-hidden space-x-4 mr-4 font-playpen md:mt-6">
-      <button className="arrow-button left-4" onClick={prevHandler}>
-        &#11104;
-      </button>
+    <ul className=" flex overflow-x-auto overflow-y-hidden space-x-4 mr-4 pb-2 font-playpen md:mt-6">
       {DUMMY_CATEGORIES.map((item) => (
-        <li className="flex flex-col h-[100px] w-[80px] items-center flex-shrink-0 ">
-          <img src={item.url} alt={item.title} className="h-[80px] w-full " />
+        <li className="flex flex-col h-auto w-[70px] items-center flex-shrink-0">
+          <img src={item.url} alt={item.title} className="h-[67px] w-full" />
           <span className=" h-auto w-full text-center font-title text-sm">
             {item.title}
           </span>
         </li>
       ))}
-      <button className="arrow-button right-0 " onClick={forwardHandler}>
-        &#11106;
-      </button>
     </ul>
   );
 };

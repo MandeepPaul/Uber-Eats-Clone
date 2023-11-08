@@ -3,10 +3,10 @@ import Main from "./components/Main/Main";
 
 function App() {
   return (
-    <>
+    <div className="max-w-[1024px]">
       <Header />
-      <Main />
-    </>
+      <Main className="font-ubermove" />
+    </div>
   );
 }
 

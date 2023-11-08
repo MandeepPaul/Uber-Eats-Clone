@@ -33,7 +33,7 @@ const MainNavigation = () => {
       </Button>
 
       <img
-        className="py-2 md:h-[40px]"
+        className="py-2 h-[35px] md:h-[40px]"
         alt="Uber_Eats Logo"
         src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg"
       />

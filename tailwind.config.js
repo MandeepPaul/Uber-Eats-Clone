@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         dosis: ["Dosis", "sans-serif"],
         playpen: ["Playpen Sans", "cursive"],
+        ubermove: ["Uber Move Text", "sans-serif"],
       },
     },
   },
