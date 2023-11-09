@@ -3,12 +3,12 @@ import Button from "../UI/Button";
 const OrderType: React.FC<{ className?: string }> = (props) => {
   return (
     <div
-      className={`flex md:flex-row-reverse justify-between px-4 font-dosis ${props.className}`}
+      className={`flex md:flex-row-reverse justify-between px-4 mt-4 font-ubermove ${props.className}`}
     >
       <div className="flex flex-col md:flex-none">
-        <span className="md:hidden">Deliver now</span>
+        <span className="md:hidden text-sm font-light">Deliver now</span>
         <Button className="flex items-center space-x-2">
-          <span className="font-semibold">Pembina Highway</span>
+          <span>Pembina Highway</span>
           <svg
             className="w-3 h-3 text-gray-800 dark:text-white"
             aria-hidden="true"
@@ -28,7 +28,7 @@ const OrderType: React.FC<{ className?: string }> = (props) => {
       </div>
       <div className="self-end md:self-start">
         <Button className="flex items-center space-x-2 bg-gray-200 rounded-full px-3 py-1">
-          <span className="font-semibold">Delivery</span>
+          <span className="text-sm">Delivery</span>
           <svg
             className="w-3 h-3 text-gray-800 dark:text-white"
             aria-hidden="true"

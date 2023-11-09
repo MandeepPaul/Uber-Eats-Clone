@@ -2,7 +2,7 @@ import Button from "../UI/Button";
 
 const SearchBar: React.FC<{ className?: string }> = (props) => {
   return (
-    <div className={`mx-4 py-3 ${props.className}`}>
+    <div className={`py-3 mt-2 ${props.className}`}>
       <div className="flex items-center space-x-2 px-4 py-1 bg-gray-200 rounded-full">
         <div className="flex basis-11/12 items-center p-1 relative">
           <div className="absolute pointer-events-none">
@@ -23,7 +23,7 @@ const SearchBar: React.FC<{ className?: string }> = (props) => {
             </svg>
           </div>
           <input
-            className="py-1 pl-6 border-r-2 md:border-none border-gray-300 bg-gray-200 w-full outline-none placeholder:text-gray-500 placeholder:font-dosis"
+            className="py-1 pl-6 border-r-2 md:border-none border-gray-300 bg-gray-200 w-full outline-none placeholder:text-gray-500 placeholder:font-ubermove truncate"
             type="text"
             name="searchField"
             placeholder="Food, groceries, drinks, etc"

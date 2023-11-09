@@ -1,9 +1,11 @@
 import SearchBar from "../Main/SearchBar";
 import Button from "../UI/Button";
 import OrderType from "./OrderType";
-const MainNavigation = () => {
+const MainNavigation: React.FC<{ className?: string }> = (props) => {
   return (
-    <div className="flex flex-row justify-between p-3 md:items-center">
+    <div
+      className={`flex flex-row justify-between p-3 md:items-center ${props.className}`}
+    >
       <Button>
         <svg
           className="h-7 w-7"
@@ -33,7 +35,7 @@ const MainNavigation = () => {
       </Button>
 
       <img
-        className="py-2 h-[35px] md:h-[40px]"
+        className="py-2 h-[35px] md:h-[37px]"
         alt="Uber_Eats Logo"
         src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg"
       />
