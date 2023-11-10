@@ -1,43 +1,123 @@
 import Card from "../../UI/Card";
+import Store from "./Store";
+
+export interface Istores {
+  id: string;
+  url: string;
+  offer?: string;
+  name: string;
+  deliveryFee: number;
+  time: number;
+  rating: number;
+}
+
+let DUMMY_STORES: Istores[] = [
+  {
+    id: "s1",
+    url: "https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,q_auto,w_750/f_auto/tk-traditional-indian-foods-to-taste-in-2022-phpEXAXNS",
+    name: "INDIAN FOOD CORNER",
+    deliveryFee: 0.99,
+    time: 25,
+    rating: 4.4,
+  },
+  {
+    id: "s2",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/dd992b0b66f9ffcd3ee723ed33b9d371/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "KFC",
+    deliveryFee: 0.99,
+    time: 15,
+    rating: 4.2,
+  },
+  {
+    id: "s3",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/e1244ff68a32fe72d9ee6345c724dcf6/719c6bd2757b08684c0faae44d43159d.jpeg",
+    name: "A&W",
+    offer: "Save on Select Items",
+    deliveryFee: 0.99,
+    time: 15,
+    rating: 4.3,
+  },
+  {
+    id: "s4",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s5",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
+  {
+    id: "s6",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/baa6bb26a3b7f19cb3d9efa7ef36013a/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Tim Hortons",
+    deliveryFee: 1.99,
+    time: 10,
+    rating: 4.5,
+  },
+];
 
 const Allstores: React.FC<{ className?: string }> = (props) => {
-  const cardStyle = {
-    backgroundImage:
-      "url(https://res.cloudinary.com/hz3gmuqw6/image/upload/c_fill,q_auto,w_750/f_auto/tk-traditional-indian-foods-to-taste-in-2022-phpEXAXNS)",
-  };
+  const storeWithDeals = DUMMY_STORES.filter((store) => store.offer);
+
   return (
-    <div className={`${props.className}`}>
-      <Card
-        className={`bg-pink-300 h-[150px] relative shadow-none`}
-        style={cardStyle}
-      >
-        <div className="bg-green-500 absolute top-3 rounded-r-full text-sm text-white px-2 flex items-center gap-1 shadow-sm">
-          <svg
-            width="13px"
-            height="13px"
-            viewBox="0 0 512 512"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="#FFFFFF"
-              d="M98.398 21.146a17.092 17.092 0 0 0-4.636.521c-20.49 5.262-33.163 20.63-36.116 38.649-2.952 18.019 2.168 38.346 12.676 58.193 20.695 39.086 63.262 77.08 117.852 85.85-5.61-6.72-11.05-14.246-16.274-22.375-39.008-12.57-70.021-42.344-85.67-71.899-9.206-17.387-12.846-34.491-10.82-46.857C77.437 50.862 83.482 42.89 98.238 39.1c.065-.017.068-.034.092-.053-.065-.143.105-.08 0 0 .022.049.061.11.176.217.527.493 1.689 2.24 2.207 5.14 1.036 5.804-.413 15.593-8.135 25.68l14.293 10.942c10.418-13.61 13.65-28.086 11.56-39.785-1.044-5.85-3.396-11.165-7.628-15.124-3.174-2.969-7.747-4.868-12.405-4.972zm315.204 0c-4.658.104-9.23 2.003-12.405 4.972-4.232 3.96-6.584 9.274-7.629 15.124-2.089 11.699 1.143 26.174 11.56 39.785l14.294-10.942c-7.722-10.087-9.171-19.876-8.135-25.68.518-2.9 1.68-4.647 2.207-5.14a.695.695 0 0 0 .176-.217c-.105-.08.065-.143 0 0 .024.019.027.036.092.053 14.756 3.79 20.801 11.76 22.828 24.127 2.026 12.366-1.614 29.47-10.82 46.857-15.649 29.555-46.662 59.33-85.67 71.899-5.223 8.129-10.665 15.655-16.274 22.375 54.59-8.77 97.157-46.764 117.852-85.85 10.508-19.847 15.628-40.174 12.676-58.193-2.953-18.02-15.626-33.387-36.116-38.649a17.092 17.092 0 0 0-4.636-.521zm-276.166 7.713c2.146 36.533 16.76 83.07 36.537 120.824 10.707 20.442 22.876 38.334 34.761 50.685C220.62 212.72 232 218.858 240 218.858h32c8 0 19.38-6.138 31.266-18.49 11.885-12.351 24.054-30.243 34.761-50.685 19.777-37.755 34.39-84.29 36.537-120.824H137.436zm95.564 208v16h46v-16h-46zm6.445 34c-2.458 25.967-12.796 57.873-24.437 76h81.984c-11.64-18.127-21.979-50.033-24.437-76h-33.11zm-38.445 94v14h110v-14H201zm-32 32v94h174v-94H169zm23 23h128v48H192v-48z"
-            />
-          </svg>
-          Top Offer
-        </div>
-      </Card>
-      <p className="font-medium mt-1">Restaurant Name</p>
-      <div className="font-light text-sm flex gap-1 items-center">
-        <img
-          src="https://cn-geo1.uber.com/static/mobile-content/membership/uberone_ccc3x.png"
-          alt="uber_one_logo"
-          className="h-4 w-4"
-        />
-        <p>
-          Price Delivery Fee . <span className="text-gray-600">25min</span>
-        </p>
+    <>
+      <div className={`flex justify-between items-center ${props.className}`}>
+        <h2 className={`text-xl font-semibold `}>Today's offers</h2>
+        <svg
+          fill="#000000"
+          className="bg-gray-200 rounded-full p-2"
+          height="35px"
+          width="35px"
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+        >
+          <polygon points="315.1,48.6 196.9,48.6 354.5,206.1 0,206.1 0,284.9 354.5,284.9 196.9,442.4 315.1,442.4 512,245.5 " />
+        </svg>
       </div>
-    </div>
+
+      <ul
+        className={`flex justify-between gap-4 pb-3 overflow-x-auto ${props.className}`}
+      >
+        {storeWithDeals.map((store) => (
+          <li key={store.id} className="mt-4 flex-shrink-0 w-[85%]">
+            <Store
+              id={store.id}
+              url={store.url}
+              offer={store.offer}
+              name={store.name}
+              deliveryFee={store.deliveryFee}
+              time={store.time}
+              rating={store.rating}
+            />
+          </li>
+        ))}
+      </ul>
+      <ul className={`${props.className}`}>
+        {DUMMY_STORES.map((store) => (
+          <li key={store.id} className="mt-4">
+            <Store
+              id={store.id}
+              url={store.url}
+              offer={store.offer}
+              name={store.name}
+              deliveryFee={store.deliveryFee}
+              time={store.time}
+              rating={store.rating}
+            />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 

@@ -68,7 +68,10 @@ const Categories: React.FC<{ className?: string }> = (props) => {
       className={`flex overflow-x-auto overflow-y-hidden space-x-4 py-2 font-playpen md:mt-6 ${props.className}`}
     >
       {DUMMY_CATEGORIES.map((item) => (
-        <li className="flex flex-col h-auto w-[68px] items-center flex-shrink-0">
+        <li
+          key={item.key}
+          className="flex flex-col h-auto w-[68px] items-center flex-shrink-0"
+        >
           <img src={item.url} alt={item.title} className="h-[65px] w-full" />
           <span className=" h-auto w-full text-center font-title text-sm">
             {item.title}
