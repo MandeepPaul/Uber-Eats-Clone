@@ -5,7 +5,7 @@ const Header: React.FC<{ className?: string }> = (props) => {
   return (
     <header>
       <MainNavigation />
-      <OrderType className={`md:hidden ${props.className}`} />
+      <OrderType className={`lg:hidden ${props.className}`} />
     </header>
   );
 };

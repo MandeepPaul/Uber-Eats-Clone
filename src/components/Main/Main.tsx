@@ -1,15 +1,13 @@
 import Categories from "./Categories";
-import Message from "./Message";
 import SearchBar from "./SearchBar";
-import Allstores from "./stores/Allstores";
+import StoreSection from "./StoreSection";
 
 const Main: React.FC<{ className?: string }> = (props) => {
   return (
     <>
-      <SearchBar className={`md:hidden ${props.className}`} />
+      <SearchBar className={`lg:hidden ${props.className}`} />
       <Categories className={`${props.className}`} />
-      <Message className={`${props.className}`} />
-      <Allstores className={`${props.className}`} />
+      <StoreSection className={`${props.className}`} />
     </>
   );
 };

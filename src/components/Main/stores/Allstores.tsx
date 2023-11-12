@@ -1,4 +1,3 @@
-import Card from "../../UI/Card";
 import Store from "./Store";
 
 export interface Istores {
@@ -62,14 +61,133 @@ let DUMMY_STORES: Istores[] = [
     time: 10,
     rating: 4.5,
   },
+  {
+    id: "s7",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s8",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
+  {
+    id: "s9",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s10",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
+  {
+    id: "s11",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s12",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
+  {
+    id: "s13",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s14",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
+  {
+    id: "s15",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s16",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
+  {
+    id: "s17",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s18",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
+  {
+    id: "s19",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/fc38832355b731999eb24fc2e7880ad1/c9252e6c6cd289c588c3381bc77b1dfc.jpeg",
+    name: "McDonald's (Chancellor)",
+    offer: "Buy 1, Get 1 Free",
+    deliveryFee: 0.99,
+    time: 10,
+    rating: 4.1,
+  },
+  {
+    id: "s20",
+    url: "https://tb-static.uber.com/prod/image-proc/processed_images/0f52ccdf081506d52abfd837bdc5e263/3ac2b39ad528f8c8c5dc77c59abb683d.jpeg",
+    name: "Wendy's",
+    deliveryFee: 1.99,
+    time: 15,
+    rating: 4.4,
+  },
 ];
 
 const Allstores: React.FC<{ className?: string }> = (props) => {
   const storeWithDeals = DUMMY_STORES.filter((store) => store.offer);
 
   return (
-    <>
-      <div className={`flex justify-between items-center ${props.className}`}>
+    <div className={`${props.className}`}>
+      <div className={`flex justify-between items-center`}>
         <h2 className={`text-xl font-semibold `}>Today's offers</h2>
         <svg
           fill="#000000"
@@ -85,11 +203,12 @@ const Allstores: React.FC<{ className?: string }> = (props) => {
         </svg>
       </div>
 
-      <ul
-        className={`flex justify-between gap-4 pb-3 overflow-x-auto ${props.className}`}
-      >
+      <ul className={`flex justify-between gap-4 pb-3 overflow-x-auto`}>
         {storeWithDeals.map((store) => (
-          <li key={store.id} className="mt-4 flex-shrink-0 w-[85%]">
+          <li
+            key={store.id}
+            className="mt-4 flex-shrink-0 w-[85%] md:w-[60%] lg:w-[50%]"
+          >
             <Store
               id={store.id}
               url={store.url}
@@ -102,7 +221,7 @@ const Allstores: React.FC<{ className?: string }> = (props) => {
           </li>
         ))}
       </ul>
-      <ul className={`${props.className}`}>
+      <ul className={`lg:grid lg:grid-cols-3 lg:gap-4 ${props.className}`}>
         {DUMMY_STORES.map((store) => (
           <li key={store.id} className="mt-4">
             <Store
@@ -117,7 +236,7 @@ const Allstores: React.FC<{ className?: string }> = (props) => {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -23,13 +23,13 @@ const SearchBar: React.FC<{ className?: string }> = (props) => {
             </svg>
           </div>
           <input
-            className="py-1 pl-6 border-r-2 md:border-none border-gray-300 bg-gray-200 w-full outline-none placeholder:text-gray-500 placeholder:font-ubermove truncate"
+            className="py-1 pl-6 border-r-2 lg:border-none border-gray-300 bg-gray-200 w-full outline-none placeholder:text-gray-500 placeholder:font-ubermove truncate"
             type="text"
             name="searchField"
             placeholder="Food, groceries, drinks, etc"
           />
         </div>
-        <Button className="basis-1/12 md:hidden">
+        <Button className="basis-1/12 lg:hidden">
           <svg
             className="w-5 h-5 m-auto"
             viewBox="0 0 24 24"

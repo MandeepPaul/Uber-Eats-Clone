@@ -4,7 +4,7 @@ import { Istores } from "./Allstores";
 const Store: React.FC<Istores> = (props) => {
   return (
     <>
-      <Card className={`bg-pink-300 h-[150px] relative`} url={props.url}>
+      <Card className={`h-[150px] relative`} url={props.url}>
         {props.offer && (
           <div className="bg-green-700 absolute top-3 rounded-r-full text-sm text-white px-2 flex items-center gap-1 shadow-sm">
             <svg

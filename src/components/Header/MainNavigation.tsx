@@ -1,10 +1,10 @@
 import SearchBar from "../Main/SearchBar";
 import Button from "../UI/Button";
 import OrderType from "./OrderType";
-const MainNavigation: React.FC<{ className?: string }> = (props) => {
+const MainNavigation = () => {
   return (
     <div
-      className={`flex flex-row justify-between p-3 md:items-center ${props.className}`}
+      className={`flex flex-row justify-between w-full p-3 lg:p-0 lg:items-center bg-white lg:fixed lg:top-0 lg:z-10 lg:shadow-xl`}
     >
       <Button>
         <svg
@@ -40,9 +40,9 @@ const MainNavigation: React.FC<{ className?: string }> = (props) => {
         src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg"
       />
 
-      <OrderType className="hidden md:inline-flex md:gap-2" />
+      <OrderType className="hidden lg:inline-flex lg:gap-2" />
 
-      <SearchBar className="hidden md:inline-flex" />
+      <SearchBar className="hidden lg:inline-flex" />
 
       <Button className="flex items-center space-x-1 bg-black rounded-full px-3 text-white">
         <svg
