@@ -10,9 +10,3 @@
     @apply absolute z-10 top-[25px] h-10 w-10 rounded-full bg-gray-100 text-xl hover:text-3xl hover:bg-transparent;
   }
 }
-
-@media (min-width: 768px) {
-  /* .content-container {
-    @apply md:ml-[15%] md:mr-[15%];
-  } */
-}

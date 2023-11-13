@@ -4,7 +4,7 @@ import OrderType from "./OrderType";
 const MainNavigation = () => {
   return (
     <div
-      className={`flex flex-row justify-between w-full p-3 lg:p-0 lg:items-center bg-white lg:fixed lg:top-0 lg:z-10 lg:shadow-xl`}
+      className={`flex flex-row justify-between w-full max-w-[1440px] p-3 lg:p-0 lg:px-3 lg:items-center bg-white lg:fixed lg:top-0 lg:z-10 lg:shadow-xl`}
     >
       <Button>
         <svg
