@@ -1,7 +1,10 @@
 import React from "react";
-import ToggleSection from "./ToggleSection";
+import ToggleSection from "../../UI/ToggleSection";
 import Sort from "./subSections/Sort";
 import Offers from "./subSections/OfferSubSection/Offers";
+import Price from "./subSections/Price";
+import Delivery from "./subSections/Delivery";
+import Dietry from "./Dietary";
 
 const Filter: React.FC<{ className?: string }> = ({ className }) => {
   return (
@@ -15,6 +18,18 @@ const Filter: React.FC<{ className?: string }> = ({ className }) => {
 
         <ToggleSection title="From Uber Eats">
           <Offers />
+        </ToggleSection>
+
+        <ToggleSection title="Price">
+          <Price />
+        </ToggleSection>
+
+        <ToggleSection title="Delivery Free">
+          <Delivery />
+        </ToggleSection>
+
+        <ToggleSection title="Dietary">
+          <Dietry />
         </ToggleSection>
       </div>
     </div>
