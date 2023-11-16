@@ -1,49 +1,25 @@
 import Button from "../UI/Button";
-
+import { arrowDownSVG, locationPinSVG } from "../../SVG/svgIcon";
 const OrderType: React.FC<{ className?: string }> = (props) => {
   return (
     <div
-      className={`flex lg:flex-row-reverse justify-between px-4 mt-4 font-ubermove ${props.className}`}
+      className={`flex text-sm lg:flex-row-reverse justify-between px-4 mt-4 lg:m-0 font-ubermove ${props.className}`}
     >
-      <div className="flex flex-col lg:flex-none">
-        <span className="lg:hidden text-sm font-light">Deliver now</span>
-        <Button className="flex items-center space-x-2">
-          <span>Pembina Highway</span>
-          <svg
-            className="w-3 h-3 text-gray-800 dark:text-white"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 8"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
-            />
-          </svg>
+      <div className="flex flex-col lg:flex-none lg:self-center">
+        <span className="lg:hidden">Deliver now</span>
+
+        <Button className="flex gap-2 items-center lg:rounded-full lg:p-3 lg:bg-gray-200">
+          {locationPinSVG}
+          <p>Pembina Highway</p>
+          <span className="hidden lg:inline-block">Now</span>
+          {arrowDownSVG}
         </Button>
       </div>
-      <div className="self-end lg:self-start">
-        <Button className="flex items-center space-x-2 bg-gray-200 rounded-full px-3 py-1">
-          <span className="text-sm">Delivery</span>
-          <svg
-            className="w-3 h-3 text-gray-800 dark:text-white"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 8"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
-            />
-          </svg>
+
+      <div className="self-end lg:self-center">
+        <Button className="flex items-center space-x-2 bg-gray-200 rounded-full px-3 py-1 lg:py-3 lg:px-4">
+          <span>Delivery</span>
+          {arrowDownSVG}
         </Button>
       </div>
     </div>

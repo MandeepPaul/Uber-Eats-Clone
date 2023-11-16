@@ -7,7 +7,7 @@ const Toggle = () => {
   };
 
   return (
-    <label className="flex items-center cursor-pointer">
+    <button className="flex items-center cursor-pointer">
       <div className="relative">
         <input type="checkbox" onInput={toggleHandler} className="hidden" />
         <div className="toggle__line w-10 h-4 bg-gray-200 rounded-full shadow-inner" />
@@ -17,7 +17,7 @@ const Toggle = () => {
           }`}
         />
       </div>
-    </label>
+    </button>
   );
 };
 

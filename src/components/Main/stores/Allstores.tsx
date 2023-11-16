@@ -207,7 +207,7 @@ const Allstores: React.FC<{ className?: string }> = (props) => {
         {storeWithDeals.map((store) => (
           <li
             key={store.id}
-            className="mt-4 flex-shrink-0 w-[85%] md:w-[60%] lg:w-[50%]"
+            className="mt-4 flex-shrink-0 w-[85%] md:w-[40%] lg:w-[32%]"
           >
             <Store
               id={store.id}
