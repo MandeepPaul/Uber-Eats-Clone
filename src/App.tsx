@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="max-w-[1440px] mx-auto">
       <Header className="mx-4" />
-      <Main className="font-ubermove mx-4" />
+      <Main className="mx-4" />
     </div>
   );
 }

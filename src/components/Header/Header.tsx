@@ -1,11 +1,11 @@
 import MainNavigation from "./MainNavigation";
-import OrderType from "./OrderType";
+import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 
 const Header: React.FC<{ className?: string }> = (props) => {
   return (
     <header>
       <MainNavigation />
-      <OrderType className={`lg:hidden ${props.className}`} />
+      <DeliveryDetails className={`lg:hidden ${props.className}`} />
     </header>
   );
 };

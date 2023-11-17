@@ -52,13 +52,13 @@ const DUMMY_CATEGORIES: item = [
   },
   {
     key: "i10",
-    title: "Baby",
-    url: "https://d4p17acsd5wyj.cloudfront.net/shortcuts/baby.png",
+    title: "Speciality Foods",
+    url: "https://cn-geo1.uber.com/static/mobile-content/eats/specialy_transparent_background.png",
   },
   {
     key: "i11",
-    title: "Pet Supplies",
-    url: "https://cn-geo1.uber.com/static/mobile-content/eats/pet_supplies.png",
+    title: "Coffee and Tea",
+    url: "https://d4p17acsd5wyj.cloudfront.net/shortcuts/cuisines/coffeeandtea.png",
   },
 ];
 
