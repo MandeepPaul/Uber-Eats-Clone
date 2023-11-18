@@ -19,7 +19,7 @@ const OrderTypeToggle: React.FC<{ className?: string }> = (props) => {
         </button>
       </div>
       <div
-        className={`absolute right-1 top-0.5 h-[90%] w-[50%] bg-white rounded-full transition-transform duration-300 ${
+        className={`absolute top-0.5 h-[90%] w-[50%] bg-white rounded-full transition-transform duration-300 ${
           orderType === "DELIVERY" ? "left-1" : "right-1"
         }`}
       />

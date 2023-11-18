@@ -3,12 +3,12 @@ import SearchBar from "../Main/SearchBar";
 import Button from "../UI/Button";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 
-const MainNavigation = () => {
+const MainNavigation: React.FC<{ onClick: () => void }> = (props) => {
   return (
     <div
       className={`flex flex-row justify-between w-full max-w-[1440px] bg-white p-3 lg:py-2 lg:px-3 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-md`}
     >
-      <Button>{hamburgerMenuIcon}</Button>
+      <Button onClick={props.onClick}>{hamburgerMenuIcon}</Button>
 
       <img
         className="py-2 h-[35px] md:h-[37px]"
