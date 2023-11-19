@@ -1,3 +1,4 @@
+import Button from "../../UI/Button";
 import SubOption from "./SubOption";
 
 let sideNavIcons = [
@@ -160,7 +161,7 @@ const Options = () => {
         />
       ))}
 
-      <button className="self-start text-gray-400 font-medium">Sign out</button>
+      <Button className="self-start text-gray-400">Sign out</Button>
     </div>
   );
 };

@@ -66,7 +66,6 @@ export default DieteryIcons;
 
 const arrowDownSVG = (
   <svg
-    className="w-3 h-3 text-gray-800 lg:hidden"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -87,7 +86,6 @@ export { arrowDownSVG };
 const locationPinSVG = (
   <svg
     height="20px"
-    className="hidden lg:inline-block"
     xmlns="http://www.w3.org/2000/svg"
     enableBackground="new 0 0 60 60"
     viewBox="0 0 60 60"

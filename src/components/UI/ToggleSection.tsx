@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const SectionCollapse: React.FC<{
   children: React.ReactNode;
@@ -7,7 +8,7 @@ const SectionCollapse: React.FC<{
   return (
     <>
       <div className="py-4">
-        <button className="flex items-center w-full justify-between font-medium pt-1 pb-4">
+        <Button className="flex items-center w-full justify-between font-medium pt-1 pb-4">
           <span>{props.title}</span>
           <svg
             className="w-3 h-3 text-gray-800 dark:text-white"
@@ -24,7 +25,7 @@ const SectionCollapse: React.FC<{
               d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
             />
           </svg>
-        </button>
+        </Button>
         <div className="flex flex-col gap-4 text-base">{props.children}</div>
       </div>
     </>

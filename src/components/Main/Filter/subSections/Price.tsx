@@ -1,10 +1,12 @@
+import Button from "../../../UI/Button";
+
 const Price = () => {
   return (
     <section className="flex gap-2">
       {["$", "$$", "$$$", "$$$$"].map((price, index) => (
-        <button key={index} className="bg-gray-200 p-2 rounded-full">
+        <Button key={index} className="bg-gray-200 p-2 rounded-full">
           {price}
-        </button>
+        </Button>
       ))}
     </section>
   );

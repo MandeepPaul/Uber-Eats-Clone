@@ -1,13 +1,14 @@
 import React from "react";
+import Button from "../../../UI/Button";
 
 const ButtonIcon: React.FC<{ svg: React.ReactNode; name: string }> = ({
   svg,
   name,
 }) => (
-  <button className="bg-gray-200 p-2 rounded-full flex justify-center gap-2">
+  <Button className="bg-gray-200 p-2 rounded-full flex justify-center gap-2">
     {svg}
     <span>{name}</span>
-  </button>
+  </Button>
 );
 
 export default ButtonIcon;

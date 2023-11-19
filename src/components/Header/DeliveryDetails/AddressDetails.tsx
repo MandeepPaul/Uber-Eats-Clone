@@ -12,10 +12,13 @@ const AddressDetails: React.FC<{ onAddressBarClick: () => void }> = ({
         className="flex gap-2 items-center lg:rounded-full lg:p-3 lg:bg-gray-200"
         onClick={onAddressBarClick}
       >
-        {locationPinSVG}
+        <div className="hidden lg:inline-block">{locationPinSVG}</div>
+
         <p>Pembina Highway</p>
+
         <span className="hidden lg:inline-block">Now</span>
-        {arrowDownSVG}
+
+        <div className="w-3 h-3 text-gray-800 lg:hidden">{arrowDownSVG}</div>
       </Button>
     </div>
   );
