@@ -64,21 +64,24 @@ const DUMMY_CATEGORIES: item = [
 
 const Categories: React.FC<{ className?: string }> = (props) => {
   return (
-    <ul
-      className={`flex overflow-x-auto overflow-y-hidden space-x-4 py-2 font-playpen lg:mt-[100px] lg:justify-center ${props.className}`}
-    >
-      {DUMMY_CATEGORIES.map((item) => (
-        <li
-          key={item.key}
-          className="flex flex-col h-auto w-[68px] items-center flex-shrink-0"
-        >
-          <img src={item.url} alt={item.title} className="h-[65px] w-full" />
-          <span className=" h-auto w-full text-center font-title text-sm">
-            {item.title}
-          </span>
-        </li>
-      ))}
-    </ul>
+    <>
+      <ul
+        className={`flex overflow-x-auto overflow-y-hidden space-x-4 py-2 font-playpen lg:mt-[100px] lg:justify-center ${props.className}`}
+      >
+        {DUMMY_CATEGORIES.map((item) => (
+          <li
+            key={item.key}
+            className="flex flex-col h-auto w-[68px] items-center flex-shrink-0"
+          >
+            <img src={item.url} alt={item.title} className="h-[65px] w-full" />
+            <span className=" h-auto w-full text-center font-title text-sm">
+              {item.title}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <hr className="hidden lg:block border-t-2 border-gray-200 mx-10" />
+    </>
   );
 };
 

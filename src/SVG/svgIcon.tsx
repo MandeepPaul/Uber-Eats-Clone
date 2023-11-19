@@ -87,7 +87,7 @@ export { arrowDownSVG };
 
 const locationPinSVG = (
   <svg
-    height="15px"
+    height="20px"
     className="hidden lg:inline-block"
     xmlns="http://www.w3.org/2000/svg"
     enableBackground="new 0 0 60 60"
@@ -108,7 +108,7 @@ export { locationPinSVG };
 
 const cartIcon = (
   <svg
-    className="w-4 h-4 text-white"
+    className="w-4 h-4 text-white lg:h-5 lg:w-6"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
@@ -122,28 +122,14 @@ export { cartIcon };
 
 const hamburgerMenuIcon = (
   <svg
-    className="h-7 w-7"
-    viewBox="0 0 24 24"
-    fill="none"
+    width="24px"
+    height="24px"
+    viewBox="0 0 512 512"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M19.5 8.25H4.5V6.75H19.5V8.25Z"
-      fill="#080341"
-    />
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M19.5 12.75H4.5V11.25H19.5V12.75Z"
-      fill="#080341"
-    />
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M19.5 17.25H4.5V15.75H19.5V17.25Z"
-      fill="#080341"
+      fill="#000000"
+      d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
     />
   </svg>
 );

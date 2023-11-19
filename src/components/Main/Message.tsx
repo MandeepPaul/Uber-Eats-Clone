@@ -17,7 +17,7 @@ const Message: React.FC<{ className?: string }> = (props) => {
           How do fees work?
         </a>
       </section>
-      <hr className="border-t-2 border-gray-200 my-4" />
+      <hr className="border-t-2 border-gray-200 my-4 lg:hidden" />
     </div>
   );
 };

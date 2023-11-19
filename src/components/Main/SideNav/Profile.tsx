@@ -1,6 +1,6 @@
 const Profile = () => {
   return (
-    <div className="grid grid-rows-2 grid-cols-4 grid-flow-col font-ubermove">
+    <div className="grid grid-rows-2 grid-cols-4 grid-flow-col">
       <div className="justify-self-center row-span-2 h-[55px] w-[55px]">
         <img
           className="rounded-full"

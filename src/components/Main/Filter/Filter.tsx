@@ -8,29 +8,30 @@ import Dietry from "./Dietary";
 
 const Filter: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <div className={`pr-6 pt-2 ${className}`}>
-      <div className="sticky left-0 top-[100px] h-[100px] ">
-        <h2 className="text-2xl font-bold mb-3">All stores</h2>
+    <div className={`pr-6 pt-2 text-xl ${className}`}>
+      <div className="sticky left-0 top-[120px] h-[100px]">
+        <h2 className="text-3xl font-bold mb-2">All stores</h2>
+        <>
+          <ToggleSection title="Sort">
+            <Sort />
+          </ToggleSection>
 
-        <ToggleSection title="Sort">
-          <Sort />
-        </ToggleSection>
+          <ToggleSection title="From Uber Eats">
+            <Offers />
+          </ToggleSection>
 
-        <ToggleSection title="From Uber Eats">
-          <Offers />
-        </ToggleSection>
+          <ToggleSection title="Price">
+            <Price />
+          </ToggleSection>
 
-        <ToggleSection title="Price">
-          <Price />
-        </ToggleSection>
+          <ToggleSection title="Delivery Free">
+            <Delivery />
+          </ToggleSection>
 
-        <ToggleSection title="Delivery Free">
-          <Delivery />
-        </ToggleSection>
-
-        <ToggleSection title="Dietary">
-          <Dietry />
-        </ToggleSection>
+          <ToggleSection title="Dietary">
+            <Dietry />
+          </ToggleSection>
+        </>
       </div>
     </div>
   );

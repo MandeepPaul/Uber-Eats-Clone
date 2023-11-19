@@ -6,7 +6,7 @@ const FromUberEats: React.FC<{
   className?: string;
 }> = (props) => {
   return (
-    <section className={`flex justify-between ${props.className}`}>
+    <section className={`flex items-center justify-between ${props.className}`}>
       {props.svg}
       <p className="pl-3 grow">{props.title}</p>
       <Toggle />

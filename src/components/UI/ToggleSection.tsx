@@ -6,8 +6,8 @@ const SectionCollapse: React.FC<{
 }> = (props) => {
   return (
     <>
-      <div className="pb-5">
-        <button className="flex items-center w-full justify-between font-medium py-1">
+      <div className="py-4">
+        <button className="flex items-center w-full justify-between font-medium pt-1 pb-4">
           <span>{props.title}</span>
           <svg
             className="w-3 h-3 text-gray-800 dark:text-white"
@@ -25,7 +25,7 @@ const SectionCollapse: React.FC<{
             />
           </svg>
         </button>
-        <div className="flex flex-col gap-2 text-sm">{props.children}</div>
+        <div className="flex flex-col gap-4 text-base">{props.children}</div>
       </div>
     </>
   );

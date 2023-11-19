@@ -6,8 +6,8 @@ const Offers = () => {
       <SubOffer
         svg={
           <svg
-            width="20px"
-            height="20px"
+            width="22px"
+            height="22px"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -29,8 +29,8 @@ const Offers = () => {
         svg={
           <svg
             fill="#000000"
-            width="20px"
-            height="20px"
+            width="22px"
+            height="22px"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >

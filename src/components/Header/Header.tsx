@@ -6,7 +6,7 @@ const Header: React.FC<{ className?: string; onClick: () => void }> = (
 ) => {
   return (
     <header>
-      <MainNavigation onClick={props.onClick} />
+      <MainNavigation onClick={props.onClick} className={`lg:px-6`} />
       <DeliveryDetails className={`lg:hidden ${props.className}`} />
     </header>
   );
