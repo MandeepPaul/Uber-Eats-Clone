@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const OrderTypeToggle: React.FC<{ className?: string }> = (props) => {
+const OrderTypeToggle: React.FC<{ className?: string }> = ({ className }) => {
   const [orderType, setOrderType] = useState("DELIVERY");
 
   const toggleHandler = (tab: string) => {
@@ -8,9 +8,7 @@ const OrderTypeToggle: React.FC<{ className?: string }> = (props) => {
   };
   return (
     <div className="relative flex">
-      <div
-        className={`bg-gray-200 px-3 space-x-6 rounded-full ${props.className}`}
-      >
+      <div className={`bg-gray-200 px-3 space-x-6 rounded-full ${className}`}>
         <button
           onClick={() => toggleHandler("DELIVERY")}
           className="lg:z-20 pl-1"
@@ -25,7 +23,7 @@ const OrderTypeToggle: React.FC<{ className?: string }> = (props) => {
         </button>
       </div>
       <div
-        className={`absolute top-1 h-[85%] w-[50%] bg-white rounded-full transition-transform duration-300 ${
+        className={`absolute top-1 h-[80%] w-[50%] xl:h-[84%] bg-white rounded-full transition-transform duration-300 ${
           orderType === "DELIVERY" ? "left-1" : "right-1"
         }`}
       />

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import Header from "./components/Header/Header";
 import Main from "./components/Main/Main";
 import SideNav from "./components/Main/SideNav/SideNav";
 
 function App() {
-  const [sideNavigation, setVisibility] = useState(true);
+  const [sideNavigation, setVisibility] = useState(false);
 
   const openSideNav = () => {
     sideNavigation ? setVisibility(false) : setVisibility(true);

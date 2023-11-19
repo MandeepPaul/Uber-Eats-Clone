@@ -150,7 +150,7 @@ let sideNavIcons = [
 
 const Options = () => {
   return (
-    <div className="flex flex-col justify-start gap-7 text-lg my-6 pl-6 pt-2">
+    <div className="flex flex-col justify-start gap-7 text-lg my-6 pl-6 pt-2 max-w-[300px]">
       {sideNavIcons.map((item) => (
         <SubOption
           key={item.id}
@@ -160,9 +160,7 @@ const Options = () => {
         />
       ))}
 
-      <button className="self-start text-gray-700 font-semibold">
-        Sign out
-      </button>
+      <button className="self-start text-gray-400 font-medium">Sign out</button>
     </div>
   );
 };

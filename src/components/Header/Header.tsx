@@ -1,13 +1,25 @@
 import MainNavigation from "./MainNavigation";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 
-const Header: React.FC<{ className?: string; onClick: () => void }> = (
-  props
-) => {
+const Header: React.FC<{ className?: string; onClick: () => void }> = ({
+  onClick,
+  className,
+}) => {
+  const onAddressBarClick = () => {
+    console.log("AdressBar");
+  };
+
   return (
     <header>
-      <MainNavigation onClick={props.onClick} className={`lg:px-6`} />
-      <DeliveryDetails className={`lg:hidden ${props.className}`} />
+      <MainNavigation
+        onHamburgerIconClick={onClick}
+        className={`lg:px-6`}
+        onAddressBarClick={onAddressBarClick} //On Large Screens
+      />
+      <DeliveryDetails
+        className={`lg:hidden ${className}`}
+        onAddressBarClick={onAddressBarClick} //On Small Screens
+      />
     </header>
   );
 };

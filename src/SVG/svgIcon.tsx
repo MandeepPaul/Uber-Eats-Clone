@@ -1,5 +1,4 @@
-import React from "react";
-
+//Used in the dietary section of the Filter component.
 const DieteryIcons: React.ReactNode[] = [
   <svg
     fill="#000000"

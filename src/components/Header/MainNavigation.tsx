@@ -3,23 +3,27 @@ import SearchBar from "../Main/SearchBar";
 import Button from "../UI/Button";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 
-const MainNavigation: React.FC<{ className: string; onClick: () => void }> = ({
-  className,
-  onClick,
-}) => {
+const MainNavigation: React.FC<{
+  className: string;
+  onHamburgerIconClick: () => void;
+  onAddressBarClick: () => void;
+}> = ({ className, onHamburgerIconClick, onAddressBarClick }) => {
   return (
     <div
-      className={`flex flex-row justify-between w-full max-w-[1440px] bg-white py-3 px-8 md:text-sm lg:text-lg lg:py-3 lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-lg ${className}`}
+      className={`flex flex-row justify-between w-full max-w-[1440px] bg-white py-3 px-8 md:text-sm xl:text-base lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-lg ${className}`}
     >
-      <Button onClick={onClick}>{hamburgerMenuIcon}</Button>
+      <Button onClick={onHamburgerIconClick}>{hamburgerMenuIcon}</Button>
 
       <img
-        className="py-2 h-[35px] md:h-[37px] lg:h-[45px]"
+        className="py-2 h-[35px] md:h-[37px] lg:h-[40px] xl:h-[45px]"
         alt="Uber_Eats Logo"
         src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg"
       />
 
-      <DeliveryDetails className="hidden lg:inline-flex lg:gap-3 lg:text-base" />
+      <DeliveryDetails
+        className="hidden lg:inline-flex lg:gap-3"
+        onAddressBarClick={onAddressBarClick}
+      />
 
       <SearchBar className="hidden lg:inline-flex" />
 

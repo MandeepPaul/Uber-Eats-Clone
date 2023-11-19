@@ -1,17 +1,16 @@
 const Modal: React.FC<{
-  className?: string;
+  backdrop?: string;
+  modal?: string;
   reset: () => void;
   children?: React.ReactNode;
-}> = (props) => {
+}> = ({ backdrop, modal, reset, children }) => {
   return (
     <>
       <div
-        className="fixed top-0 left-0 w-full h-screen z-30 bg-stone-900 opacity-70"
-        onClick={props.reset}
+        className={`fixed top-0 left-0 w-full h-screen z-30 bg-stone-900 opacity-70 ${backdrop}`}
+        onClick={reset}
       />
-      <div className="fixed top-0 left-0 w-1/4 h-full bg-white shadow-xl z-40">
-        {props.children}
-      </div>
+      <div className={`fixed bg-white shadow-xl z-40 ${modal}`}>{children}</div>
     </>
   );
 };
