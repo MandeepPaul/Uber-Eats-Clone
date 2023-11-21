@@ -85,19 +85,13 @@ export { arrowDownSVG };
 
 const locationPinSVG = (
   <svg
-    height="20px"
+    className="h-6 w-6"
     xmlns="http://www.w3.org/2000/svg"
-    enableBackground="new 0 0 60 60"
-    viewBox="0 0 60 60"
-    id="location-pin"
+    data-name="Layer 3"
+    viewBox="0 0 24 24"
+    id="location"
   >
-    <path
-      d="M30,6c-10.2624016,0-18.6144142,8.3520117-18.6144142,18.6144142c0,10.0127945,17.1840229,28.3103905,17.9136333,29.0783806
-C29.4816208,53.8848038,29.7407818,54,30,54s0.5183792-0.1151962,0.7007809-0.3072052
-c0.7296104-0.7679901,17.9136333-19.0655861,17.9136333-29.0783806C48.6144142,14.3520117,40.2624016,6,30,6z M30,32.5359383
-c-4.3729687,0-7.9307804-3.5535946-7.9307804-7.9214077c0-4.3729687,3.5578117-7.9307804,7.9307804-7.9307804
-c4.373436,0,7.9312515,3.5578117,7.9312515,7.9307804C37.9312515,28.9823437,34.373436,32.5359383,30,32.5359383z"
-    ></path>
+    <path d="M12,2a8.009,8.009,0,0,0-8,8c0,3.255,2.363,5.958,4.866,8.819,0.792,0.906,1.612,1.843,2.342,2.791a1,1,0,0,0,1.584,0c0.73-.948,1.55-1.885,2.342-2.791C17.637,15.958,20,13.255,20,10A8.009,8.009,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"></path>
   </svg>
 );
 
@@ -132,3 +126,50 @@ const hamburgerMenuIcon = (
 );
 
 export { hamburgerMenuIcon };
+
+const clockIcon = (
+  <svg
+    className="w-5 h-5"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="currentColor"
+    viewBox="0 0 20 20"
+  >
+    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
+  </svg>
+);
+
+export { clockIcon };
+
+const crossIcon = (
+  <svg
+    height="20"
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="Layer 1"
+    viewBox="0 0 64 64"
+    id="cross"
+  >
+    <line
+      x1="9.37"
+      x2="54.63"
+      y1="9.37"
+      y2="54.63"
+      fill="none"
+      stroke="#010101"
+      strokeMiterlimit="10"
+      strokeWidth="8"
+    ></line>
+    <line
+      x1="9.37"
+      x2="54.63"
+      y1="54.63"
+      y2="9.37"
+      fill="none"
+      stroke="#010101"
+      strokeMiterlimit="10"
+      strokeWidth="8"
+    ></line>
+  </svg>
+);
+
+export { crossIcon };

@@ -1,7 +1,7 @@
 const Profile = () => {
   return (
-    <div className="grid grid-rows-2 grid-cols-4 grid-flow-col pl-2 max-w-[300px]">
-      <div className="justify-self-center row-span-2 h-[55px] w-[55px]">
+    <div className="grid grid-rows-2 grid-cols-4 grid-flow-col pl-4 max-w-[300px]">
+      <div className="justify-self-center mr-1 row-span-2 h-[55px] w-[55px]">
         <img
           className="rounded-full"
           alt="Profile Icon"

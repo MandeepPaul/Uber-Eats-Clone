@@ -9,14 +9,14 @@ const Header: React.FC<{ className?: string; onClick: () => void }> = ({
   onClick,
   className,
 }) => {
-  const [addressOverlayVisibility, setVisibility] = useState(true);
+  const [addressOverlayVisibility, setAddressVisibility] = useState(false);
 
   const onAddressBarClick = () => {
-    setVisibility(true);
+    setAddressVisibility(true);
   };
 
   const closeAddressOverlay = () => {
-    setVisibility(false);
+    setAddressVisibility(false);
   };
 
   return (
