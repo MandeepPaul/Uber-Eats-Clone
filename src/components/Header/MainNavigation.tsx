@@ -16,9 +16,6 @@ const MainNavigation: React.FC<{
   const cartHandler = () => {
     setCartVisibility(true);
   };
-  const closeCartOverlay = () => {
-    setCartVisibility(false);
-  };
 
   return (
     <div
@@ -50,7 +47,7 @@ const MainNavigation: React.FC<{
 
       {cartVisibility &&
         ReactDOM.createPortal(
-          <Cart onReset={closeCartOverlay} />,
+          <Cart onReset={() => setCartVisibility(false)} />,
           document.getElementById("back-drop") as Element
         )}
     </div>

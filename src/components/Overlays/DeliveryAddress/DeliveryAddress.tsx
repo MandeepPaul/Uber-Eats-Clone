@@ -7,7 +7,7 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
   return (
     <Modal
       reset={onReset}
-      modal="bottom-0 inset-x-0 h-1/4 lg:h-1/4 lg:top-20 mx-auto lg:max-w-xl font-ubermove"
+      modal="bottom-0 inset-x-0 h-1/3 lg:h-1/4 lg:top-20 mx-auto lg:max-w-xl font-ubermove"
     >
       <div className="mx-4 text-base font-medium h-full relative">
         <Button className="absolute top-3 left-0" onClick={onReset}>

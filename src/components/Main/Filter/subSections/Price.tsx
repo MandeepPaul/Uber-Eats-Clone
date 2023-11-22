@@ -6,7 +6,7 @@ const Price = () => {
       {["$", "$$", "$$$", "$$$$"].map((price, index) => (
         <Button
           key={index}
-          className="bg-gray-200 p-2 rounded-full hover:bg-zinc-300"
+          className="bg-gray-200 p-2 rounded-full grow hover:bg-zinc-300"
         >
           {price}
         </Button>

@@ -5,7 +5,7 @@ const Delivery = () => {
 
   return (
     <section className="pt-2">
-      <div className="w-[70%]">
+      <div className=" lg:w-[70%]">
         <input
           min="1"
           max="7"

@@ -15,10 +15,6 @@ const Header: React.FC<{ className?: string; onClick: () => void }> = ({
     setAddressVisibility(true);
   };
 
-  const closeAddressOverlay = () => {
-    setAddressVisibility(false);
-  };
-
   return (
     <header>
       <MainNavigation
@@ -32,7 +28,7 @@ const Header: React.FC<{ className?: string; onClick: () => void }> = ({
       />
       {addressOverlayVisibility &&
         ReactDOM.createPortal(
-          <DeliveryAddress onReset={closeAddressOverlay} />,
+          <DeliveryAddress onReset={() => setAddressVisibility(false)} />,
           document.getElementById("back-drop") as Element
         )}
     </header>
