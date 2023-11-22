@@ -10,7 +10,7 @@ const AddressSection: React.FC<{
     <section className="p-4 flex justify-between items-center">
       <div>{svg}</div>
 
-      <div className="flex flex-col grow pl-5">
+      <div className="flex flex-col grow pl-5 ml-2">
         <span className="text-xl">{place}</span>
         <span className="font-light">{description}</span>
       </div>

@@ -7,7 +7,7 @@ const Dietry = () => {
       {["Vegetarian", "Vegan", "Gluten-free"].map((type, index) => (
         <Button
           key={index}
-          className="bg-gray-200 rounded-full flex items-center justify-center gap-2 p-2"
+          className="bg-gray-200 rounded-full flex items-center justify-center gap-2 p-2 hover:bg-zinc-300"
         >
           {DieteryIcons[index]}
           <span>{type}</span>

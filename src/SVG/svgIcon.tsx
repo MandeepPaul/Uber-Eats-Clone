@@ -85,7 +85,7 @@ export { arrowDownSVG };
 
 const locationPinSVG = (
   <svg
-    className="h-6 w-6"
+    className="h-5 w-5"
     xmlns="http://www.w3.org/2000/svg"
     data-name="Layer 3"
     viewBox="0 0 24 24"
@@ -143,7 +143,7 @@ export { clockIcon };
 
 const crossIcon = (
   <svg
-    height="20"
+    height="18"
     xmlns="http://www.w3.org/2000/svg"
     data-name="Layer 1"
     viewBox="0 0 64 64"

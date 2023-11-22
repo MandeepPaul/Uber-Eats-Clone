@@ -12,7 +12,7 @@ const MainNavigation: React.FC<{
   onHamburgerIconClick: () => void;
   onAddressBarClick: () => void;
 }> = ({ className, onHamburgerIconClick, onAddressBarClick }) => {
-  const [cartVisibility, setCartVisibility] = useState(true);
+  const [cartVisibility, setCartVisibility] = useState(false);
   const cartHandler = () => {
     setCartVisibility(true);
   };

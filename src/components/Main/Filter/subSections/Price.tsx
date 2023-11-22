@@ -4,7 +4,10 @@ const Price = () => {
   return (
     <section className="flex gap-2">
       {["$", "$$", "$$$", "$$$$"].map((price, index) => (
-        <Button key={index} className="bg-gray-200 p-2 rounded-full">
+        <Button
+          key={index}
+          className="bg-gray-200 p-2 rounded-full hover:bg-zinc-300"
+        >
           {price}
         </Button>
       ))}

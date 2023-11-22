@@ -10,7 +10,9 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
       modal="bottom-0 inset-x-0 h-1/4 lg:h-1/4 lg:top-20 mx-auto lg:max-w-xl font-ubermove"
     >
       <div className="mx-4 text-base font-medium h-full relative">
-        <div className="absolute top-3 left-0">{crossIcon}</div>
+        <Button className="absolute top-3 left-0" onClick={onReset}>
+          {crossIcon}
+        </Button>
 
         <h1 className="text-center text-xl py-3 lg:text-4xl lg:font-semibold lg:text-start lg:pt-14">
           Delivery details
