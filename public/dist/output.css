@@ -1847,6 +1847,14 @@ video {
     height: 25%;
   }
 
+  .lg\:h-\[auto\]{
+    height: auto;
+  }
+
+  .lg\:h-1\/2{
+    height: 50%;
+  }
+
   .lg\:w-1\/3{
     width: 33.333333%;
   }

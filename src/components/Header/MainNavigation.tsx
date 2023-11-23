@@ -6,22 +6,28 @@ import SearchBar from "../Main/SearchBar";
 import Button from "../UI/Button";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 import Cart from "../Overlays/Cart/Cart";
+import SideNav from "../Main/SideNav/SideNav";
 
 const MainNavigation: React.FC<{
   className: string;
-  onHamburgerIconClick: () => void;
   onAddressBarClick: () => void;
-}> = ({ className, onHamburgerIconClick, onAddressBarClick }) => {
+}> = ({ className, onAddressBarClick }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
+  const [sideNavigation, setNavVisibility] = useState(false);
+
   const cartHandler = () => {
     setCartVisibility(true);
+  };
+
+  const openSideNav = () => {
+    sideNavigation ? setNavVisibility(false) : setNavVisibility(true);
   };
 
   return (
     <div
       className={`flex flex-row justify-between w-full max-w-[1440px] bg-white py-3 px-8 md:text-sm xl:text-base lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-lg ${className}`}
     >
-      <Button onClick={onHamburgerIconClick}>{hamburgerMenuIcon}</Button>
+      <Button onClick={openSideNav}>{hamburgerMenuIcon}</Button>
 
       <img
         className="py-2 h-[35px] md:h-[37px] lg:h-[40px] xl:h-[45px]"
@@ -48,6 +54,12 @@ const MainNavigation: React.FC<{
       {cartVisibility &&
         ReactDOM.createPortal(
           <Cart onReset={() => setCartVisibility(false)} />,
+          document.getElementById("back-drop") as Element
+        )}
+
+      {sideNavigation &&
+        ReactDOM.createPortal(
+          <SideNav onReset={() => setNavVisibility(false)} />,
           document.getElementById("back-drop") as Element
         )}
     </div>

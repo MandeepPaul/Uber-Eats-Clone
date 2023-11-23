@@ -5,10 +5,7 @@ import MainNavigation from "./MainNavigation";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 import DeliveryAddress from "../Overlays/DeliveryAddress/DeliveryAddress";
 
-const Header: React.FC<{ className?: string; onClick: () => void }> = ({
-  onClick,
-  className,
-}) => {
+const Header: React.FC<{ className?: string }> = ({ className }) => {
   const [addressOverlayVisibility, setAddressVisibility] = useState(false);
 
   const onAddressBarClick = () => {
@@ -18,7 +15,6 @@ const Header: React.FC<{ className?: string; onClick: () => void }> = ({
   return (
     <header>
       <MainNavigation
-        onHamburgerIconClick={onClick}
         className={`lg:px-6`}
         onAddressBarClick={onAddressBarClick} //On Large Screens
       />
