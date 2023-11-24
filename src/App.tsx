@@ -1,13 +1,19 @@
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import RootPage from "./layout/RootLayout";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
-  return (
-    <div className="max-w-[1440px] mx-auto">
-      <Header className="mx-4" />
-      <Main className="mx-8" />
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootPage />,
+      errorElement: <ErrorPage />,
+      children: [{ index: true, element: <HomePage /> }],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

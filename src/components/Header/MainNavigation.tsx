@@ -7,6 +7,7 @@ import Button from "../UI/Button";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 import Cart from "../Overlays/Cart/Cart";
 import SideNav from "../Main/SideNav/SideNav";
+import Logo from "./Logo";
 
 const MainNavigation: React.FC<{
   className: string;
@@ -29,11 +30,7 @@ const MainNavigation: React.FC<{
     >
       <Button onClick={openSideNav}>{hamburgerMenuIcon}</Button>
 
-      <img
-        className="py-2 h-[35px] md:h-[37px] lg:h-[40px] xl:h-[45px]"
-        alt="Uber_Eats Logo"
-        src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/97c43f8974e6c876.svg"
-      />
+      <Logo />
 
       <DeliveryDetails
         className="hidden lg:inline-flex lg:gap-3"
