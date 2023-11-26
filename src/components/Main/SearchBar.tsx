@@ -15,7 +15,7 @@ const SearchBar: React.FC<{ className?: string }> = (props) => {
 
   return (
     <div
-      className={`py-3 lg:py-1 lg:w-[25%] lg:flex lg:justify-center mt-2 lg:m-0 sticky top-0 z-10 bg-white ${props.className}`}
+      className={`p-3 mx-0 mt-2 sticky top-0 z-10 outline-none bg-white lg:py-1 lg:w-[25%] lg:flex lg:justify-center lg:m-0 ${props.className}`}
     >
       <div className="flex grow items-center space-x-2 px-4 py-1 bg-gray-200 rounded-full">
         <div className="flex basis-11/12 items-center p-1 relative">

@@ -18,7 +18,9 @@ const AddressDetails: React.FC<{ onAddressBarClick: () => void }> = ({
 
         <span className="hidden lg:inline-block">Now</span>
 
-        <div className="w-3 h-3 text-gray-800 lg:hidden">{arrowDownSVG}</div>
+        <div className="w-3 h-3 pt-[2px] text-gray-800 lg:hidden ">
+          {arrowDownSVG}
+        </div>
       </Button>
     </div>
   );

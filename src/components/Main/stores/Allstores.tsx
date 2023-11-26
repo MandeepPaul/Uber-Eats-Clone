@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { rightArrow } from "../../../SVG/svgIcon";
 import Store from "./Store";
 
 export interface Istores {
@@ -182,59 +184,54 @@ let DUMMY_STORES: Istores[] = [
   },
 ];
 
-const Allstores: React.FC<{ className?: string }> = (props) => {
+const Allstores: React.FC<{ className?: string }> = ({ className }) => {
   const storeWithDeals = DUMMY_STORES.filter((store) => store.offer);
 
   return (
-    <div className={`${props.className}`}>
+    <div className={`${className}`}>
       <div className={`flex justify-between items-center`}>
         <h2 className={`text-xl font-semibold `}>Today's offers</h2>
-        <svg
-          fill="#000000"
-          className="bg-gray-200 rounded-full p-2"
-          height="35px"
-          width="35px"
-          version="1.1"
-          id="Layer_1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <polygon points="315.1,48.6 196.9,48.6 354.5,206.1 0,206.1 0,284.9 354.5,284.9 196.9,442.4 315.1,442.4 512,245.5 " />
-        </svg>
+        <Link to="offers" className="bg-gray-200 rounded-full p-2">
+          {rightArrow}
+        </Link>
       </div>
 
       <ul className={`flex justify-between gap-4 pb-3 overflow-x-auto`}>
-        {storeWithDeals.map((store) => (
-          <li
-            key={store.id}
-            className="mt-4 flex-shrink-0 w-[85%] md:w-[40%] lg:w-[32%]"
-          >
-            <Store
-              id={store.id}
-              url={store.url}
-              offer={store.offer}
-              name={store.name}
-              deliveryFee={store.deliveryFee}
-              time={store.time}
-              rating={store.rating}
-            />
-          </li>
-        ))}
+        {storeWithDeals.map(
+          ({ id, url, offer, name, deliveryFee, time, rating }) => (
+            <li
+              key={id}
+              className="mt-4 flex-shrink-0 w-[85%] md:w-[40%] lg:w-[32%]"
+            >
+              <Store
+                id={id}
+                url={url}
+                offer={offer}
+                name={name}
+                deliveryFee={deliveryFee}
+                time={time}
+                rating={rating}
+              />
+            </li>
+          )
+        )}
       </ul>
-      <ul className={`lg:grid lg:grid-cols-3 lg:gap-4 ${props.className}`}>
-        {DUMMY_STORES.map((store) => (
-          <li key={store.id} className="mt-4">
-            <Store
-              id={store.id}
-              url={store.url}
-              offer={store.offer}
-              name={store.name}
-              deliveryFee={store.deliveryFee}
-              time={store.time}
-              rating={store.rating}
-            />
-          </li>
-        ))}
+      <ul className={`lg:grid lg:grid-cols-3 lg:gap-4 ${className}`}>
+        {DUMMY_STORES.map(
+          ({ id, url, offer, name, deliveryFee, time, rating }) => (
+            <li key={id} className="mt-4">
+              <Store
+                id={id}
+                url={url}
+                offer={offer}
+                name={name}
+                deliveryFee={deliveryFee}
+                time={time}
+                rating={rating}
+              />
+            </li>
+          )
+        )}
       </ul>
     </div>
   );

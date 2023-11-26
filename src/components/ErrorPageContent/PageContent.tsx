@@ -6,7 +6,7 @@ const PageContent: React.FC<{ title: string; message: string }> = ({
   message,
 }) => {
   return (
-    <div className="flex items-center justify-center h-screen relative">
+    <div className="flex items-center justify-center h-screen relative max-w-[1440px] mx-auto">
       <Logo className="absolute top-2 left-6" />
       <MainContent title={title} message={message} />
     </div>

@@ -1,4 +1,4 @@
-import { useRouteError } from "react-router-dom";
+// import { useRouteError } from "react-router-dom";
 import PageContent from "../components/ErrorPageContent/PageContent";
 
 const ErrorPage = () => {

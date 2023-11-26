@@ -26,7 +26,7 @@ const MainNavigation: React.FC<{
 
   return (
     <div
-      className={`flex flex-row justify-between w-full max-w-[1440px] bg-white py-3 px-8 md:text-sm xl:text-base lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-lg ${className}`}
+      className={`flex flex-row justify-between w-full max-w-[1440px] bg-white py-3 md:text-sm xl:text-base lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-lg ${className}`}
     >
       <Button onClick={openSideNav}>{hamburgerMenuIcon}</Button>
 

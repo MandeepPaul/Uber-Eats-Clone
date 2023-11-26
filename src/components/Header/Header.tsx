@@ -15,7 +15,7 @@ const Header: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <header>
       <MainNavigation
-        className={`lg:px-6`}
+        className={`px-4 lg:px-8`}
         onAddressBarClick={onAddressBarClick} //On Large Screens
       />
       <DeliveryDetails
