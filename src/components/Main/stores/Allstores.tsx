@@ -184,9 +184,11 @@ let DUMMY_STORES: Istores[] = [
   },
 ];
 
-const Allstores: React.FC<{ className?: string }> = ({ className }) => {
-  const storeWithDeals = DUMMY_STORES.filter((store) => store.offer);
+let storeWithDeals = DUMMY_STORES.filter((store) => store.offer);
 
+export { storeWithDeals };
+
+const Allstores: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div className={`${className}`}>
       <div className={`flex justify-between items-center`}>

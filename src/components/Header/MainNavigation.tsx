@@ -11,7 +11,7 @@ import Logo from "./Logo";
 
 const MainNavigation: React.FC<{
   className: string;
-  onAddressBarClick: () => void;
+  onAddressBarClick?: () => void;
 }> = ({ className, onAddressBarClick }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
   const [sideNavigation, setNavVisibility] = useState(false);
@@ -26,9 +26,11 @@ const MainNavigation: React.FC<{
 
   return (
     <div
-      className={`flex flex-row justify-between w-full max-w-[1440px] bg-white py-3 md:text-sm xl:text-base lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-lg ${className}`}
+      className={`flex flex-row justify-between w-full max-w-[1440px] py-3 md:text-sm xl:text-base lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-10 lg:shadow-lg ${className}`}
     >
-      <Button onClick={openSideNav}>{hamburgerMenuIcon}</Button>
+      <Button onClick={openSideNav} className="pr-6">
+        {hamburgerMenuIcon}
+      </Button>
 
       <Logo />
 

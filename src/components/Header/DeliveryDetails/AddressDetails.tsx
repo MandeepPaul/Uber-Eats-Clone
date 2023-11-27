@@ -1,7 +1,7 @@
 import Button from "../../UI/Button";
 import { arrowDownSVG, locationPinSVG } from "../../../SVG/svgIcon";
 
-const AddressDetails: React.FC<{ onAddressBarClick: () => void }> = ({
+const AddressDetails: React.FC<{ onAddressBarClick?: () => void }> = ({
   onAddressBarClick,
 }) => {
   return (

@@ -4,7 +4,7 @@ import OrderTypeToggle from "./OrderTypeToogle";
 
 const DeliveryDetails: React.FC<{
   className?: string;
-  onAddressBarClick: () => void;
+  onAddressBarClick?: () => void;
 }> = ({ className, onAddressBarClick }) => {
   return (
     <div
