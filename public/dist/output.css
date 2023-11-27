@@ -1727,6 +1727,11 @@ video {
   color: rgb(22 101 52 / var(--tw-text-opacity));
 }
 
+.text-gray-500{
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
 .underline{
   text-decoration-line: underline;
 }
@@ -1941,6 +1946,14 @@ video {
     margin-top: 100px;
   }
 
+  .lg\:mt-10{
+    margin-top: 2.5rem;
+  }
+
+  .lg\:mt-2{
+    margin-top: 0.5rem;
+  }
+
   .lg\:block{
     display: block;
   }
@@ -2101,6 +2114,10 @@ video {
 
   .lg\:pt-14{
     padding-top: 3.5rem;
+  }
+
+  .lg\:pt-\[20px\]{
+    padding-top: 20px;
   }
 
   .lg\:text-start{

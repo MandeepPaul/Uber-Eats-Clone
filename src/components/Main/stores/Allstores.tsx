@@ -206,7 +206,6 @@ const Allstores: React.FC<{ className?: string }> = ({ className }) => {
               className="mt-4 flex-shrink-0 w-[85%] md:w-[40%] lg:w-[32%]"
             >
               <Store
-                id={id}
                 url={url}
                 offer={offer}
                 name={name}
@@ -223,7 +222,6 @@ const Allstores: React.FC<{ className?: string }> = ({ className }) => {
           ({ id, url, offer, name, deliveryFee, time, rating }) => (
             <li key={id} className="mt-4">
               <Store
-                id={id}
                 url={url}
                 offer={offer}
                 name={name}

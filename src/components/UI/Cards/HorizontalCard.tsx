@@ -6,7 +6,9 @@ interface StoreDetailsProps
   extends Pick<
     Istores,
     "name" | "rating" | "deliveryFee" | "time" | "offer" | "url"
-  > {}
+  > {
+  className?: string;
+}
 
 const HorizontalCard: React.FC<StoreDetailsProps> = ({
   name,
@@ -15,9 +17,10 @@ const HorizontalCard: React.FC<StoreDetailsProps> = ({
   time,
   offer,
   url,
+  className,
 }) => {
   return (
-    <div className="flex gap-3 mt-3">
+    <div className={`flex gap-3 mt-3 ${className}`}>
       <Card
         className="rounded-xl min-h-[100px] min-w-[100px] relative"
         url={url}
@@ -41,8 +44,8 @@ const HorizontalCard: React.FC<StoreDetailsProps> = ({
             className="h-4 w-4"
           />
           <p className="text-sm truncate">
-            {`$${deliveryFee} DeliveryFee`}
-            <span className="text-gray-400">&#x2022;{` ${time}min`}</span>
+            {`$${deliveryFee} DeliveryFee `}
+            <span className="text-gray-500">&#x2022;{` ${time}min`}</span>
           </p>
           <span className="text-sm font-medium truncate text-green-700">
             {`${offer}`}
