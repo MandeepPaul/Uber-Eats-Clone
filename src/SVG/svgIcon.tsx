@@ -243,7 +243,7 @@ const trophyIcon = (
 export { trophyIcon };
 
 const rightArrow = (
-  <svg fill="#000000" height="20px" width="25px" viewBox="0 0 512 512">
+  <svg fill="#000000" height="15px" width="15px" viewBox="0 0 512 512">
     <polygon points="315.1,48.6 196.9,48.6 354.5,206.1 0,206.1 0,284.9 354.5,284.9 196.9,442.4 315.1,442.4 512,245.5 " />
   </svg>
 );

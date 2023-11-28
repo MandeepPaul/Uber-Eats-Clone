@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 const RootPage = () => {
   return (
-    <div className="max-w-[1440px] mx-auto">
-      <Header className="lg:mx-4" />
+    <div className="max-w-[1440px] mx-auto font-ubermove">
+      <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 };
