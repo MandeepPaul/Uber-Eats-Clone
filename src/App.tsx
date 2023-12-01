@@ -20,7 +20,7 @@ function App() {
           children: [
             {
               index: true,
-              element: <StoresPage />,
+              element: <StorePage />,
             },
             {
               path: ":storeId",

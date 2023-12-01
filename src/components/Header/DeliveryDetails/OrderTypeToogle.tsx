@@ -9,16 +9,10 @@ const OrderTypeToggle: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div className="relative flex">
       <div className={`bg-gray-200 px-3 space-x-6 rounded-full ${className}`}>
-        <button
-          onClick={() => toggleHandler("DELIVERY")}
-          className="lg:z-20 pl-1"
-        >
+        <button onClick={() => toggleHandler("DELIVERY")} className="z-20 pl-1">
           Delivery
         </button>
-        <button
-          onClick={() => toggleHandler("PICKUP")}
-          className="lg:z-20 pr-2"
-        >
+        <button onClick={() => toggleHandler("PICKUP")} className="z-20 pr-2">
           <span> Pickup </span>
         </button>
       </div>

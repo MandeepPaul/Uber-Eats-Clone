@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { favHeartIcon, trophyIcon } from "../../../SVG/svgIcon";
-import { Istores } from "./Allstores";
+import { Istores } from "../../../tempData/StoreList";
 
 import Card from "../../UI/Card";
 import CardSection from "./CardSection";

@@ -1,5 +1,5 @@
 import { favHeartIcon } from "../../../SVG/svgIcon";
-import { Istores } from "../../Main/stores/Allstores";
+import { Istores } from "../../../tempData/StoreList";
 import Card from "../Card";
 
 interface StoreDetailsProps

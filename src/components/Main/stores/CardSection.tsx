@@ -1,4 +1,4 @@
-import { Istores } from "./Allstores";
+import { Istores } from "../../../tempData/StoreList";
 
 interface StoreDetailsProps
   extends Pick<Istores, "name" | "rating" | "deliveryFee" | "time"> {}

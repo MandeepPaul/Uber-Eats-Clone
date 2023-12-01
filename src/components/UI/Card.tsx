@@ -4,7 +4,7 @@ const Card: React.FC<{
   className?: string;
   style?: React.CSSProperties;
   url: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }> = (props) => {
   return (
     <div
