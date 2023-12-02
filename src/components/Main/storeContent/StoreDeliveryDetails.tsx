@@ -8,7 +8,7 @@ const DeliveryDetails = () => {
       <div className="mt-10 mb-2 text-center">
         <span className="text-2xl font-medium">A&W</span>
         <div className="text-sm flex gap-1 justify-center">
-          <span>4.4 &#9733; </span>
+          <span>4.4 &#9733;</span>
           <span className="text-gray-500 font-light">
             (100+) &#8226; $0.99 Delivery Fee &#8226;
           </span>
