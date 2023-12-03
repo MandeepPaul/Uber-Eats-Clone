@@ -1,4 +1,4 @@
-import { favHeartIcon } from "../../../SVG/svgIcon";
+import { FavHeartIcon } from "../../../SVG/svgIcon";
 import { Istores } from "../../../tempData/StoreList";
 import Card from "../Card";
 
@@ -25,7 +25,13 @@ const HorizontalCard: React.FC<StoreDetailsProps> = ({
         className="rounded-xl min-h-[100px] min-w-[100px] relative"
         url={url}
       >
-        <div className="absolute -top-1.5 -right-1.5 ">{favHeartIcon}</div>
+        <div className="absolute top-1.5 right-1.5">
+          <FavHeartIcon
+            className="hover:fill-white "
+            width="32px"
+            height="32px"
+          />
+        </div>
       </Card>
 
       <div className="flex-grow overflow-hidden">

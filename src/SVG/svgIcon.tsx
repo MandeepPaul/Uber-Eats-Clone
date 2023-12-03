@@ -174,19 +174,32 @@ const crossIcon = (
 
 export { crossIcon };
 
-const searchIcon = (
-  <svg className="w-4 h-4" aria-hidden="true" fill="none" viewBox="0 0 20 20">
+export const SearchIcon = ({
+  fill = "none",
+  width = "24px",
+  height = "24px",
+  strokeWidth = "3",
+  color = "#FFFFFF",
+  className = "",
+  ...props
+}) => (
+  <svg
+    className={className}
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    fill={fill}
+    {...props}
+  >
     <path
-      stroke="currentColor"
+      stroke={color}
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="2"
+      strokeWidth={strokeWidth}
       d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
     />
   </svg>
 );
-
-export { searchIcon };
 
 const filterIcon = (
   <svg className="w-5 h-5 m-auto" viewBox="0 0 24 24" fill="none">
@@ -209,27 +222,33 @@ const filterIcon = (
 
 export { filterIcon };
 
-const favHeartIcon = (
+export const FavHeartIcon = ({
+  fill = "none",
+  width = "22px",
+  height = "22px",
+  strokeWidth = "3",
+  className = "",
+  ...props
+}) => (
   <svg
-    className="absolute top-3 right-3 hover:fill-white"
-    width="22px"
-    height="22px"
+    className={className}
+    width={width}
+    height={height}
     viewBox="0 0 24 24"
-    fill="none"
+    fill={fill}
+    {...props}
   >
     <path
       fillRule="evenodd"
       clipRule="evenodd"
       d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
       stroke="#FFFFFF"
-      strokeWidth="3"
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
     />
   </svg>
 );
-
-export { favHeartIcon };
 
 const trophyIcon = (
   <svg width="13px" height="13px" viewBox="0 0 512 512">
@@ -263,22 +282,28 @@ const addFriendIcon = (
 
 export { addFriendIcon };
 
-const thumbsUp = (
+export const ThumbsUpIcon = ({
+  fill = "none",
+  width = "20px",
+  height = "20px",
+  strokeWidth = "2.2",
+  className = "",
+  ...props
+}) => (
   <svg
-    className="w-3 h-3 text-gray-800 dark:text-white"
-    aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    className={className}
+    width={width}
+    height={height}
     viewBox="0 0 20 20"
+    fill={fill}
+    {...props}
   >
     <path
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="2.2"
+      strokeWidth={strokeWidth}
       d="M4.008 8.714c1-.097 1.96-.45 2.792-1.028a25.112 25.112 0 0 0 4.454-5.72 1.8 1.8 0 0 1 .654-.706 1.742 1.742 0 0 1 1.65-.098 1.82 1.82 0 0 1 .97 1.128c.075.248.097.51.065.767l-1.562 4.629M4.008 8.714H1v9.257c0 .273.106.535.294.728a.99.99 0 0 0 .709.301h1.002a.99.99 0 0 0 .71-.301c.187-.193.293-.455.293-.728V8.714Zm8.02-1.028h4.968c.322 0 .64.08.925.232.286.153.531.374.716.645a2.108 2.108 0 0 1 .242 1.883l-2.36 7.2c-.288.813-.48 1.354-1.884 1.354-2.59 0-5.39-1.06-7.504-1.66"
     />
   </svg>
 );
-
-export { thumbsUp };
