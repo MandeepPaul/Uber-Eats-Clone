@@ -9,12 +9,12 @@ const AddressDetails: React.FC<{ onAddressBarClick?: () => void }> = ({
       <span className="lg:hidden text-sm">Deliver now</span>
 
       <Button
-        className="flex gap-2 items-center lg:rounded-full lg:p-3 lg:bg-gray-200 lg:hover:bg-zinc-300"
+        className="flex gap-2 items-center lg:rounded-full lg:p-3 lg:bg-gray-200 lg:hover:bg-zinc-300 overflow-hidden"
         onClick={onAddressBarClick}
       >
         <div className="hidden lg:inline-block">{locationPinSVG}</div>
 
-        <p>Pembina Highway</p>
+        <p className="truncate">Pembina Highway</p>
 
         <span className="hidden lg:inline-block">Now</span>
 

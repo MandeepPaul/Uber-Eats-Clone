@@ -1,6 +1,6 @@
-import Card from "../../UI/Card";
-import Button from "../../UI/Button";
-import { FavHeartIcon, SearchIcon } from "../../../SVG/svgIcon";
+import Card from "../../../UI/Card";
+import Button from "../../../UI/Button";
+import { FavHeartIcon, SearchIcon } from "../../../../SVG/svgIcon";
 
 const ImageCard = () => {
   return (

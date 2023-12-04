@@ -8,7 +8,7 @@ const Card: React.FC<{
 }> = (props) => {
   return (
     <div
-      className={`bg-white rounded-lg ${props.className}`}
+      className={` ${props.className}`}
       style={{
         backgroundImage: `url(${props.url})`,
         backgroundSize: "cover",

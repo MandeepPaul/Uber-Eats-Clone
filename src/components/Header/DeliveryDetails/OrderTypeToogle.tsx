@@ -1,53 +1,58 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../../UI/Button";
 
-const OrderTypeToggle: React.FC<{
+type OrderTypeToggleProps = {
   className?: string;
   buttonPadding?: string;
   deliveryDetails?: string;
   pickupDetails?: string;
-}> = ({
+};
+
+const OrderTypeToggle: React.FC<OrderTypeToggleProps> = ({
   className,
   deliveryDetails,
   pickupDetails,
-  buttonPadding = "px-[6px]",
+  buttonPadding = "",
 }) => {
   const [orderType, setOrderType] = useState("DELIVERY");
 
   const toggleHandler = (tab: string) => {
     setOrderType(tab);
   };
+
+  const deliveryButtonClasses = `z-10 w-[50%] ${buttonPadding}`;
+  const pickupButtonClasses = `z-10 w-[50%] ${buttonPadding}`;
+
   return (
     <div className="relative flex">
       <div className={`bg-gray-200 px-2 rounded-full ${className}`}>
         <Button
           onClick={() => toggleHandler("DELIVERY")}
-          className={`z-10 w-[50%] bg-gren-500 ${buttonPadding}`}
+          className={deliveryButtonClasses}
         >
           <div className="flex flex-col items-center justify-center">
             <span>Delivery</span>
-            <span className="text-sm text-gray-400 w-[90px]">
+            <span className="hidden lg:block text-sm text-slate-600 w-[90px]">
               {deliveryDetails}
             </span>
           </div>
         </Button>
         <Button
           onClick={() => toggleHandler("PICKUP")}
-          className={`z-10 w-[50%] bg-gren-500 ${buttonPadding}`}
+          className={pickupButtonClasses}
         >
           <div className="flex flex-col items-center justify-between">
             <span>Pickup</span>
-            <span className="text-sm text-gray-400 w-[90px]">
+            <span className="hidden lg:block text-sm text-slate-600 w-[90px]">
               {pickupDetails}
             </span>
           </div>
         </Button>
       </div>
       <div
-        className={`absolute top-1/2 transform translate-y-[-50%] h-[80%] bg-white rounded-full ${
+        className={`absolute top-1/2 transform -translate-y-1/2 h-[80%] w-[50%] bg-white rounded-full ${
           orderType === "DELIVERY" ? "left-1" : "right-1"
         }`}
-        style={{ width: "50%" }}
       />
     </div>
   );
