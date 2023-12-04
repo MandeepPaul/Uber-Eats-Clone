@@ -1,7 +1,7 @@
 import Modal from "../../UI/Modal";
 import Button from "../../UI/Button";
 import AddressSection from "./AddressSection";
-import { locationPinSVG, clockIcon, crossIcon } from "../../../SVG/svgIcon";
+import { locationPinSVG, clockIcon, CrossIcon } from "../../../SVG/svgIcon";
 
 const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
   return (
@@ -15,7 +15,7 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
             className="hidden lg:block absolute top-3 left-3"
             onClick={onReset}
           >
-            {crossIcon}
+            <CrossIcon />
           </Button>
 
           <h1 className="text-center text-xl p-3 lg:text-4xl lg:font-semibold lg:text-start lg:pt-14">

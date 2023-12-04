@@ -12,7 +12,7 @@ const HomePage = () => {
     setAddressVisibility(true);
   };
   return (
-    <>
+    <main id="home-main-content">
       <DeliveryDetails
         className={`lg:hidden `}
         onAddressBarClick={onAddressBarClick} //On Small Screens
@@ -24,7 +24,7 @@ const HomePage = () => {
           <DeliveryAddress onReset={() => setAddressVisibility(false)} />,
           document.getElementById("back-drop") as Element
         )}
-    </>
+    </main>
   );
 };
 

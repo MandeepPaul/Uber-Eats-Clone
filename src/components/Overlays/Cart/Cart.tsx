@@ -1,6 +1,6 @@
 import Modal from "../../UI/Modal";
 import Button from "../../UI/Button";
-import { crossIcon } from "../../../SVG/svgIcon";
+import { CrossIcon } from "../../../SVG/svgIcon";
 
 const Cart: React.FC<{ onReset: () => void }> = ({ onReset }) => {
   return (
@@ -10,7 +10,7 @@ const Cart: React.FC<{ onReset: () => void }> = ({ onReset }) => {
     >
       <div className="relative">
         <Button className="absolute top-4 left-4" onClick={onReset}>
-          {crossIcon}
+          <CrossIcon />
         </Button>
         <div className="grid h-screen place-content-center lg:max-w-[430px] lg:mx-[auto]">
           <div className="flex flex-col gap-2 p-4 mb-20 items-center text-center">

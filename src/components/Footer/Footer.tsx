@@ -53,7 +53,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mt-10 pb-10 font-light mx-4 lg:text-lg">
+    <footer className="mt-10 pb-10 font-light mx-4 lg:text-lg ">
       <hr className="border-t-2 border-gray-200 my-4" />
 
       <div className=" lg:mx-8">

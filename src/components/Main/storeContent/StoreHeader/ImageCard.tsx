@@ -8,7 +8,7 @@ const ImageCard = () => {
       className="w-full relative h-[130px] lg:h-[250px] "
       url="https://tb-static.uber.com/prod/image-proc/processed_images/e1244ff68a32fe72d9ee6345c724dcf6/719c6bd2757b08684c0faae44d43159d.jpeg"
     >
-      <div className="absolute top-2 lg:top-20 right-2 flex gap-2">
+      <div className="absolute top-2 lg:top-[90px] right-2 flex gap-2">
         <Button className="relative rounded-full h-11 w-11 overflow-hidden">
           <div className="absolute inset-0 bg-black blur-lg" />
           <span className="relative z-10 flex items-center justify-center w-full h-full">

@@ -1,14 +1,14 @@
 import Modal from "../../UI/Modal";
 import Button from "../../UI/Button";
 import Filter from "../../Main/Filter/Filter";
-import { crossIcon } from "../../../SVG/svgIcon";
+import { CrossIcon } from "../../../SVG/svgIcon";
 
 const FilterOverlay: React.FC<{ onReset: () => void }> = ({ onReset }) => {
   return (
     <Modal modal="top-0 left-0 h-screen w-full overflow-y-auto" reset={onReset}>
       <div className="fixed z-40 p-3 border-b-2 border-gray-300 bg-white w-full">
         <Button onClick={onReset} className="bg-white p-2 rounded-full">
-          {crossIcon}
+          <CrossIcon />
         </Button>
       </div>
 

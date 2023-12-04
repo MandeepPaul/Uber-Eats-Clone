@@ -141,66 +141,6 @@ const clockIcon = (
 
 export { clockIcon };
 
-const crossIcon = (
-  <svg
-    height="18"
-    xmlns="http://www.w3.org/2000/svg"
-    data-name="Layer 1"
-    viewBox="0 0 64 64"
-    id="cross"
-  >
-    <line
-      x1="9.37"
-      x2="54.63"
-      y1="9.37"
-      y2="54.63"
-      fill="none"
-      stroke="#010101"
-      strokeMiterlimit="10"
-      strokeWidth="8"
-    ></line>
-    <line
-      x1="9.37"
-      x2="54.63"
-      y1="54.63"
-      y2="9.37"
-      fill="none"
-      stroke="#010101"
-      strokeMiterlimit="10"
-      strokeWidth="8"
-    ></line>
-  </svg>
-);
-
-export { crossIcon };
-
-export const SearchIcon = ({
-  fill = "none",
-  width = "24px",
-  height = "24px",
-  strokeWidth = "3",
-  color = "#FFFFFF",
-  className = "",
-  ...props
-}) => (
-  <svg
-    className={className}
-    width={width}
-    height={height}
-    viewBox="0 0 24 24"
-    fill={fill}
-    {...props}
-  >
-    <path
-      stroke={color}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={strokeWidth}
-      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-    />
-  </svg>
-);
-
 const filterIcon = (
   <svg className="w-5 h-5 m-auto" viewBox="0 0 24 24" fill="none">
     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
@@ -240,6 +180,74 @@ const rightArrow = (
 );
 
 export { rightArrow };
+
+export const CrossIcon = ({
+  fill = "none",
+  width = "18",
+  height = "18",
+  strokeWidth = "8",
+  strokeColor = "#010101",
+  className = "",
+  ...props
+}) => (
+  <svg
+    height={height}
+    width={width}
+    className={className}
+    xmlns="http://www.w3.org/2000/svg"
+    data-name="Layer 1"
+    viewBox="0 0 64 64"
+    id="cross"
+  >
+    <line
+      x1="9.37"
+      x2="54.63"
+      y1="9.37"
+      y2="54.63"
+      fill={strokeColor}
+      stroke={strokeColor}
+      strokeMiterlimit="10"
+      strokeWidth={strokeWidth}
+    ></line>
+    <line
+      x1="9.37"
+      x2="54.63"
+      y1="54.63"
+      y2="9.37"
+      fill={strokeColor}
+      stroke={strokeColor}
+      strokeMiterlimit="10"
+      strokeWidth={strokeWidth}
+    ></line>
+  </svg>
+);
+
+export const SearchIcon = ({
+  fill = "none",
+  width = "24px",
+  height = "24px",
+  strokeWidth = "3",
+  color = "#FFFFFF",
+  className = "",
+  ...props
+}) => (
+  <svg
+    className={className}
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    fill={fill}
+    {...props}
+  >
+    <path
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={strokeWidth}
+      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+    />
+  </svg>
+);
 
 export const AddFriendIcon = ({
   fill = "#000000",

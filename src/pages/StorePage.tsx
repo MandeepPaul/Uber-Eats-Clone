@@ -4,11 +4,11 @@ import MenuContent from "../components/Main/storeContent/Main/MenuContent";
 
 const StorePage = () => {
   return (
-    <div className="h-screen text-sm">
+    <main className="text-sm">
       <ImageCard />
       <StoreDeliveryDetails />
       <MenuContent />
-    </div>
+    </main>
   );
 };
 
