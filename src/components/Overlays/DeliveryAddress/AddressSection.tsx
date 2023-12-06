@@ -1,14 +1,15 @@
+import React from "react";
 import Button from "../../UI/Button";
 
 const AddressSection: React.FC<{
-  svg: React.ReactNode;
+  svg: React.FC<React.SVGProps<SVGSVGElement>>;
   place: string;
   description?: string;
   buttonTitle: string;
-}> = ({ svg, place, description, buttonTitle }) => {
+}> = ({ svg: SVGComponent, place, description, buttonTitle }) => {
   return (
     <section className="p-4 flex gap-2 justify-between items-center">
-      <div>{svg}</div>
+      <SVGComponent width="20" height="20" />
 
       <div className="flex flex-col pl-2 grow overflow-hidden">
         <span className="lg:text-xl">{place}</span>

@@ -1,7 +1,7 @@
 import Modal from "../../UI/Modal";
 import Button from "../../UI/Button";
 import AddressSection from "./AddressSection";
-import { locationPinSVG, clockIcon, CrossIcon } from "../../../SVG/svgIcon";
+import { LocationPinSVG, ClockIcon, CrossIcon } from "../../../SVG/svgIcon";
 
 const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
   return (
@@ -25,7 +25,7 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
           <hr className="border-t-2 border-gray-200 lg:hidden" />
 
           <AddressSection
-            svg={locationPinSVG}
+            svg={LocationPinSVG}
             place="Home"
             description="1720 Pembina Hwy, Winnipeg, MB R3T 5T4, CA"
             buttonTitle="Change"
@@ -33,7 +33,7 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
 
           <hr className="border-t-2 border-gray-200 ml-[55px]" />
 
-          <AddressSection svg={clockIcon} place="Now" buttonTitle="Schedule" />
+          <AddressSection svg={ClockIcon} place="Now" buttonTitle="Schedule" />
         </div>
 
         <div className="flex justify-center">

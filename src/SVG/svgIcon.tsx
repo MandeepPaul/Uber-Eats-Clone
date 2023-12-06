@@ -1,4 +1,3 @@
-//Used in the dietary section of the Filter component.
 const DieteryIcons: React.ReactNode[] = [
   <svg
     fill="#000000"
@@ -77,6 +76,7 @@ export const ArrowDownSVG = ({
     fill={fill}
     width={width}
     height={height}
+    {...props}
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 14 8"
@@ -91,19 +91,25 @@ export const ArrowDownSVG = ({
   </svg>
 );
 
-const locationPinSVG = (
+export const LocationPinSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = "",
+  fill = "currentColor",
+  width = "12",
+  height = "12",
+  ...props
+}) => (
   <svg
-    className="h-5 w-5"
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
     xmlns="http://www.w3.org/2000/svg"
-    data-name="Layer 3"
     viewBox="0 0 24 24"
-    id="location"
   >
     <path d="M12,2a8.009,8.009,0,0,0-8,8c0,3.255,2.363,5.958,4.866,8.819,0.792,0.906,1.612,1.843,2.342,2.791a1,1,0,0,0,1.584,0c0.73-.948,1.55-1.885,2.342-2.791C17.637,15.958,20,13.255,20,10A8.009,8.009,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"></path>
   </svg>
 );
-
-export { locationPinSVG };
 
 const cartIcon = (
   <svg
@@ -135,19 +141,25 @@ const hamburgerMenuIcon = (
 
 export { hamburgerMenuIcon };
 
-const clockIcon = (
+export const ClockIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = "",
+  fill = "currentColor",
+  width = "20",
+  height = "20",
+  ...props
+}) => (
   <svg
+    fill={fill}
     className="w-5 h-5"
+    width={width}
+    height={height}
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
     viewBox="0 0 20 20"
   >
     <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
   </svg>
 );
-
-export { clockIcon };
 
 const filterIcon = (
   <svg className="w-5 h-5 m-auto" viewBox="0 0 24 24" fill="none">

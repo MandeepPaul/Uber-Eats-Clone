@@ -51,6 +51,7 @@ const ItemDetails: React.FC<ItemType> = ({
             </div>
 
             <hr className="mt-4 border-gray-300" />
+
             <AddOns />
           </div>
         </div>
