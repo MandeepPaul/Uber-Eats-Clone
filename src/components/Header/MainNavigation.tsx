@@ -2,11 +2,11 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 
 import { hamburgerMenuIcon, cartIcon } from "../../SVG/svgIcon";
-import SearchBar from "../Main/SearchBar";
+import SearchBar from "../Main/HomeContent/SearchBar";
 import Button from "../UI/Button";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 import Cart from "../Overlays/Cart/Cart";
-import SideNav from "../Main/SideNav/SideNav";
+import SideNav from "../Main/HomeContent/SideNav/SideNav";
 import Logo from "./Logo";
 
 const MainNavigation: React.FC<{

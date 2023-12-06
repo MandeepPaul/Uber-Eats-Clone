@@ -1,5 +1,5 @@
-import { storeWithDeals } from "../components/Main/stores/Allstores";
-import Store from "../components/Main/stores/Store";
+import { storeWithDeals } from "../components/Main/HomeContent/stores/Allstores";
+import Store from "../components/Main/HomeContent/stores/Store";
 import HorizontalCard from "../components/UI/Cards/HorizontalCard";
 
 const OffersPage = () => {

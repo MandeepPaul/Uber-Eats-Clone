@@ -64,24 +64,32 @@ const DieteryIcons: React.ReactNode[] = [
 
 export default DieteryIcons;
 
-const arrowDownSVG = (
+export const ArrowDownSVG = ({
+  className = "",
+  fill = "none",
+  width = "12",
+  height = "12",
+  strokeWidth = "2",
+  ...props
+}) => (
   <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
     viewBox="0 0 14 8"
   >
     <path
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="2"
+      strokeWidth={strokeWidth}
       d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
     />
   </svg>
 );
-
-export { arrowDownSVG };
 
 const locationPinSVG = (
   <svg
@@ -182,22 +190,22 @@ const rightArrow = (
 export { rightArrow };
 
 export const CrossIcon = ({
+  className = "",
   fill = "none",
   width = "18",
   height = "18",
   strokeWidth = "8",
   strokeColor = "#010101",
-  className = "",
   ...props
 }) => (
   <svg
+    className={className}
+    fill={fill}
     height={height}
     width={width}
-    className={className}
+    {...props}
     xmlns="http://www.w3.org/2000/svg"
-    data-name="Layer 1"
     viewBox="0 0 64 64"
-    id="cross"
   >
     <line
       x1="9.37"
@@ -223,21 +231,21 @@ export const CrossIcon = ({
 );
 
 export const SearchIcon = ({
+  className = "",
   fill = "none",
   width = "24px",
   height = "24px",
   strokeWidth = "3",
   color = "#FFFFFF",
-  className = "",
   ...props
 }) => (
   <svg
     className={className}
+    fill={fill}
     width={width}
     height={height}
-    viewBox="0 0 24 24"
-    fill={fill}
     {...props}
+    viewBox="0 0 24 24"
   >
     <path
       stroke={color}
@@ -250,18 +258,18 @@ export const SearchIcon = ({
 );
 
 export const AddFriendIcon = ({
+  className = "",
   fill = "#000000",
   width = "22px",
   height = "22px",
-  className = "",
   ...props
 }) => (
   <svg
     className={className}
+    fill={fill}
     width={width}
     height={height}
     viewBox="0 0 24 24"
-    fill={fill}
     {...props}
   >
     <path d="m7.25,7c0-2.62,2.13-4.75,4.75-4.75s4.75,2.13,4.75,4.75-2.13,4.75-4.75,4.75-4.75-2.13-4.75-4.75Zm8.5,13.25h-.75c-1.24,0-2.25-1.01-2.25-2.25s1.01-2.25,2.25-2.25h.75v-.75c0-.61.24-1.16.64-1.57-.45-.12-.91-.18-1.39-.18h-6c-3.17,0-5.75,2.58-5.75,5.75,0,1.52,1.23,2.75,2.75,2.75h9.88c-.08-.23-.13-.49-.13-.75v-.75Zm4.5.33c.07-.11.14-.21.2-.33h-.2v.33Zm.75-3.33h-2.25v-2.25c0-.414-.336-.75-.75-.75s-.75.336-.75.75v2.25h-2.25c-.414,0-.75.336-.75.75s.336.75.75.75h2.25v2.25c0,.414.336.75.75.75s.75-.336.75-.75v-2.25h2.25c.414,0,.75-.336.75-.75s-.336-.75-.75-.75Z"></path>
@@ -269,21 +277,21 @@ export const AddFriendIcon = ({
 );
 
 export const FavHeartIcon = ({
+  className = "",
   fill = "none",
   width = "22px",
   height = "22px",
   strokeWidth = "3",
   strokeColor = "#FFFFFF",
-  className = "",
   ...props
 }) => (
   <svg
     className={className}
+    fill={fill}
     width={width}
     height={height}
-    viewBox="0 0 24 24"
-    fill={fill}
     {...props}
+    viewBox="0 0 24 24"
   >
     <path
       fillRule="evenodd"
@@ -298,21 +306,21 @@ export const FavHeartIcon = ({
 );
 
 export const ThumbsUpIcon = ({
+  className = "",
   fill = "none",
   width = "20px",
   height = "20px",
   strokeWidth = "2.2",
   strokeColor = "currentColor",
-  className = "",
   ...props
 }) => (
   <svg
     className={className}
+    fill={fill}
     width={width}
     height={height}
-    viewBox="0 0 20 20"
-    fill={fill}
     {...props}
+    viewBox="0 0 20 20"
   >
     <path
       stroke={strokeColor}
@@ -325,26 +333,75 @@ export const ThumbsUpIcon = ({
 );
 
 export const CalendarIcon = ({
+  className = "",
   fill = "currentColor",
   width = "1em",
   height = "1em",
   strokeWidth = "2",
-  className = "",
   ...props
 }) => (
   <svg
     className={className}
-    aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
     fill={fill}
-    viewBox="0 0 20 20"
     width={width}
     height={height}
     {...props}
+    aria-hidden="true"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
       strokeWidth={strokeWidth}
       d="M0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm14-7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm-5-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm-5-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4Z"
     />
+  </svg>
+);
+
+export const ShareArrowIcon = ({
+  className = "",
+  fill = "none",
+  width = "1.2em",
+  height = "1.2em",
+  strokeWidth = "2",
+  strokeColor = "currentColor",
+  ...props
+}) => (
+  <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+  >
+    <path
+      stroke={strokeColor}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={strokeWidth}
+      d="M8 12V1m0 0L4 5m4-4 4 4m3 5v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"
+    />
+  </svg>
+);
+
+export const TickIcon = ({
+  className = "",
+  fill = "#FFFFFF",
+  width = "20",
+  height = "20",
+  ...props
+}) => (
+  <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
+    viewBox="0 0 26 26"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M 22.566406 4.730469 L 20.773438 3.511719 C 20.277344 3.175781 19.597656 3.304688 19.265625 3.796875 L 10.476563 16.757813 L 6.4375 12.71875 C 6.015625 12.296875 5.328125 12.296875 4.90625 12.71875 L 3.371094 14.253906 C 2.949219 14.675781 2.949219 15.363281 3.371094 15.789063 L 9.582031 22 C 9.929688 22.347656 10.476563 22.613281 10.96875 22.613281 C 11.460938 22.613281 11.957031 22.304688 12.277344 21.839844 L 22.855469 6.234375 C 23.191406 5.742188 23.0625 5.066406 22.566406 4.730469 Z"></path>
   </svg>
 );

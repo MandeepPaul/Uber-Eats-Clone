@@ -21,7 +21,7 @@ const MenuItem: React.FC<MenuItemType> = ({
   };
 
   return (
-    <div className="group min-h-[126px] flex justify-between items-center p-2 lg:flex-col-reverse lg:justify-end lg:items-start lg:gap-1 lg:grow lg:min-h-[320px] hover:shadow-xl">
+    <div className="group min-h-[126px] flex justify-between items-center p-2 lg:flex-col-reverse lg:justify-end lg:items-start lg:gap-1 lg:grow lg:min-h-[320px] lg:hover:shadow-xl">
       {/* Individual Card */}
       <div className="overflow-hidden">
         <span className="text-base font-medium lg:text-lg">{name}</span>
@@ -52,7 +52,7 @@ const MenuItem: React.FC<MenuItemType> = ({
         </div>
         <Button
           onClick={showItemDetailOverlay}
-          className="hidden group-hover:block bg-white p-2 rounded-full absolute bottom-2 left-1/2 transform translate-x-[-50%] border-2 border-gray-200"
+          className="hidden lg:group-hover:block bg-white p-2 rounded-full absolute bottom-2 left-1/2 transform translate-x-[-50%] border-2 border-gray-200"
         >
           <span className="font-medium">Quick view</span>
         </Button>

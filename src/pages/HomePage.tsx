@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 
 import DeliveryDetails from "../components/Header/DeliveryDetails/DeliveryDetails";
-import Main from "../components/Main/Main";
+import Main from "../components/Main/HomeContent/Main";
 import DeliveryAddress from "../components/Overlays/DeliveryAddress/DeliveryAddress";
 
 const HomePage = () => {

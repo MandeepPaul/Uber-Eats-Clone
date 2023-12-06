@@ -1,5 +1,5 @@
 import Button from "../../UI/Button";
-import { arrowDownSVG, locationPinSVG } from "../../../SVG/svgIcon";
+import { ArrowDownSVG, locationPinSVG } from "../../../SVG/svgIcon";
 
 const AddressDetails: React.FC<{ onAddressBarClick?: () => void }> = ({
   onAddressBarClick,
@@ -19,7 +19,7 @@ const AddressDetails: React.FC<{ onAddressBarClick?: () => void }> = ({
         <span className="hidden lg:inline-block">Now</span>
 
         <div className="w-3 h-3 pt-[2px] text-gray-800 lg:hidden ">
-          {arrowDownSVG}
+          <ArrowDownSVG />
         </div>
       </Button>
     </div>

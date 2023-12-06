@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { rightArrow } from "../../../SVG/svgIcon";
+import { rightArrow } from "../../../../SVG/svgIcon";
 import Store from "./Store";
-import DUMMY_STORES from "../../../tempData/StoreList";
+import DUMMY_STORES from "../../../../tempData/StoreList";
 
 let storeWithDeals = DUMMY_STORES.filter((store) => store.offer);
 

@@ -1,4 +1,4 @@
-import Modal from "../../UI/Modal";
+import Modal from "../../../UI/Modal";
 import ExtraOptions from "./AdditionalOptions/ExtraOptions";
 import Options from "./Options";
 import Profile from "./Profile";

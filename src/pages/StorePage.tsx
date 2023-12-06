@@ -1,6 +1,6 @@
-import StoreDeliveryDetails from "../components/Main/storeContent/StoreHeader/StoreDeliveryDetails";
-import ImageCard from "../components/Main/storeContent/StoreHeader/ImageCard";
-import MenuContent from "../components/Main/storeContent/Main/MenuContent";
+import StoreDeliveryDetails from "../components/Main/StoreContent/StoreHeader/StoreDeliveryDetails";
+import ImageCard from "../components/Main/StoreContent/StoreHeader/ImageCard";
+import MenuContent from "../components/Main/StoreContent/Main/MenuContent";
 
 const StorePage = () => {
   return (

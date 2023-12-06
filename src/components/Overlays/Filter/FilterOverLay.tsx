@@ -1,6 +1,6 @@
 import Modal from "../../UI/Modal";
 import Button from "../../UI/Button";
-import Filter from "../../Main/Filter/Filter";
+import Filter from "../../Main/HomeContent/Filter/Filter";
 import { CrossIcon } from "../../../SVG/svgIcon";
 
 const FilterOverlay: React.FC<{ onReset: () => void }> = ({ onReset }) => {

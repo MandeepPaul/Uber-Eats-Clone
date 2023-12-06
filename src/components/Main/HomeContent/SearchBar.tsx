@@ -1,10 +1,10 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 
-import Button from "../UI/Button";
-import { SearchIcon, filterIcon } from "../../SVG/svgIcon";
+import Button from "../../UI/Button";
+import { SearchIcon, filterIcon } from "../../../SVG/svgIcon";
 
-import FilterOverlay from "../Overlays/Filter/FilterOverLay";
+import FilterOverlay from "../../Overlays/Filter/FilterOverLay";
 
 const SearchBar: React.FC<{ className?: string }> = (props) => {
   const [filterVisibility, setShowFilter] = useState(false);
