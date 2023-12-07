@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# Uber Eats Clone
+This project is a demonstration of my skills and is not associated with the original company or application. Only for educational purposes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Technologies Used
+- React
+- React Router
+- Redux
+- TypeScript
+- TailwindCSS
+
+## Screenshorts
+
+| Mobile Screenshots | Desktop Screenshots |
+| ------------------ | ------------------- |
+| ![Mobile Screenshot 1](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/7be0a0ce-10ea-493a-b7ec-d5516d4f7f60) | ![Desktop Screenshot 1](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/46da6a76-a532-4c9c-975d-70eb3316f459) |
+| ![Mobile Screenshot 2](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/27dc1871-641f-468d-bd35-e285d73b59f0) | ![Desktop Screenshot 2](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/4a39fc02-1d5d-4056-ba30-916cb9e01559) |
+| ![Mobile Screenshot 3](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/8c914a16-bf25-4281-ae8d-7e70517e3cf8) | ![Desktop Screenshot 3](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/a78ed190-b84b-4c12-bf52-69b4f82fa01c) |
+| ![Mobile Screenshot 4](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/99d94c22-a626-4338-8c1d-784c14040105) | ![Desktop Screenshot 4](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/789eb930-a588-4cd1-b4d8-801547e15737) |
+| ![Mobile Screenshot 5](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/9cf48121-8117-4aab-baf1-a7aa8e2e6936) | ![Desktop Screenshot 5](https://github.com/MandeepPaul/Uber-Eats-Clone/assets/113959405/3e7bb735-f784-4cd6-b91a-ff7e76449285) |
 
 ## Available Scripts
 
-In the project directory, you can run:
+To get started with the Uber Eats Clone project, you can use the following scripts:
+
+### `npm install`
+
+Install the necessary dependencies required for this project.
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The page will reload if you make edits.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode. Visit [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production into the `build` folder. This creates an optimized version of the application ready for deployment.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Note: This command is irreversible. Proceed with caution.**
+This command will remove the single build dependency from your project. You will need to use `npm run build` to build the project after this step.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Additional Information
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For additional configuration and details about the available scripts, refer to the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Your contributions to enhancing these scripts or the project itself are welcome! Feel free to raise issues or submit pull requests.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
