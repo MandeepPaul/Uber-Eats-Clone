@@ -13,7 +13,7 @@ const MainNavigation: React.FC<{
   className: string;
   onAddressBarClick?: () => void;
 }> = ({ className, onAddressBarClick }) => {
-  const [cartVisibility, setCartVisibility] = useState(false);
+  const [cartVisibility, setCartVisibility] = useState(true);
   const [sideNavigation, setNavVisibility] = useState(false);
 
   const cartHandler = () => {

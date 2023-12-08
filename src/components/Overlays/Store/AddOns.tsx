@@ -8,7 +8,7 @@ import {
 
 const AddOns = () => {
   return (
-    <div className="divide-y-4 mb-16">
+    <div className="divide-y-2 lg:divide-y-4 mb-16">
       <ToppingSection title="Add Toppings" limit={6} list={DUMMY_ADDONS} />
       <ToppingSection title="Remove Toppings" limit={8} list={DUMMY_REMOVES} />
       <ToppingSection

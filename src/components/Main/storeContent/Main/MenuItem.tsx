@@ -47,9 +47,12 @@ const MenuItem: React.FC<MenuItemType> = ({
         className="min-h-[100px] min-w-[100px] rounded-lg relative lg:min-h-[220px] lg:min-w-[200px] lg:max-w-[350px] lg:rounded-none lg:self-stretch"
         url="https://cn-geo1.uber.com/image-proc/resize/eats/format=webp/width=550/height=440/quality=70/srcb64=aHR0cHM6Ly90Yi1zdGF0aWMudWJlci5jb20vcHJvZC9pbWFnZS1wcm9jL3Byb2Nlc3NlZF9pbWFnZXMvY2IzOGRiNWNjMGYwOTUyMjA0YjY2ZjkyMDUzNTY4MjcvNTk1NGJjYjAwNmIxMGRiZmQwYmMxNjBmNjM3MGZhZjMuanBlZw=="
       >
-        <div className="absolute right-1 bottom-1 bg-white w-7 h-7 flex justify-center items-center rounded-full lg:hidden">
+        <Button
+          onClick={showItemDetailOverlay}
+          className="absolute right-1 bottom-1 bg-white w-7 h-7 flex justify-center items-center rounded-full lg:hidden"
+        >
           <span className="self-center text-2xl">+</span>
-        </div>
+        </Button>
         <Button
           onClick={showItemDetailOverlay}
           className="hidden lg:group-hover:block bg-white p-2 rounded-full absolute bottom-2 left-1/2 transform translate-x-[-50%] border-2 border-gray-200"

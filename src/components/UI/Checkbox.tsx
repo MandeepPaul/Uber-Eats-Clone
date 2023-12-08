@@ -16,7 +16,7 @@ const Checkbox = () => {
         name="myCheckbox"
         checked={isChecked}
         onChange={handleCheckboxClick}
-        className="appearance-none h-6 w-6 border-[3px] border-gray-600 checked:border-black checked:bg-black"
+        className="appearance-none h-4 w-4 md:h-6 md:w-6 border-[3px] border-gray-600 checked:border-black checked:bg-black"
       />
       {isChecked && <TickIcon className={`absolute top-0.5 left-0.5`} />}
     </label>

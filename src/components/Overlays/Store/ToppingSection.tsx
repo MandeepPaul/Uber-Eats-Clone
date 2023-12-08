@@ -17,7 +17,7 @@ const ToppingSection: React.FC<{
         {list.map(({ id, name, price, special }) => (
           <li key={id} className="flex justify-between py-3 last:mb-4">
             <div className="flex flex-col">
-              <span className="font-[500] text-[18px]">{name}</span>
+              <span className="font-[500] md:text-[18px]">{name}</span>
               {price && <span className="font-thin">{`+$${price}`}</span>}
               {special && (
                 <span className="font-[400] text-green-600">{special}</span>

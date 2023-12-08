@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import Button from "./Button";
 import { ArrowDownSVG } from "../../SVG/svgIcon";
 
-const DropDownMenu: React.FC<{ options: number[] }> = ({ options }) => {
+const DropDownMenu: React.FC<{
+  options: number[];
+  className?: string;
+  listPosition?: string;
+}> = ({ options, className, listPosition }) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [listOpen, setToggle] = useState(false);
 
@@ -18,14 +22,14 @@ const DropDownMenu: React.FC<{ options: number[] }> = ({ options }) => {
     <div className="relative inline-block text-left">
       <Button
         onClick={listToggle}
-        className="flex items-center space-x-4 bg-gray-200 rounded-full px-5 py-2 mt-4 hover:bg-gray-300"
+        className={`flex items-center bg-gray-200 rounded-full mt-4 hover:bg-gray-300 ${className}`}
       >
         <span>{selectedQuantity}</span>
         <ArrowDownSVG />
       </Button>
       {listOpen && (
         <div
-          className="origin-top-right absolute right-0 mt-2 w-20 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className={`absolute mt-2 w-20 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none ${listPosition}`}
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="quantity-options"
