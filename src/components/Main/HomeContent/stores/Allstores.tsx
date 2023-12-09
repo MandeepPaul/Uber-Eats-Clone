@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { rightArrow } from "../../../../SVG/svgIcon";
+import { RightArrow } from "../../../../SVG/svgIcon";
 import Store from "./Store";
 import DUMMY_STORES from "../../../../tempData/StoreList";
 
@@ -13,7 +13,7 @@ const Allstores: React.FC<{ className?: string }> = ({ className }) => {
       <div className={`flex justify-between items-center`}>
         <h2 className={`text-xl font-semibold `}>Today's offers</h2>
         <Link to="offers" className="bg-gray-200 rounded-full p-1 h-67 w-67">
-          {rightArrow}
+          <RightArrow />
         </Link>
       </div>
 

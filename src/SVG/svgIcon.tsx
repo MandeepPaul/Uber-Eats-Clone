@@ -1,3 +1,5 @@
+import React, { FC } from "react";
+
 const DieteryIcons: React.ReactNode[] = [
   <svg
     fill="#000000"
@@ -63,106 +65,139 @@ const DieteryIcons: React.ReactNode[] = [
 
 export default DieteryIcons;
 
-export const ArrowDownSVG = ({
+//General Format
+type SVGIncomingProp = {
+  className?: string;
+  fill?: string;
+  width?: string;
+  height?: string;
+  strokeColor?: string;
+};
+
+type SVGIconProps = SVGIncomingProp & {
+  path: string;
+  viewBox?: string;
+  stroke?: string;
+  strokeLinecap?: string;
+  strokeLinejoin?: string;
+  strokeWidth?: string;
+};
+
+const SVGIcon: FC<SVGIconProps> = ({
+  className = "",
+  fill = "currentColor",
+  width = "16",
+  height = "16",
+  path,
+  viewBox,
+  stroke = "none",
+  strokeLinecap = "none",
+  strokeLinejoin = "none",
+  strokeWidth = "2",
+  strokeColor = "#000000",
+  ...props
+}) => (
+  <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox={viewBox}
+  >
+    <path
+      stroke={strokeColor}
+      stroke-linecap={strokeLinecap}
+      stroke-linejoin={strokeLinejoin}
+      stroke-width={strokeWidth}
+      d={path}
+    />
+  </svg>
+);
+
+export const ArrowDownSVG: FC<SVGIncomingProp> = (props) => (
+  <SVGIcon
+    path="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
+    {...props}
+    viewBox="0 0 14 8"
+  />
+);
+
+export const CartIcon: FC<SVGIncomingProp> = (props) => (
+  <SVGIcon
+    path="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z"
+    {...props}
+    viewBox="0 0 18 21"
+  />
+);
+
+export const HamburgerMenuIcon: FC<SVGIncomingProp> = (props) => (
+  <SVGIcon
+    path="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
+    {...props}
+    width="24"
+    height="24"
+    viewBox="0 0 512 512"
+  />
+);
+
+export const TrophyIcon: FC<SVGIncomingProp> = (props) => (
+  <SVGIcon
+    path="M98.398 21.146a17.092 17.092 0 0 0-4.636.521c-20.49 5.262-33.163 20.63-36.116 38.649-2.952 18.019 2.168 38.346 12.676 58.193 20.695 39.086 63.262 77.08 117.852 85.85-5.61-6.72-11.05-14.246-16.274-22.375-39.008-12.57-70.021-42.344-85.67-71.899-9.206-17.387-12.846-34.491-10.82-46.857C77.437 50.862 83.482 42.89 98.238 39.1c.065-.017.068-.034.092-.053-.065-.143.105-.08 0 0 .022.049.061.11.176.217.527.493 1.689 2.24 2.207 5.14 1.036 5.804-.413 15.593-8.135 25.68l14.293 10.942c10.418-13.61 13.65-28.086 11.56-39.785-1.044-5.85-3.396-11.165-7.628-15.124-3.174-2.969-7.747-4.868-12.405-4.972zm315.204 0c-4.658.104-9.23 2.003-12.405 4.972-4.232 3.96-6.584 9.274-7.629 15.124-2.089 11.699 1.143 26.174 11.56 39.785l14.294-10.942c-7.722-10.087-9.171-19.876-8.135-25.68.518-2.9 1.68-4.647 2.207-5.14a.695.695 0 0 0 .176-.217c-.105-.08.065-.143 0 0 .024.019.027.036.092.053 14.756 3.79 20.801 11.76 22.828 24.127 2.026 12.366-1.614 29.47-10.82 46.857-15.649 29.555-46.662 59.33-85.67 71.899-5.223 8.129-10.665 15.655-16.274 22.375 54.59-8.77 97.157-46.764 117.852-85.85 10.508-19.847 15.628-40.174 12.676-58.193-2.953-18.02-15.626-33.387-36.116-38.649a17.092 17.092 0 0 0-4.636-.521zm-276.166 7.713c2.146 36.533 16.76 83.07 36.537 120.824 10.707 20.442 22.876 38.334 34.761 50.685C220.62 212.72 232 218.858 240 218.858h32c8 0 19.38-6.138 31.266-18.49 11.885-12.351 24.054-30.243 34.761-50.685 19.777-37.755 34.39-84.29 36.537-120.824H137.436zm95.564 208v16h46v-16h-46zm6.445 34c-2.458 25.967-12.796 57.873-24.437 76h81.984c-11.64-18.127-21.979-50.033-24.437-76h-33.11zm-38.445 94v14h110v-14H201zm-32 32v94h174v-94H169zm23 23h128v48H192v-48z"
+    fill="#FFFFFF"
+    width="12"
+    height="12"
+    {...props}
+    viewBox="0 0 512 512"
+  />
+);
+
+export const RightArrow: FC<SVGIncomingProp> = (props) => (
+  <SVGIcon
+    path="M1 5h12m0 0L9 1m4 4L9 9"
+    fill="none"
+    width="24"
+    height="24"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    {...props}
+    viewBox="0 0 14 10"
+  />
+);
+
+export const SearchIcon: FC<SVGIncomingProp> = (props) => (
+  <SVGIcon
+    path="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+    fill="none"
+    width="24"
+    height="24"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="3"
+    {...props}
+    viewBox="0 0 24 24"
+  />
+);
+
+export const FilterIcon = ({
   className = "",
   fill = "none",
-  width = "12",
-  height = "12",
-  strokeWidth = "2",
-  ...props
-}) => (
-  <svg
-    className={className}
-    fill={fill}
-    width={width}
-    height={height}
-    {...props}
-    aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 14 8"
-  >
-    <path
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={strokeWidth}
-      d="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
-    />
-  </svg>
-);
-
-export const LocationPinSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  className = "",
-  fill = "currentColor",
-  width = "12",
-  height = "12",
-  ...props
-}) => (
-  <svg
-    className={className}
-    fill={fill}
-    width={width}
-    height={height}
-    {...props}
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-  >
-    <path d="M12,2a8.009,8.009,0,0,0-8,8c0,3.255,2.363,5.958,4.866,8.819,0.792,0.906,1.612,1.843,2.342,2.791a1,1,0,0,0,1.584,0c0.73-.948,1.55-1.885,2.342-2.791C17.637,15.958,20,13.255,20,10A8.009,8.009,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"></path>
-  </svg>
-);
-
-const cartIcon = (
-  <svg
-    className="w-4 h-4 text-white lg:h-5 lg:w-6"
-    aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    viewBox="0 0 18 21"
-  >
-    <path d="M15 12a1 1 0 0 0 .962-.726l2-7A1 1 0 0 0 17 3H3.77L3.175.745A1 1 0 0 0 2.208 0H1a1 1 0 0 0 0 2h.438l.6 2.255v.019l2 7 .746 2.986A3 3 0 1 0 9 17a2.966 2.966 0 0 0-.184-1h2.368c-.118.32-.18.659-.184 1a3 3 0 1 0 3-3H6.78l-.5-2H15Z" />
-  </svg>
-);
-
-export { cartIcon };
-
-const hamburgerMenuIcon = (
-  <svg
-    width="24px"
-    height="24px"
-    viewBox="0 0 512 512"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill="#000000"
-      d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
-    />
-  </svg>
-);
-
-export { hamburgerMenuIcon };
-
-export const ClockIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  className = "",
-  fill = "currentColor",
   width = "20",
   height = "20",
   ...props
 }) => (
   <svg
     fill={fill}
-    className="w-5 h-5"
+    className={className}
     width={width}
     height={height}
-    aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
+    viewBox="0 0 24 24"
+    {...props}
   >
-    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
-  </svg>
-);
-
-const filterIcon = (
-  <svg className="w-5 h-5 m-auto" viewBox="0 0 24 24" fill="none">
     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g
       id="SVGRepo_tracerCarrier"
@@ -179,27 +214,6 @@ const filterIcon = (
     </g>
   </svg>
 );
-
-export { filterIcon };
-
-const trophyIcon = (
-  <svg width="13px" height="13px" viewBox="0 0 512 512">
-    <path
-      fill="#FFFFFF"
-      d="M98.398 21.146a17.092 17.092 0 0 0-4.636.521c-20.49 5.262-33.163 20.63-36.116 38.649-2.952 18.019 2.168 38.346 12.676 58.193 20.695 39.086 63.262 77.08 117.852 85.85-5.61-6.72-11.05-14.246-16.274-22.375-39.008-12.57-70.021-42.344-85.67-71.899-9.206-17.387-12.846-34.491-10.82-46.857C77.437 50.862 83.482 42.89 98.238 39.1c.065-.017.068-.034.092-.053-.065-.143.105-.08 0 0 .022.049.061.11.176.217.527.493 1.689 2.24 2.207 5.14 1.036 5.804-.413 15.593-8.135 25.68l14.293 10.942c10.418-13.61 13.65-28.086 11.56-39.785-1.044-5.85-3.396-11.165-7.628-15.124-3.174-2.969-7.747-4.868-12.405-4.972zm315.204 0c-4.658.104-9.23 2.003-12.405 4.972-4.232 3.96-6.584 9.274-7.629 15.124-2.089 11.699 1.143 26.174 11.56 39.785l14.294-10.942c-7.722-10.087-9.171-19.876-8.135-25.68.518-2.9 1.68-4.647 2.207-5.14a.695.695 0 0 0 .176-.217c-.105-.08.065-.143 0 0 .024.019.027.036.092.053 14.756 3.79 20.801 11.76 22.828 24.127 2.026 12.366-1.614 29.47-10.82 46.857-15.649 29.555-46.662 59.33-85.67 71.899-5.223 8.129-10.665 15.655-16.274 22.375 54.59-8.77 97.157-46.764 117.852-85.85 10.508-19.847 15.628-40.174 12.676-58.193-2.953-18.02-15.626-33.387-36.116-38.649a17.092 17.092 0 0 0-4.636-.521zm-276.166 7.713c2.146 36.533 16.76 83.07 36.537 120.824 10.707 20.442 22.876 38.334 34.761 50.685C220.62 212.72 232 218.858 240 218.858h32c8 0 19.38-6.138 31.266-18.49 11.885-12.351 24.054-30.243 34.761-50.685 19.777-37.755 34.39-84.29 36.537-120.824H137.436zm95.564 208v16h46v-16h-46zm6.445 34c-2.458 25.967-12.796 57.873-24.437 76h81.984c-11.64-18.127-21.979-50.033-24.437-76h-33.11zm-38.445 94v14h110v-14H201zm-32 32v94h174v-94H169zm23 23h128v48H192v-48z"
-    />
-  </svg>
-);
-
-export { trophyIcon };
-
-const rightArrow = (
-  <svg fill="#000000" height="15px" width="15px" viewBox="0 0 512 512">
-    <polygon points="315.1,48.6 196.9,48.6 354.5,206.1 0,206.1 0,284.9 354.5,284.9 196.9,442.4 315.1,442.4 512,245.5 " />
-  </svg>
-);
-
-export { rightArrow };
 
 export const CrossIcon = ({
   className = "",
@@ -239,33 +253,6 @@ export const CrossIcon = ({
       strokeMiterlimit="10"
       strokeWidth={strokeWidth}
     ></line>
-  </svg>
-);
-
-export const SearchIcon = ({
-  className = "",
-  fill = "none",
-  width = "24px",
-  height = "24px",
-  strokeWidth = "3",
-  color = "#FFFFFF",
-  ...props
-}) => (
-  <svg
-    className={className}
-    fill={fill}
-    width={width}
-    height={height}
-    {...props}
-    viewBox="0 0 24 24"
-  >
-    <path
-      stroke={color}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={strokeWidth}
-      d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-    />
   </svg>
 );
 
@@ -415,5 +402,45 @@ export const TickIcon = ({
     xmlns="http://www.w3.org/2000/svg"
   >
     <path d="M 22.566406 4.730469 L 20.773438 3.511719 C 20.277344 3.175781 19.597656 3.304688 19.265625 3.796875 L 10.476563 16.757813 L 6.4375 12.71875 C 6.015625 12.296875 5.328125 12.296875 4.90625 12.71875 L 3.371094 14.253906 C 2.949219 14.675781 2.949219 15.363281 3.371094 15.789063 L 9.582031 22 C 9.929688 22.347656 10.476563 22.613281 10.96875 22.613281 C 11.460938 22.613281 11.957031 22.304688 12.277344 21.839844 L 22.855469 6.234375 C 23.191406 5.742188 23.0625 5.066406 22.566406 4.730469 Z"></path>
+  </svg>
+);
+
+export const LocationPinSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = "",
+  fill = "currentColor",
+  width = "12",
+  height = "12",
+  ...props
+}) => (
+  <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path d="M12,2a8.009,8.009,0,0,0-8,8c0,3.255,2.363,5.958,4.866,8.819,0.792,0.906,1.612,1.843,2.342,2.791a1,1,0,0,0,1.584,0c0.73-.948,1.55-1.885,2.342-2.791C17.637,15.958,20,13.255,20,10A8.009,8.009,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"></path>
+  </svg>
+);
+
+export const ClockIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = "",
+  fill = "currentColor",
+  width = "20",
+  height = "20",
+  ...props
+}) => (
+  <svg
+    fill={fill}
+    className="w-5 h-5"
+    width={width}
+    height={height}
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20 20"
+  >
+    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm3.982 13.982a1 1 0 0 1-1.414 0l-3.274-3.274A1.012 1.012 0 0 1 9 10V6a1 1 0 0 1 2 0v3.586l2.982 2.982a1 1 0 0 1 0 1.414Z" />
   </svg>
 );
