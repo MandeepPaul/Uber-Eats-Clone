@@ -72,6 +72,7 @@ type SVGIncomingProp = {
   width?: string;
   height?: string;
   strokeColor?: string;
+  strokeWidth?: string;
 };
 
 type SVGIconProps = SVGIncomingProp & {
@@ -80,7 +81,6 @@ type SVGIconProps = SVGIncomingProp & {
   stroke?: string;
   strokeLinecap?: string;
   strokeLinejoin?: string;
-  strokeWidth?: string;
 };
 
 const SVGIcon: FC<SVGIconProps> = ({
@@ -110,7 +110,7 @@ const SVGIcon: FC<SVGIconProps> = ({
       stroke={strokeColor}
       stroke-linecap={strokeLinecap}
       stroke-linejoin={strokeLinejoin}
-      stroke-width={strokeWidth}
+      strokeWidth={strokeWidth}
       d={path}
     />
   </svg>
@@ -119,6 +119,8 @@ const SVGIcon: FC<SVGIconProps> = ({
 export const ArrowDownSVG: FC<SVGIncomingProp> = (props) => (
   <SVGIcon
     path="m1 1 5.326 5.7a.909.909 0 0 0 1.348 0L13 1"
+    fill="none"
+    width="14"
     {...props}
     viewBox="0 0 14 8"
   />
@@ -180,6 +182,14 @@ export const SearchIcon: FC<SVGIncomingProp> = (props) => (
     strokeWidth="3"
     {...props}
     viewBox="0 0 24 24"
+  />
+);
+
+export const Bin: FC<SVGIncomingProp> = (props) => (
+  <SVGIcon
+    path="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z"
+    viewBox="0 0 18 20"
+    {...props}
   />
 );
 
