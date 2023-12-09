@@ -1,7 +1,7 @@
-import Modal from "../../UI/Modal";
-import Button from "../../UI/Button";
+import Modal from "../../UI/Backdrop/Modal";
+import Button from "../../UI/Wrappers/Button";
 import { CrossIcon, ShareArrowIcon, ThumbsUpIcon } from "../../../SVG/svgIcon";
-import Card from "../../UI/Card";
+import Card from "../../UI/Wrappers/ImageCard";
 import { MenuItem } from "../../../tempData/MenuList";
 import AddOns from "./AddOns";
 

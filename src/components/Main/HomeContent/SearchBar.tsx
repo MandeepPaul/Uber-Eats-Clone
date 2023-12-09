@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 
-import Button from "../../UI/Button";
+import Button from "../../UI/Wrappers/Button";
 import { SearchIcon, FilterIcon } from "../../../SVG/svgIcon";
 
 import FilterOverlay from "../../Overlays/Filter/FilterOverLay";

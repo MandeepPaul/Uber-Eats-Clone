@@ -1,4 +1,4 @@
-import Button from "../../../UI/Button";
+import Button from "../../../UI/Wrappers/Button";
 import SubOption from "./SubOption";
 
 let sideNavIcons = [

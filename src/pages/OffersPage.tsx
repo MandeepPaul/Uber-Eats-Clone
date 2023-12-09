@@ -1,6 +1,6 @@
 import { storeWithDeals } from "../components/Main/HomeContent/stores/Allstores";
 import Store from "../components/Main/HomeContent/stores/Store";
-import HorizontalCard from "../components/UI/Cards/HorizontalCard";
+import StoreImageCard from "../components/UI/Cards/StoreImageCard";
 
 const OffersPage = () => {
   return (
@@ -13,7 +13,7 @@ const OffersPage = () => {
         {storeWithDeals.map(
           ({ id, name, rating, deliveryFee, time, offer, url }) => (
             <li key={id}>
-              <HorizontalCard
+              <StoreImageCard
                 name={name}
                 rating={rating}
                 deliveryFee={deliveryFee}

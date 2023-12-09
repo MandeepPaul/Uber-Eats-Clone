@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./Wrappers/Button";
 
 const ButtonPair: React.FC<{ text1: string; text2: string }> = ({
   text1,

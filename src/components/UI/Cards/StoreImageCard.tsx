@@ -1,6 +1,6 @@
 import { FavHeartIcon } from "../../../SVG/svgIcon";
 import { Istores } from "../../../tempData/StoreList";
-import Card from "../Card";
+import Card from "../Wrappers/ImageCard";
 
 interface StoreDetailsProps
   extends Pick<
@@ -10,7 +10,7 @@ interface StoreDetailsProps
   className?: string;
 }
 
-const HorizontalCard: React.FC<StoreDetailsProps> = ({
+const StoreImageCard: React.FC<StoreDetailsProps> = ({
   name,
   rating,
   deliveryFee,
@@ -62,4 +62,4 @@ const HorizontalCard: React.FC<StoreDetailsProps> = ({
   );
 };
 
-export default HorizontalCard;
+export default StoreImageCard;

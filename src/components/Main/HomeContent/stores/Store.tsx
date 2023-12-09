@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { FavHeartIcon, TrophyIcon } from "../../../../SVG/svgIcon";
 import { Istores } from "../../../../tempData/StoreList";
 
-import Card from "../../../UI/Card";
+import Card from "../../../UI/Wrappers/ImageCard";
 import CardSection from "./CardSection";
-import Button from "../../../UI/Button";
+import Button from "../../../UI/Wrappers/Button";
 
 interface StoreDetailsProps
   extends Pick<

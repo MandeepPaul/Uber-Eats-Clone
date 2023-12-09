@@ -1,4 +1,4 @@
-import Button from "../../UI/Button";
+import Button from "../../UI/Wrappers/Button";
 
 const EmptyCart: React.FC<{ onReset: () => void }> = ({ onReset }) => {
   return (

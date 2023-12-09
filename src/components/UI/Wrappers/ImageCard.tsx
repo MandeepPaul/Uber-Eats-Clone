@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card: React.FC<{
+const ImageCard: React.FC<{
   className?: string;
   style?: React.CSSProperties;
   url: string;
@@ -20,4 +20,4 @@ const Card: React.FC<{
   );
 };
 
-export default Card;
+export default ImageCard;

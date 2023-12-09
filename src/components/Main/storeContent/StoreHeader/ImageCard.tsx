@@ -1,5 +1,5 @@
-import Card from "../../../UI/Card";
-import Button from "../../../UI/Button";
+import Card from "../../../UI/Wrappers/ImageCard";
+import Button from "../../../UI/Wrappers/Button";
 import { FavHeartIcon, SearchIcon } from "../../../../SVG/svgIcon";
 
 const ImageCard = () => {
@@ -14,6 +14,7 @@ const ImageCard = () => {
           <span className="relative z-10 flex items-center justify-center w-full h-full">
             <SearchIcon
               className="px-1 lg:stroke-black"
+              strokeColor="#FFFFFF"
               width="26px"
               height="26px"
             />

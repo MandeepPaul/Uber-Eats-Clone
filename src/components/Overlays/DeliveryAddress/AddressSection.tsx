@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../UI/Button";
+import Button from "../../UI/Wrappers/Button";
 
 const AddressSection: React.FC<{
   svg: React.FC<React.SVGProps<SVGSVGElement>>;

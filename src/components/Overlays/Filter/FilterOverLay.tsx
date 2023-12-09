@@ -1,5 +1,5 @@
-import Modal from "../../UI/Modal";
-import Button from "../../UI/Button";
+import Modal from "../../UI/Backdrop/Modal";
+import Button from "../../UI/Wrappers/Button";
 import Filter from "../../Main/HomeContent/Filter/Filter";
 import { CrossIcon } from "../../../SVG/svgIcon";
 

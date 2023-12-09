@@ -4,8 +4,8 @@ import ReactDOM from "react-dom";
 import { ThumbsUpIcon } from "../../../../SVG/svgIcon";
 import { MenuItem as MenuItemType } from "../../../../tempData/MenuList";
 import ItemDetails from "../../../Overlays/Store/ItemDetails";
-import Button from "../../../UI/Button";
-import Card from "../../../UI/Card";
+import Button from "../../../UI/Wrappers/Button";
+import Card from "../../../UI/Wrappers/ImageCard";
 
 const MenuItem: React.FC<MenuItemType> = ({
   name,

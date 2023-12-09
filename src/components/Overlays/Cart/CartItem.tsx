@@ -1,6 +1,6 @@
 import CartItemWrapper from "../../UI/Wrappers/CartItemWrapper";
-import Card from "../../UI/ImageCard";
-import DropDownMenu from "../../UI/DropDownMenu";
+import Card from "../../UI/Wrappers/ImageCard";
+// import DropDownMenu from "../../UI/DropDownMenu";
 import CounterButton from "../../UI/CounterButton";
 
 const CartItem = () => {
@@ -23,9 +23,9 @@ const CartItem = () => {
 
       {/* <DropDownMenu
         options={[1, 2, 3, 4, 5]}
-        className="space-x-2 px-3 py-1 text-sm"
+        className="hidden md:flex space-x-2 px-3 py-1 text-sm"
       /> */}
-      <CounterButton onDelete={removeItemHandler} />
+      <CounterButton className="" onDelete={removeItemHandler} />
 
       <span className="place-self-end col-span-2">$17.76</span>
     </CartItemWrapper>

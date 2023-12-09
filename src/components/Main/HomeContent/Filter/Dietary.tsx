@@ -1,5 +1,5 @@
 import DieteryIcons from "../../../../SVG/svgIcon";
-import Button from "../../../UI/Button";
+import Button from "../../../UI/Wrappers/Button";
 
 const Dietry = () => {
   return (

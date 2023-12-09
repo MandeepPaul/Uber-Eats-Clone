@@ -1,5 +1,5 @@
 import CartItemWrapper from "../../UI/Wrappers/CartItemWrapper";
-import Button from "../../UI/Button";
+import Button from "../../UI/Wrappers/Button";
 
 const StoreCartDetails = () => {
   return (

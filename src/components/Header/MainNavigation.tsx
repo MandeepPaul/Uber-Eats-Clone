@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import { HamburgerMenuIcon, CartIcon } from "../../SVG/svgIcon";
 import SearchBar from "../Main/HomeContent/SearchBar";
-import Button from "../UI/Button";
+import Button from "../UI/Wrappers/Button";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 import Cart from "../Overlays/Cart/Cart";
 import SideNav from "../Main/HomeContent/SideNav/SideNav";
@@ -13,7 +13,7 @@ const MainNavigation: React.FC<{
   className: string;
   onAddressBarClick?: () => void;
 }> = ({ className, onAddressBarClick }) => {
-  const [cartVisibility, setCartVisibility] = useState(true);
+  const [cartVisibility, setCartVisibility] = useState(false);
   const [sideNavigation, setNavVisibility] = useState(false);
 
   const cartHandler = () => {

@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Bin } from "../../SVG/svgIcon";
 
-const CounterButton: React.FC<{ onDelete: () => void }> = ({ onDelete }) => {
+const CounterButton: React.FC<{ className?: string; onDelete: () => void }> = ({
+  onDelete,
+  className,
+}) => {
   const [counter, setCounter] = useState(1);
 
   const counterHandler = (identifier: string) => {
@@ -15,12 +18,14 @@ const CounterButton: React.FC<{ onDelete: () => void }> = ({ onDelete }) => {
   };
 
   return (
-    <div className="flex justify-between items-center px-4 text-3xl font-medium bg-gray-200 rounded-full">
-      <button onClick={(event) => counterHandler("minus")}>
+    <div
+      className={`flex justify-between items-center px-4 text-3xl font-medium bg-gray-200 rounded-full ${className}`}
+    >
+      <button onClick={() => counterHandler("minus")}>
         {counter <= 1 ? <Bin strokeWidth="1" /> : <span>-</span>}
       </button>
       <span className="text-base pt-1">{counter}</span>
-      <button onClick={(event) => counterHandler("add")}>+</button>
+      <button onClick={() => counterHandler("add")}>+</button>
     </div>
   );
 };

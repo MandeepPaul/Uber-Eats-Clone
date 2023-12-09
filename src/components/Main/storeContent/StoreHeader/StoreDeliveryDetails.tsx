@@ -1,5 +1,5 @@
 import { AddFriendIcon, CalendarIcon } from "../../../../SVG/svgIcon";
-import Button from "../../../UI/Button";
+import Button from "../../../UI/Wrappers/Button";
 import OrderTypeToggle from "../../../Header/DeliveryDetails/OrderTypeToogle";
 
 const StoreDeliveryDetails = () => {

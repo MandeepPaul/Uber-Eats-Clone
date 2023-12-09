@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "./Wrappers/Button";
 import { ArrowDownSVG } from "../../SVG/svgIcon";
 
 const DropDownMenu: React.FC<{
