@@ -1,13 +1,37 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RightArrow } from "../../../../SVG/svgIcon";
-import Store from "./Store";
-import DUMMY_STORES from "../../../../tempData/StoreList";
+import RenderStores from "./RenderStores";
+import { Istores } from "../../../../tempData/StoreList";
+import LoadingIndicator from "../../../UI/Animations/LoadingIndicator";
 
-let storeWithDeals = DUMMY_STORES.filter((store) => store.offer);
-
-export { storeWithDeals };
+import { onSnapshot, collection } from "firebase/firestore";
+import db from "../../../../firebase";
 
 const Allstores: React.FC<{ className?: string }> = ({ className }) => {
+  const [storesData, setStoresData] = useState<Istores[]>([]);
+
+  const storesCollection = collection(db, "stores");
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(storesCollection, (querySnapshot) => {
+      const newStoresData: Istores[] = [];
+      querySnapshot.forEach((doc) => {
+        const storeData = {
+          id: doc.id,
+          ...(doc.data() as Omit<Istores, "id">),
+        };
+        newStoresData.push(storeData);
+      });
+      setStoresData(newStoresData); // Update StoresData state variable
+    });
+
+    return () => {
+      unsubscribe(); //Prevents memory leaks and unnecessary resource consuption.
+    };
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className={`${className}`}>
       <div className={`flex justify-between items-center`}>
@@ -17,41 +41,17 @@ const Allstores: React.FC<{ className?: string }> = ({ className }) => {
         </Link>
       </div>
 
-      <ul className={`flex justify-between gap-4 pb-3 overflow-x-auto`}>
-        {storeWithDeals.map(
-          ({ id, url, offer, name, deliveryFee, time, rating }) => (
-            <li
-              key={id}
-              className="mt-4 flex-shrink-0 w-[85%] md:w-[40%] lg:w-[32%]"
-            >
-              <Store
-                url={url}
-                offer={offer}
-                name={name}
-                deliveryFee={deliveryFee}
-                time={time}
-                rating={rating}
-              />
-            </li>
-          )
-        )}
-      </ul>
-      <ul className={`lg:grid lg:grid-cols-3 lg:gap-4 ${className}`}>
-        {DUMMY_STORES.map(
-          ({ id, url, offer, name, deliveryFee, time, rating }) => (
-            <li key={id} className="mt-4">
-              <Store
-                url={url}
-                offer={offer}
-                name={name}
-                deliveryFee={deliveryFee}
-                time={time}
-                rating={rating}
-              />
-            </li>
-          )
-        )}
-      </ul>
+      {storesData.length === 0 ? (
+        <LoadingIndicator />
+      ) : (
+        <>
+          <RenderStores
+            storeData={storesData.filter((store) => store.offer)}
+            isGrid={false}
+          />
+          <RenderStores storeData={storesData} isGrid={true} />
+        </>
+      )}
     </div>
   );
 };

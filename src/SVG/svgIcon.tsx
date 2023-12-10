@@ -108,8 +108,8 @@ const SVGIcon: FC<SVGIconProps> = ({
   >
     <path
       stroke={strokeColor}
-      stroke-linecap={strokeLinecap}
-      stroke-linejoin={strokeLinejoin}
+      // strokeLinecap={strokeLinecap}
+      // strokeLinejoin={strokeLinejoin}
       strokeWidth={strokeWidth}
       d={path}
     />

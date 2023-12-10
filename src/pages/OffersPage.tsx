@@ -1,6 +1,6 @@
-import { storeWithDeals } from "../components/Main/HomeContent/stores/Allstores";
-import Store from "../components/Main/HomeContent/stores/Store";
-import StoreImageCard from "../components/UI/Cards/StoreImageCard";
+// import { storeWithDeals } from "../components/Main/HomeContent/stores/Allstores";
+// import Store from "../components/Main/HomeContent/stores/Store";
+// import StoreImageCard from "../components/UI/Cards/StoreImageCard";
 
 const OffersPage = () => {
   return (
@@ -9,7 +9,7 @@ const OffersPage = () => {
         Today's offers
       </h3>
 
-      <ul className="lg:grid lg:grid-cols-3 lg:gap-4">
+      {/* <ul className="lg:grid lg:grid-cols-3 lg:gap-4">
         {storeWithDeals.map(
           ({ id, name, rating, deliveryFee, time, offer, url }) => (
             <li key={id}>
@@ -34,7 +34,7 @@ const OffersPage = () => {
             </li>
           )
         )}
-      </ul>
+      </ul> */}
     </div>
   );
 };
