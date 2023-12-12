@@ -5,32 +5,33 @@ import RenderStores from "./RenderStores";
 import { Istores } from "../../../../tempData/StoreList";
 import LoadingIndicator from "../../../UI/Animations/LoadingIndicator";
 
-import { onSnapshot, collection } from "firebase/firestore";
-import db from "../../../../firebase";
+import StoreList from "../../../../tempData/StoreList";
 
 const Allstores: React.FC<{ className?: string }> = ({ className }) => {
-  const [storesData, setStoresData] = useState<Istores[]>([]);
-
-  const storesCollection = collection(db, "stores");
+  const [storesData, setStoresData] = useState<Istores[]>([]); // State to hold the store data
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(storesCollection, (querySnapshot) => {
-      const newStoresData: Istores[] = [];
-      querySnapshot.forEach((doc) => {
-        const storeData = {
-          id: doc.id,
-          ...(doc.data() as Omit<Istores, "id">),
-        };
-        newStoresData.push(storeData);
-      });
-      setStoresData(newStoresData); // Update StoresData state variable
-    });
+    // Fetch store data using StoreList function
+    async function fetchStores() {
+      try {
+        const data = await StoreList(); // Execute StoreList function to get store data
 
-    return () => {
-      unsubscribe(); //Prevents memory leaks and unnecessary resource consuption.
-    };
-    // eslint-disable-next-line
+        if (data instanceof Error) {
+          throw data;
+        }
+
+        setStoresData(data); // Set the store data in state
+      } catch (error) {
+        console.error("Error fetching store data:", error);
+        setError("Could not fetch data! Try refreshing.");
+      }
+    }
+
+    fetchStores(); // Call the function to fetch store data
   }, []);
+
+  console.log(error);
 
   return (
     <div className={`${className}`}>
@@ -41,7 +42,7 @@ const Allstores: React.FC<{ className?: string }> = ({ className }) => {
         </Link>
       </div>
 
-      {storesData.length === 0 ? (
+      {!error && storesData.length === 0 ? (
         <LoadingIndicator />
       ) : (
         <>
@@ -52,6 +53,8 @@ const Allstores: React.FC<{ className?: string }> = ({ className }) => {
           <RenderStores storeData={storesData} isGrid={true} />
         </>
       )}
+
+      {error && <p className="lg:text-xl text-center text-red-500">{error}</p>}
     </div>
   );
 };
