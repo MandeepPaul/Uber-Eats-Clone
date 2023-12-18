@@ -7,15 +7,12 @@ import Card from "../../../UI/Wrappers/ImageCard";
 import CardSection from "./CardSection";
 import Button from "../../../UI/Wrappers/Button";
 
-interface StoreDetailsProps
-  extends Pick<
-    Istores,
-    "name" | "rating" | "deliveryFee" | "time" | "offer" | "url"
-  > {
+interface StoreDetailsProps extends Istores {
   className?: string;
 }
 
 const Store: React.FC<StoreDetailsProps> = ({
+  id,
   url,
   name,
   offer,
@@ -25,7 +22,7 @@ const Store: React.FC<StoreDetailsProps> = ({
   className,
 }) => {
   return (
-    <Link to="stores/id" className={`${className}`}>
+    <Link to={`stores/${id}`} className={`${className}`}>
       <Card className={`h-[150px] relative rounded-lg`} url={url}>
         {offer && (
           <div className="bg-green-700 absolute top-3 rounded-r-full text-sm text-white px-2 flex items-center gap-1 shadow-sm">

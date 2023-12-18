@@ -23,6 +23,7 @@ const RenderStores: React.FC<{
           }
         >
           <Store
+            id={id}
             url={url}
             offer={offer}
             name={name}

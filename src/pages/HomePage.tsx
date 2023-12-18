@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IndexRouteObject, useLoaderData } from "react-router-dom";
+import { IndexRouteObject, useRouteLoaderData } from "react-router-dom";
 import ReactDOM from "react-dom";
 
 import StoreList, { Istores } from "../tempData/StoreList";
@@ -10,7 +10,7 @@ import DeliveryAddress from "../components/Overlays/DeliveryAddress/DeliveryAddr
 
 const HomePage = () => {
   const [addressOverlayVisibility, setAddressVisibility] = useState(false);
-  const data = useLoaderData();
+  const data = useRouteLoaderData("store-details");
   const typedData = data as Istores[];
 
   const onAddressBarClick = () => {
@@ -49,7 +49,6 @@ export const loader: IndexRouteObject["loader"] = async (): Promise<any> => {
     if (data instanceof Error) {
       throw data;
     }
-    console.log(data);
     return data; // Return the retrieved data if no error occurred
   } catch (error) {
     console.error("Error fetching store data: " + error);
