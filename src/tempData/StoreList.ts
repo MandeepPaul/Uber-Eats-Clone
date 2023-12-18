@@ -75,22 +75,22 @@ export const fetchMenuData = async (
 
     for (const doc of querySnapshot.docs) {
       if (doc.id === id) {
-        const storeData: Partial<storeDataType> = {
+        const storeData: storeDataType = {
           id: doc.id,
           ...(doc.data() as Omit<storeDataType, "id">),
         };
 
         const menuContentRef = collection(doc.ref, "menuContent");
-        const menu: MenuCategory[] = [];
+        const menu: MenuCategory[] = []; //Sub-Array that contains object with properties id, itemCategory and items[].
 
         const menuContentSnapshot: QuerySnapshot<DocumentData> = await getDocs(
           menuContentRef
         );
 
         for (const categoryDoc of menuContentSnapshot.docs) {
-          const categoryData: Partial<MenuCategory> = {
+          const categoryData: MenuCategory = {
             id: categoryDoc.id,
-            ...(doc.data() as Omit<MenuCategory, "id">),
+            ...(categoryDoc.data() as Omit<MenuCategory, "id">),
           };
 
           const itemsRef = collection(categoryDoc.ref, "items");
@@ -98,14 +98,13 @@ export const fetchMenuData = async (
             itemsRef
           );
 
-          const items: MenuItem[] = [];
-
-          itemsSnapshot.forEach((itemDoc) => {
+          //Nested array with menu item details.
+          const items: MenuItem[] = itemsSnapshot.docs.map((itemDoc) => {
             const itemData: MenuItem = {
               id: itemDoc.id,
               ...(itemDoc.data() as Omit<MenuItem, "id">),
             };
-            items.push(itemData);
+            return itemData;
           });
 
           categoryData.items = items;
@@ -127,64 +126,6 @@ export const fetchMenuData = async (
     throw error;
   }
 };
-
-// const fetchStoreData = async (): Promise<Istores[]> => {
-//   const storesCollection = collection(db, "stores");
-//   const newStoresData: Istores[] = [];
-
-//   try {
-//     const querySnapshot: QuerySnapshot<DocumentData> = await getDocs(
-//       storesCollection
-//     );
-
-//     for (const doc of querySnapshot.docs) {
-//       const storeData: Istores = {
-//         id: doc.id,
-//         ...(doc.data() as Omit<Istores, "id">),
-//       };
-
-//       const menuContentRef = collection(doc.ref, "menuContent");
-//       const menuCategories: MenuCategory[] = [];
-
-//       const menuContentSnapshot: QuerySnapshot<DocumentData> = await getDocs(
-//         menuContentRef
-//       );
-
-//       for (const categoryDoc of menuContentSnapshot.docs) {
-//         const categoryData: MenuCategory = {
-//           id: categoryDoc.id,
-//           ...(categoryDoc.data() as Omit<MenuCategory, "id">),
-//         };
-
-//         const itemsRef = collection(categoryDoc.ref, "items");
-//         const itemsSnapshot: QuerySnapshot<DocumentData> = await getDocs(
-//           itemsRef
-//         );
-
-//         const items: MenuItem[] = [];
-
-//         itemsSnapshot.forEach((itemDoc) => {
-//           const itemData: MenuItem = {
-//             id: itemDoc.id,
-//             ...(itemDoc.data() as Omit<MenuItem, "id">),
-//           };
-//           items.push(itemData);
-//         });
-
-//         categoryData.items = items;
-//         menuCategories.push(categoryData);
-//       }
-
-//       storeData.menuContent = menuCategories;
-//       newStoresData.push(storeData);
-//     }
-//     console.log(newStoresData);
-//     return newStoresData;
-//   } catch (error) {
-//     console.error("Error fetching store data:", error);
-//     throw error;
-//   }
-// };
 
 const StoreList = async (): Promise<Istores[] | Error> => {
   try {

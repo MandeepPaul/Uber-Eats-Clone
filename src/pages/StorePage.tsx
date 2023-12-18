@@ -1,5 +1,5 @@
 import { IndexRouteObject, useLoaderData } from "react-router-dom";
-import { fetchMenuData } from "../tempData/StoreList";
+import { Istores, fetchMenuData } from "../tempData/StoreList";
 import StoreDeliveryDetails from "../components/Main/StoreContent/StoreHeader/StoreDeliveryDetails";
 import ImageCard from "../components/Main/StoreContent/StoreHeader/ImageCard";
 import MenuContent from "../components/Main/StoreContent/Main/MenuContent";
@@ -7,17 +7,21 @@ import MenuContent from "../components/Main/StoreContent/Main/MenuContent";
 import { storeDataType } from "../tempData/StoreList";
 
 const StorePage = () => {
-  const loader = useLoaderData() as storeDataType;
+  const storeDetailsIncMenu = useLoaderData() as storeDataType;
+  const { menuContent, ...rest } = storeDetailsIncMenu;
 
-  if (typeof loader === "object" && loader !== null) {
-    console.log(loader);
+  const storeData = rest as Istores;
+
+  if (typeof storeDetailsIncMenu === "object" && storeDetailsIncMenu !== null) {
   }
-
   return (
     <main className="text-sm">
-      <ImageCard />
-      <StoreDeliveryDetails />
-      <MenuContent />
+      <ImageCard
+        imageURL={storeDetailsIncMenu.url}
+        logoURL={storeDetailsIncMenu.logoURL}
+      />
+      <StoreDeliveryDetails {...storeData} />
+      <MenuContent categoryList={menuContent} />
     </main>
   );
 };

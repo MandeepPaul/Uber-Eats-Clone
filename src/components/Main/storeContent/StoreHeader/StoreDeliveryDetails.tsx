@@ -1,20 +1,26 @@
 import { AddFriendIcon, CalendarIcon } from "../../../../SVG/svgIcon";
 import Button from "../../../UI/Wrappers/Button";
 import OrderTypeToggle from "../../../Header/DeliveryDetails/OrderTypeToogle";
+import { Istores } from "../../../../tempData/StoreList";
 
-const StoreDeliveryDetails = () => {
+const StoreDeliveryDetails: React.FC<Istores> = ({
+  name,
+  deliveryFee,
+  time,
+  rating,
+}) => {
   return (
     <>
       <div
         className={`mt-10 mb-2 mx-4 text-center flex flex-col items-center justify-center lg:items-start lg:gap-1`}
       >
         <span className="text-2xl font-medium lg:text-[40px] lg:font-semibold">
-          A&W
+          {name}
         </span>
         <div className="text-sm flex gap-1 justify-center">
-          <span>4.4 &#9733;</span>
+          <span>{rating} &#9733;</span>
           <span className="text-gray-500 font-light">
-            (100+) &#8226; $0.99 Delivery Fee &#8226;
+            (100+) &#8226; {`$${deliveryFee} Delivery Fee`} &#8226;
           </span>
           <span className="text-amber-800">Uber One &#8226; </span>
           <span>0.6 km </span>
@@ -26,8 +32,8 @@ const StoreDeliveryDetails = () => {
           <OrderTypeToggle
             className="py-2 flex"
             buttonPadding="px-[12px] lg:px-[100px]"
-            deliveryDetails={`20min $0.99`}
-            pickupDetails={`10 min 0.5 KM`}
+            deliveryDetails={`${time}min $${deliveryFee}`}
+            pickupDetails={`${time} min 0.5 KM`}
           />
           <div className="flex gap-2">
             <Button className="bg-gray-200 hover:bg-gray-300 rounded-full px-3 py-2 flex justify-between gap-2 items-center lg:py-3">
@@ -43,7 +49,7 @@ const StoreDeliveryDetails = () => {
 
         <div className="flex justify-around border-[1px] rounded-lg p-3 mt-3 divide-x lg:hidden">
           <div className="flex flex-col items-center w-[50%]">
-            <span>$0.99 Delivery Fee</span>
+            <span>{`$${deliveryFee} Delivery Fee`}</span>
             <span className="text-gray-400 font-thin text-xs">
               Pricing & fees
             </span>

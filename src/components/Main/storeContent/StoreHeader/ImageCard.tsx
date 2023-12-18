@@ -2,12 +2,12 @@ import Card from "../../../UI/Wrappers/ImageCard";
 import Button from "../../../UI/Wrappers/Button";
 import { FavHeartIcon, SearchIcon } from "../../../../SVG/svgIcon";
 
-const ImageCard = () => {
+const ImageCard: React.FC<{ imageURL: string; logoURL?: string }> = ({
+  imageURL,
+  logoURL,
+}) => {
   return (
-    <Card
-      className="w-full relative h-[130px] lg:h-[250px] "
-      url="https://tb-static.uber.com/prod/image-proc/processed_images/e1244ff68a32fe72d9ee6345c724dcf6/719c6bd2757b08684c0faae44d43159d.jpeg"
-    >
+    <Card className="w-full relative h-[130px] lg:h-[250px] " url={imageURL}>
       <div className="absolute top-2 lg:top-[90px] right-2 flex gap-2">
         <Button className="relative rounded-full h-11 w-11 overflow-hidden">
           <div className="absolute inset-0 bg-black blur-lg" />

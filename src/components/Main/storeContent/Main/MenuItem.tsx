@@ -23,18 +23,20 @@ const MenuItem: React.FC<MenuItemType> = ({
   return (
     <div className="group min-h-[126px] flex justify-between items-center p-2 lg:flex-col-reverse lg:justify-end lg:items-start lg:gap-1 lg:grow lg:min-h-[320px] lg:hover:shadow-xl">
       {/* Individual Card */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden lg:flex lg:flex-col lg:justify-between h-full">
         <span className="text-base font-medium lg:text-lg">{name}</span>
         <div className="flex gap-1 font-thin lg:flex-col lg:text-base">
           <div>
             <span>{`$${price} `}</span>
             <span className="text-gray-500">&#8226; {`${calories} Cal.`}</span>
           </div>
-          <div className="flex items-center max-w-[70px] gap-1 lg:bg-stone-200 lg:rounded-full lg:justify-center">
-            <span className="lg:hidden">&#8226;</span>
-            <ThumbsUpIcon height="14px" fill="#000000" />
-            <span>{`${recommended}%`}</span>
-          </div>
+          {recommended && (
+            <div className="flex items-center max-w-[70px] gap-1 lg:bg-stone-200 lg:rounded-full lg:justify-center">
+              <span className="lg:hidden">&#8226;</span>
+              <ThumbsUpIcon height="14px" fill="#000000" />
+              <span>{`${recommended}%`}</span>
+            </div>
+          )}
         </div>
         {description && (
           <p className="text-gray-500 pt-1 max-h-10 mr-1 truncate lg:hidden">
