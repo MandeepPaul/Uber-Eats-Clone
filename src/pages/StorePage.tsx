@@ -22,7 +22,7 @@ const StorePage = () => {
       </p>
     </div>
   );
-  console.log(navigation.state);
+  // console.log(navigation.state);
 
   if (navigation.state === "loading") content = <LoadingIndicator />;
 
