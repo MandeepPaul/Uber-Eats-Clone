@@ -11,9 +11,10 @@ export type MenuItem = {
   id: string;
   name: string;
   price: number;
-  calories: number | string;
-  recommended: number;
+  calories?: number | string;
+  recommended?: number;
   description?: string;
+  imageURL: string;
 };
 
 export type MenuCategory = {
@@ -31,13 +32,14 @@ export interface Istores {
   time: number;
   rating: number;
   logoURL?: string;
+  category?: string;
 }
 
 export interface storeDataType extends Istores {
   menuContent: MenuCategory[];
 }
 
-const fetchStoreData = async (): Promise<Istores[]> => {
+export const fetchStoreData = async (): Promise<Istores[]> => {
   const storesCollection = collection(db, "stores");
   const newStoresData: Istores[] = [];
 
@@ -126,15 +128,3 @@ export const fetchMenuData = async (
     throw error;
   }
 };
-
-const StoreList = async (): Promise<Istores[] | Error> => {
-  try {
-    const storesData = await fetchStoreData();
-    return storesData;
-  } catch (error) {
-    console.error("Error fetching store data:", error);
-    throw new Error(`Error fetching store data:", ${error}`);
-  }
-};
-
-export default StoreList;

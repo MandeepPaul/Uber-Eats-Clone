@@ -1,29 +1,46 @@
-import { IndexRouteObject, useLoaderData } from "react-router-dom";
+import {
+  IndexRouteObject,
+  useLoaderData,
+  useNavigation,
+} from "react-router-dom";
 import { Istores, fetchMenuData } from "../tempData/StoreList";
 import StoreDeliveryDetails from "../components/Main/StoreContent/StoreHeader/StoreDeliveryDetails";
 import ImageCard from "../components/Main/StoreContent/StoreHeader/ImageCard";
 import MenuContent from "../components/Main/StoreContent/Main/MenuContent";
 
 import { storeDataType } from "../tempData/StoreList";
+import LoadingIndicator from "../components/UI/Animations/LoadingIndicator";
 
 const StorePage = () => {
   const storeDetailsIncMenu = useLoaderData() as storeDataType;
-  const { menuContent, ...rest } = storeDetailsIncMenu;
+  const navigation = useNavigation();
 
-  const storeData = rest as Istores;
-
-  if (typeof storeDetailsIncMenu === "object" && storeDetailsIncMenu !== null) {
-  }
-  return (
-    <main className="text-sm">
-      <ImageCard
-        imageURL={storeDetailsIncMenu.url}
-        logoURL={storeDetailsIncMenu.logoURL}
-      />
-      <StoreDeliveryDetails {...storeData} />
-      <MenuContent categoryList={menuContent} />
-    </main>
+  let content = (
+    <div className="w-ful h-[800px] grid place-content-center">
+      <p className="text-center text-xl text-red-500">
+        No store data available!
+      </p>
+    </div>
   );
+  console.log(navigation.state);
+
+  if (navigation.state === "loading") content = <LoadingIndicator />;
+
+  if (storeDetailsIncMenu && typeof storeDetailsIncMenu === "object") {
+    content = (
+      <>
+        <ImageCard
+          imageURL={storeDetailsIncMenu.url || ""} // Accessing 'url' property, ensuring it exists
+          logoURL={storeDetailsIncMenu.logoURL || ""} // Accessing 'logoURL' property, ensuring it exists
+        />
+        <StoreDeliveryDetails {...(storeDetailsIncMenu as Istores)} />
+        <MenuContent categoryList={storeDetailsIncMenu.menuContent || []} />
+        {/* Ensuring 'menuContent' is an array */}
+      </>
+    );
+  }
+
+  return <main className="text-sm">{content}</main>;
 };
 
 export default StorePage;

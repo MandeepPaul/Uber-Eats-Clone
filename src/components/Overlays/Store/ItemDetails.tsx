@@ -2,7 +2,7 @@ import Modal from "../../UI/Backdrop/Modal";
 import Button from "../../UI/Wrappers/Button";
 import { CrossIcon, ShareArrowIcon, ThumbsUpIcon } from "../../../SVG/svgIcon";
 import Card from "../../UI/Wrappers/ImageCard";
-import { MenuItem } from "../../../tempData/MenuList";
+import { MenuItem } from "../../../tempData/StoreList";
 import AddOns from "./AddOns";
 
 type ItemType = Omit<MenuItem, "id"> & {
@@ -16,6 +16,7 @@ const ItemDetails: React.FC<ItemType> = ({
   calories,
   recommended,
   description,
+  imageURL,
 }) => {
   return (
     <Modal
@@ -35,7 +36,7 @@ const ItemDetails: React.FC<ItemType> = ({
         <div className="md:grid md:grid-cols-2">
           <Card
             className="h-[250px] lg:h-[450px] transition-transform duration-300 transform-gpu hover:scale-105"
-            url="https://tb-static.uber.com/prod/image-proc/processed_images/518b43dfb7300d8ebf9c87be2d6b59db/5954bcb006b10dbfd0bc160f6370faf3.jpeg"
+            url={imageURL}
           />
           <div className="px-4 pt-2">
             <div className="flex flex-col text-slate-800">

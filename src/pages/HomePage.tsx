@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IndexRouteObject, useRouteLoaderData } from "react-router-dom";
 import ReactDOM from "react-dom";
 
-import StoreList, { Istores } from "../tempData/StoreList";
+import { fetchStoreData, Istores } from "../tempData/StoreList";
 
 import DeliveryDetails from "../components/Header/DeliveryDetails/DeliveryDetails";
 import Main from "../components/Main/HomeContent/Main";
@@ -44,7 +44,7 @@ export default HomePage;
 
 export const loader: IndexRouteObject["loader"] = async (): Promise<any> => {
   try {
-    const data = await StoreList(); // Execute StoreList function to get store data
+    const data = await fetchStoreData(); // Execute StoreList function to get store data
 
     if (data instanceof Error) {
       throw data;

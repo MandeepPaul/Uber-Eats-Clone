@@ -5,8 +5,6 @@ import { MenuCategory } from "../../../../tempData/StoreList";
 const MenuContent: React.FC<{ categoryList: MenuCategory[] }> = ({
   categoryList,
 }) => {
-  // console.log(categoryList);
-
   return (
     <div className="lg:flex">
       <CategorySection menu={categoryList} />
@@ -17,7 +15,10 @@ const MenuContent: React.FC<{ categoryList: MenuCategory[] }> = ({
             <h2 className="text-2xl font-semibold lg:text-3xl">
               {eachCategory.itemCategory}
             </h2>
-            <div className="gap-1 divide-y lg:divide-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4">
+            <div
+              id={eachCategory.itemCategory}
+              className="gap-1 divide-y lg:divide-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4"
+            >
               {eachCategory.items.map((item) => (
                 <MenuItem key={item.id} {...item} />
               ))}
