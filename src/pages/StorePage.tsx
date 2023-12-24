@@ -22,8 +22,7 @@ const StorePage = () => {
       </p>
     </div>
   );
-  // console.log(navigation.state);
-
+  // console.log(storeDetailsIncMenu);
   if (navigation.state === "loading") content = <LoadingIndicator />;
 
   if (storeDetailsIncMenu && typeof storeDetailsIncMenu === "object") {
@@ -52,6 +51,7 @@ export const loader: IndexRouteObject["loader"] = async ({
 
   try {
     const storesData = await fetchMenuData(id);
+    // console.log(storesData);
     return storesData[0];
   } catch (error) {
     console.error("Error fetching store data:", error);

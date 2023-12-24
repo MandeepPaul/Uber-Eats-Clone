@@ -33,7 +33,7 @@ const MenuContent: React.FC<{ categoryList: MenuCategory[] }> = ({
     const options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5,
+      threshold: 0.6,
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {

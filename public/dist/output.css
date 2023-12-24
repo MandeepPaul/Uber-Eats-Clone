@@ -1647,6 +1647,10 @@ video {
   padding: 1.25rem;
 }
 
+.p-\[0\.5\]{
+  padding: 0.5;
+}
+
 .px-1{
   padding-left: 0.25rem;
   padding-right: 0.25rem;
@@ -1931,6 +1935,11 @@ video {
 .text-yellow-700{
   --tw-text-opacity: 1;
   color: rgb(161 98 7 / var(--tw-text-opacity));
+}
+
+.text-stone-600{
+  --tw-text-opacity: 1;
+  color: rgb(87 83 78 / var(--tw-text-opacity));
 }
 
 .underline{

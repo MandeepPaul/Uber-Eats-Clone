@@ -17,7 +17,9 @@ const ItemDetails: React.FC<ItemType> = ({
   recommended,
   description,
   imageURL,
+  condiments,
 }) => {
+  console.log(condiments);
   return (
     <Modal
       modal="top-1/2 transform translate-y-[-50%] h-full w-full lg:w-[80%] mx-auto inset-x-0 font-ubermove overflow-y-scroll"
@@ -42,10 +44,10 @@ const ItemDetails: React.FC<ItemType> = ({
             <div className="flex flex-col text-slate-800">
               <h2 className="text-3xl text-black font-semibold">{name}</h2>
               <span className="text-lg">{`${calories} Cal`}</span>
-              <span className="text-lg">{`$${price}`}</span>
+              <span className="text-lg font-semibold text-stone-600">{`$${price}`}</span>
               <p className="text-sm md:text-base">{description}</p>
 
-              <div className="flex items-center max-w-[70px] mt-6 gap-1 bg-stone-200 rounded-full justify-center">
+              <div className="flex items-center max-w-[70px] mt-6 p-[0.5] gap-1 text-sm bg-stone-200 rounded-full justify-center">
                 <ThumbsUpIcon height="14px" fill="#000000" />
                 <span>{`${recommended}%`}</span>
               </div>

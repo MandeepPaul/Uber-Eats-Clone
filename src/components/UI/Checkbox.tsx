@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { TickIcon } from "../../SVG/svgIcon";
 
-const Checkbox = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
+const Checkbox: React.FC<{
+  id: string;
+  isChecked: boolean;
+  onCheckboxChange: () => void;
+}> = ({ id, isChecked, onCheckboxChange }) => {
   const handleCheckboxClick = () => {
-    setIsChecked((prevState) => !prevState);
+    onCheckboxChange();
+    console.log("change");
   };
 
   return (
-    <label htmlFor="myCheckbox" className="cursor-pointer relative self-center">
+    <label htmlFor={id} className="cursor-pointer relative self-center">
       <input
         type="checkbox"
-        id="myCheckbox"
-        name="myCheckbox"
+        id={id}
+        name={id}
         checked={isChecked}
         onChange={handleCheckboxClick}
         className="appearance-none h-4 w-4 md:h-6 md:w-6 border-[3px] border-gray-600 checked:border-black checked:bg-black"
