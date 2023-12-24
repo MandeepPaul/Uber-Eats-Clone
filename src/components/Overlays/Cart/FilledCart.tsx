@@ -21,7 +21,7 @@ const FilledCart = () => {
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-[50%] px-4 bg-white border-t-2 ">
+      <div className="fixed bottom-0 w-full lg:w-[50%] xl:w-[33%] px-4 border-t-2 ">
         <ButtonPair text1="Go to checkout" text2="Add items" />
       </div>
     </>

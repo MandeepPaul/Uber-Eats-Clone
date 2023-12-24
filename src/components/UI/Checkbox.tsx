@@ -8,7 +8,6 @@ const Checkbox: React.FC<{
 }> = ({ id, isChecked, onCheckboxChange }) => {
   const handleCheckboxClick = () => {
     onCheckboxChange();
-    console.log("change");
   };
 
   return (

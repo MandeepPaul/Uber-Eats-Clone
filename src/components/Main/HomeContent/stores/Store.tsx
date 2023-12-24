@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { FavHeartIcon, TrophyIcon } from "../../../../SVG/svgIcon";
-import { Istores } from "../../../../tempData/StoreList";
+import { Istores } from "../../../../fireStoreData/StoreList";
 
 import Card from "../../../UI/Wrappers/ImageCard";
 import CardSection from "./CardSection";

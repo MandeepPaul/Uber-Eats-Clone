@@ -2379,8 +2379,16 @@ video {
     width: 80%;
   }
 
+  .lg\:w-\[50\%\]{
+    width: 50%;
+  }
+
   .lg\:min-w-\[200px\]{
     min-width: 200px;
+  }
+
+  .lg\:min-w-\[50\%\]{
+    min-width: 50%;
   }
 
   .lg\:max-w-\[350px\]{
@@ -2633,6 +2641,30 @@ video {
 
   .xl\:w-1\/4{
     width: 25%;
+  }
+
+  .xl\:w-\[40\%\]{
+    width: 40%;
+  }
+
+  .xl\:w-\[30\%\]{
+    width: 30%;
+  }
+
+  .xl\:w-\[35\%\]{
+    width: 35%;
+  }
+
+  .xl\:w-\[32\%\]{
+    width: 32%;
+  }
+
+  .xl\:w-\[33\%\]{
+    width: 33%;
+  }
+
+  .xl\:w-\[34\%\]{
+    width: 34%;
   }
 
   .xl\:grid-cols-4{

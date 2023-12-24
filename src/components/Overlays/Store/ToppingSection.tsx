@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { toppingsT } from "../../../tempData/Toppings";
+import { CondimentsList } from "../../../fireStoreData/StoreList";
 import Checkbox from "../../UI/Checkbox";
 
 const ToppingSection: React.FC<{
   title: string;
   limit: number;
-  list: toppingsT[];
+  list: CondimentsList[];
 }> = ({ title, limit, list }) => {
   const [checkedItems, setCheckedItems] = useState<string[]>([]);
 
-  console.log(checkedItems);
   const handleCheckboxChange = (id: string) => {
     const index = checkedItems.indexOf(id);
     if (index === -1) {

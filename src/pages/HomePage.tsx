@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IndexRouteObject, useRouteLoaderData } from "react-router-dom";
 import ReactDOM from "react-dom";
 
-import { fetchStoreData, Istores } from "../tempData/StoreList";
+import { fetchStoreData, Istores } from "../fireStoreData/StoreList";
 
 import DeliveryDetails from "../components/Header/DeliveryDetails/DeliveryDetails";
 import Main from "../components/Main/HomeContent/Main";

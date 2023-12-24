@@ -2,7 +2,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 
 import { ThumbsUpIcon } from "../../../../SVG/svgIcon";
-import { MenuItem as MenuItemType } from "../../../../tempData/StoreList";
+import { MenuItem as MenuItemType } from "../../../../fireStoreData/StoreList";
 import ItemDetails from "../../../Overlays/Store/ItemDetails";
 import Button from "../../../UI/Wrappers/Button";
 import Card from "../../../UI/Wrappers/ImageCard";

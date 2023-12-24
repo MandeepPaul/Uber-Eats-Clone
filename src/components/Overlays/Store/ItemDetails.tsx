@@ -2,7 +2,7 @@ import Modal from "../../UI/Backdrop/Modal";
 import Button from "../../UI/Wrappers/Button";
 import { CrossIcon, ShareArrowIcon, ThumbsUpIcon } from "../../../SVG/svgIcon";
 import Card from "../../UI/Wrappers/ImageCard";
-import { MenuItem } from "../../../tempData/StoreList";
+import { MenuItem } from "../../../fireStoreData/StoreList";
 import AddOns from "./AddOns";
 
 type ItemType = Omit<MenuItem, "id"> & {
@@ -19,7 +19,6 @@ const ItemDetails: React.FC<ItemType> = ({
   imageURL,
   condiments,
 }) => {
-  console.log(condiments);
   return (
     <Modal
       modal="top-1/2 transform translate-y-[-50%] h-full w-full lg:w-[80%] mx-auto inset-x-0 font-ubermove overflow-y-scroll"
@@ -55,7 +54,7 @@ const ItemDetails: React.FC<ItemType> = ({
 
             <hr className="mt-4 border-gray-300" />
 
-            <AddOns />
+            <AddOns condiments={condiments} />
           </div>
         </div>
       </div>

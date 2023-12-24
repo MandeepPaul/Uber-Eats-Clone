@@ -1,5 +1,5 @@
 import { useRouteLoaderData } from "react-router-dom";
-import { Istores } from "../tempData/StoreList";
+import { Istores } from "../fireStoreData/StoreList";
 import Store from "../components/Main/HomeContent/stores/Store";
 import StoreImageCard from "../components/UI/Cards/StoreImageCard";
 

@@ -3,7 +3,7 @@ import React from "react";
 import Message from "./Message";
 import Allstores from "./stores/Allstores";
 import Filter from "./Filter/Filter";
-import { Istores } from "../../../tempData/StoreList";
+import { Istores } from "../../../fireStoreData/StoreList";
 
 const StoreSection: React.FC<{ className: string; storesData: Istores[] }> = ({
   className,

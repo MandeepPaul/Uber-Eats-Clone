@@ -1,4 +1,4 @@
-import { Istores } from "../../../tempData/StoreList";
+import { Istores } from "../../../fireStoreData/StoreList";
 import Categories from "./Categories";
 import SearchBar from "./SearchBar";
 import StoreSection from "./StoreSection";

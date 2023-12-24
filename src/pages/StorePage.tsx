@@ -3,12 +3,12 @@ import {
   useLoaderData,
   useNavigation,
 } from "react-router-dom";
-import { Istores, fetchMenuData } from "../tempData/StoreList";
+import { Istores, fetchMenuData } from "../fireStoreData/StoreList";
 import StoreDeliveryDetails from "../components/Main/StoreContent/StoreHeader/StoreDeliveryDetails";
 import ImageCard from "../components/Main/StoreContent/StoreHeader/ImageCard";
 import MenuContent from "../components/Main/StoreContent/Main/MenuContent";
 
-import { storeDataType } from "../tempData/StoreList";
+import { storeDataType } from "../fireStoreData/StoreList";
 import LoadingIndicator from "../components/UI/Animations/LoadingIndicator";
 
 const StorePage = () => {
