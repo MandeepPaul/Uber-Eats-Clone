@@ -9,6 +9,7 @@ import {
 } from "../../../fireStoreData/StoreList";
 import AddOns from "./AddOns";
 import { useEffect, useState } from "react";
+import SkeletonLoading from "../../UI/Animations/Skeleton/SkeletonLoading";
 
 type ItemType = Omit<MenuItem, "id"> & {
   onReset: () => void;
@@ -93,7 +94,10 @@ const ItemDetails: React.FC<ItemType> = ({
             {condimentList.length > 0 ? (
               <AddOns condiments={condimentList} />
             ) : (
-              ""
+              <>
+                <SkeletonLoading />
+                <SkeletonLoading />
+              </>
             )}
           </div>
         </div>
