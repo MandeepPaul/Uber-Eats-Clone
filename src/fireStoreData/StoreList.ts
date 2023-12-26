@@ -34,7 +34,7 @@ export type MenuItem = {
   recommended?: number;
   description?: string;
   imageURL: string;
-  condiments: Condiments[];
+  condimentsReference: DocumentReference<DocumentData>;
 };
 
 export type MenuCategory = {
@@ -83,7 +83,7 @@ export const fetchStoreData = async (): Promise<Istores[]> => {
 };
 
 //Fetch condiments within each item.
-async function fetchCondiments(
+export async function fetchCondiments(
   documentRef: DocumentReference
 ): Promise<Condiments[]> {
   const condiments: Condiments[] = [];
@@ -101,10 +101,39 @@ async function fetchCondiments(
       for (const listDoc of condSnapshot.docs) {
         const condData: Condiments = {
           id: listDoc.id,
-          ...(listDoc.data() as Omit<Condiments, "id">),
-          list: await fetchCondimentList(listDoc.ref), // Call the fetchCondimentList function to populate the list
+          title: listDoc.data().title,
+          limit: listDoc.data().limit,
+          list: [],
         };
+        let list = [];
+        //If there is a reference to commonCondiments
+        if (listDoc.data().commonCondiment) {
+          const commonCondimentRef: DocumentReference =
+            listDoc.data().commonCondiment;
 
+          // Get the data from the referenced document in commonCondimentRef
+          const commonCondimentSnapshot: DocumentSnapshot = await getDoc(
+            commonCondimentRef
+          );
+
+          const { title, limit } = commonCondimentSnapshot.data() as {
+            title: string;
+            limit: number;
+          };
+          condData.title = title;
+          condData.limit = limit;
+          const commonSnapshot: QuerySnapshot<DocumentData> = await getDocs(
+            collection(listDoc.data().commonCondiment, "list")
+          );
+          const sampleArray = commonSnapshot.docs.map((eachItem) => ({
+            id: eachItem.id,
+            ...(eachItem.data() as Omit<CondimentsList, "id">),
+          }));
+          list = sampleArray;
+        } else {
+          list = await fetchCondimentList(listDoc.ref); // Call the fetchCondimentList function to populate the list
+        }
+        condData.list = list;
         condiments.push(condData);
       }
     }
@@ -122,6 +151,11 @@ async function fetchCondimentList(
   const condListSnapshot: QuerySnapshot<DocumentData> = await getDocs(
     collection(condRef, "list")
   );
+
+  if (condListSnapshot.docs.length === 0) {
+    return [];
+  }
+
   return condListSnapshot.docs.map((eachCondData) => ({
     id: eachCondData.id,
     ...(eachCondData.data() as Omit<CondimentsList, "id">),
@@ -143,7 +177,7 @@ const fetchItems = async (
       const itemData: MenuItem = {
         id: itemDoc.id,
         ...(itemDoc.data() as Omit<MenuItem, "id">),
-        condiments: await fetchCondiments(itemDoc.ref),
+        condimentsReference: itemDoc.ref,
       };
       items.push(itemData);
     }
@@ -217,7 +251,6 @@ export const fetchMenuData = async (
       }
     }
 
-    console.log(storeDataIncMenu);
     return storeDataIncMenu;
   } catch (error) {
     console.error("Error fetching menu data:", error);

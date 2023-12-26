@@ -4,12 +4,11 @@ import ToppingSection from "./ToppingSection";
 import { Condiments } from "../../../fireStoreData/StoreList";
 
 const AddOns: React.FC<{ condiments: Condiments[] }> = ({ condiments }) => {
-  console.log(condiments);
-
   return (
-    <div className="divide-y-2 lg:divide-y-4 mb-16">
+    <div className="divide-y-2 lg:divide-y-[3px] mb-16">
       {condiments.map((eachCondiment) => (
         <ToppingSection
+          key={eachCondiment.id}
           title={eachCondiment.title}
           limit={eachCondiment.limit}
           list={eachCondiment.list}

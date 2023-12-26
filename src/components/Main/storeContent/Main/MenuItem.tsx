@@ -14,7 +14,7 @@ const MenuItem: React.FC<MenuItemType> = ({
   recommended,
   description,
   imageURL,
-  condiments,
+  condimentsReference,
 }) => {
   const [showItemDetail, setVisibility] = useState(false);
 
@@ -79,7 +79,7 @@ const MenuItem: React.FC<MenuItemType> = ({
             recommended={recommended}
             description={description}
             imageURL={imageURL}
-            condiments={condiments}
+            condimentsReference={condimentsReference}
           />,
           document.getElementById("back-drop") as Element
         )}

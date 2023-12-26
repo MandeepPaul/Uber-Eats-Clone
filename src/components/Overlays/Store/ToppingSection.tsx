@@ -28,14 +28,23 @@ const ToppingSection: React.FC<{
       </div>
 
       <ul className="divide-y-2">
-        {list.map(({ id, name, price, special }) => (
+        {list.map(({ id, name, price, extraCalories, special }) => (
           <li key={id} className="flex justify-between py-3 last:mb-4">
             <label htmlFor={id} className="flex flex-col cursor-pointer">
-              <span className="font-[500] md:text-[18px]">{name}</span>
-              {price && <span className="font-thin">{`+$${price}`}</span>}
-              {special && (
-                <span className="font-[400] text-green-600">{special}</span>
+              <span className="md:text-[18px]">{name}</span>
+              {price && (
+                <span className="font-thin">{`+$${price.toFixed(2)}`}</span>
               )}
+              <div className="flex gap-2">
+                {special && (
+                  <span className="font-[400] text-green-700">{special}</span>
+                )}
+                {extraCalories !== undefined ? (
+                  <span className="text-stone-600">{`${extraCalories} Cal.`}</span>
+                ) : (
+                  ""
+                )}
+              </div>
             </label>
             <Checkbox
               id={id}

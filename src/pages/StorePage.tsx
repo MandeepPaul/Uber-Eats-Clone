@@ -22,7 +22,7 @@ const StorePage = () => {
       </p>
     </div>
   );
-  // console.log(storeDetailsIncMenu);
+
   if (navigation.state === "loading") content = <LoadingIndicator />;
 
   if (storeDetailsIncMenu && typeof storeDetailsIncMenu === "object") {
