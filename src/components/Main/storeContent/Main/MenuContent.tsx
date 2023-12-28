@@ -9,9 +9,15 @@ type data = {
   value: Element | null;
 };
 
-const MenuContent: React.FC<{ categoryList: MenuCategory[] }> = ({
-  categoryList,
-}) => {
+export type restDetails = {
+  restId: string;
+  restName: string;
+};
+
+const MenuContent: React.FC<{
+  categoryList: MenuCategory[];
+  restaurantDetails: restDetails;
+}> = ({ categoryList, restaurantDetails }) => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
 
   const sectionRefs = useRef<data[]>(
@@ -100,7 +106,11 @@ const MenuContent: React.FC<{ categoryList: MenuCategory[] }> = ({
               className="gap-1 divide-y lg:divide-y-0 lg:grid lg:grid-cols-3 xl:grid-cols-4"
             >
               {eachCategory.items.map((item) => (
-                <MenuItem key={item.id} {...item} />
+                <MenuItem
+                  key={item.id}
+                  menuItems={item}
+                  restaurantDetails={restaurantDetails}
+                />
               ))}
             </div>
           </section>

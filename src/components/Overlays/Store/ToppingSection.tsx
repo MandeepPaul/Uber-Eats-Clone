@@ -1,18 +1,21 @@
 import { useEffect, useState } from "react";
+
 import { CondimentsList } from "../../../firestoreData/StoreList";
 import { findItemIndexById } from "../../../utility/findItemIndexById";
+
 import Checkbox from "../../UI/Checkbox";
 
 const ToppingSection: React.FC<{
   title: string;
   limit: number;
-  onSelection: (items: CondimentsList[]) => void;
   list: CondimentsList[];
+  onSelection: (items: CondimentsList[]) => void;
 }> = ({ title, limit, list, onSelection }) => {
   const [checkedItems, setCheckedItems] = useState<CondimentsList[]>([]);
 
   const handleCheckboxChange = (selectedObj: CondimentsList) => {
-    if (!selectedObj.price) selectedObj.price = 0;
+    if (!selectedObj.price) selectedObj.price = 0; //Making sure price is not undefined!
+
     const index = findItemIndexById(selectedObj.id, checkedItems).index;
     if (index === -1) {
       if (checkedItems.length >= limit) {
@@ -21,6 +24,7 @@ const ToppingSection: React.FC<{
       }
       setCheckedItems((prevItems) => [...prevItems, selectedObj]);
     } else {
+      //When unchecked, it removes the object from list.
       setCheckedItems((prevItems) => {
         const updatedItems = [...prevItems];
         updatedItems.splice(index, 1);
@@ -29,6 +33,7 @@ const ToppingSection: React.FC<{
     }
   };
 
+  //Everytime checkedItems change, it notify parent in order to update parent list.
   useEffect(() => {
     onSelection(checkedItems);
     // eslint-disable-next-line

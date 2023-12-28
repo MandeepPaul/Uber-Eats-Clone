@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Wrappers/Button";
 import { ArrowDownSVG } from "../../SVG/svgIcon";
 
@@ -6,7 +6,8 @@ const DropDownMenu: React.FC<{
   options: number[];
   className?: string;
   listPosition?: string;
-}> = ({ options, className, listPosition }) => {
+  quantityHandler: (value: number) => void;
+}> = ({ options, className, listPosition, quantityHandler }) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [listOpen, setToggle] = useState(false);
 
@@ -14,6 +15,11 @@ const DropDownMenu: React.FC<{
     setSelectedQuantity(quantity);
     setToggle(false);
   };
+
+  useEffect(() => {
+    quantityHandler(selectedQuantity);
+    // eslint-disable-next-line
+  }, [selectedQuantity]);
 
   const listToggle = () => {
     setToggle((prevState) => !prevState);

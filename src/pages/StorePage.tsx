@@ -26,7 +26,13 @@ const StorePage = () => {
           logoURL={storeDetailsIncMenu.logoURL || ""} // Accessing 'logoURL' property, ensuring it exists
         />
         <StoreDeliveryDetails {...(storeDetailsIncMenu as Istores)} />
-        <MenuContent categoryList={storeDetailsIncMenu.menuContent || []} />
+        <MenuContent
+          categoryList={storeDetailsIncMenu.menuContent || []}
+          restaurantDetails={{
+            restId: storeDetailsIncMenu.id,
+            restName: storeDetailsIncMenu.name,
+          }}
+        />
         {/* Ensuring 'menuContent' is an array */}
       </>
     );

@@ -3,19 +3,25 @@ import ReactDOM from "react-dom";
 
 import { ThumbsUpIcon } from "../../../../SVG/svgIcon";
 import { MenuItem as MenuItemType } from "../../../../firestoreData/StoreList";
+import { restDetails } from "./MenuContent";
 import ItemDetails from "../../../Overlays/Store/ItemDetails";
 import Button from "../../../UI/Wrappers/Button";
 import Card from "../../../UI/Wrappers/ImageCard";
 
-const MenuItem: React.FC<MenuItemType> = ({
-  name,
-  price,
-  calories,
-  recommended,
-  description,
-  imageURL,
-  condimentsReference,
-}) => {
+const MenuItem: React.FC<{
+  menuItems: MenuItemType;
+  restaurantDetails: restDetails;
+}> = ({ menuItems, restaurantDetails }) => {
+  const {
+    id,
+    name,
+    price,
+    calories,
+    recommended,
+    description,
+    imageURL,
+    condimentsReference,
+  } = menuItems;
   const [showItemDetail, setVisibility] = useState(false);
 
   const showItemDetailOverlay = () => {
@@ -72,6 +78,7 @@ const MenuItem: React.FC<MenuItemType> = ({
       {showItemDetail &&
         ReactDOM.createPortal(
           <ItemDetails
+            id={id}
             onReset={() => setVisibility(false)}
             name={name}
             calories={calories}
@@ -80,6 +87,7 @@ const MenuItem: React.FC<MenuItemType> = ({
             description={description}
             imageURL={imageURL}
             condimentsReference={condimentsReference}
+            restDetails={restaurantDetails}
           />,
           document.getElementById("back-drop") as Element
         )}
