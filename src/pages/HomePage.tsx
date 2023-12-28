@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { IndexRouteObject, useRouteLoaderData } from "react-router-dom";
+import {
+  IndexRouteObject,
+  useRouteLoaderData,
+  useNavigation,
+} from "react-router-dom";
 import ReactDOM from "react-dom";
 
-import { fetchStoreData, Istores } from "../fireStoreData/StoreList";
+import { fetchStoreData, Istores } from "../firestoreData/StoreList";
 
 import DeliveryDetails from "../components/Header/DeliveryDetails/DeliveryDetails";
 import Main from "../components/Main/HomeContent/Main";
 import DeliveryAddress from "../components/Overlays/DeliveryAddress/DeliveryAddress";
+import LoadingIndicator from "../components/UI/Animations/LoadingIndicator";
 
 const HomePage = () => {
+  const navigation = useNavigation();
   const [addressOverlayVisibility, setAddressVisibility] = useState(false);
   const data = useRouteLoaderData("store-details");
   const typedData = data as Istores[];
@@ -36,6 +42,8 @@ const HomePage = () => {
           <DeliveryAddress onReset={() => setAddressVisibility(false)} />,
           document.getElementById("back-drop") as Element
         )}
+
+      {navigation.state === "loading" && <LoadingIndicator />}
     </main>
   );
 };

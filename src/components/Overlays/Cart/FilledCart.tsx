@@ -3,6 +3,10 @@ import ButtonPair from "../../UI/ButtonPair";
 import StoreCartDetails from "./StoreCartDetails";
 
 const FilledCart = () => {
+  const checkoutButtonHandler = () => {};
+
+  const addItemButtonhandler = () => {};
+
   return (
     <>
       <div className="mx-4 h-screen">
@@ -22,7 +26,12 @@ const FilledCart = () => {
       </div>
 
       <div className="fixed bottom-0 w-full lg:w-[50%] xl:w-[33%] px-4 border-t-2 ">
-        <ButtonPair text1="Go to checkout" text2="Add items" />
+        <ButtonPair
+          onFirstButtonClick={checkoutButtonHandler}
+          onSecondButtonClick={addItemButtonhandler}
+          text1="Go to checkout"
+          text2="Add items"
+        />
       </div>
     </>
   );

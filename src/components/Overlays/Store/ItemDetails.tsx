@@ -6,7 +6,7 @@ import {
   MenuItem,
   Condiments,
   fetchCondiments,
-} from "../../../fireStoreData/StoreList";
+} from "../../../firestoreData/StoreList";
 import AddOns from "./AddOns";
 import { useEffect, useState } from "react";
 import SkeletonLoading from "../../UI/Animations/Skeleton/SkeletonLoading";
@@ -25,7 +25,7 @@ const ItemDetails: React.FC<ItemType> = ({
   imageURL,
   condimentsReference,
 }) => {
-  const [condimentList, setCondiments] = useState<Condiments[]>([]);
+  const [condimentList, setCondiments] = useState<Condiments[] | null>(null);
 
   const fetchCondimentsData = async (): Promise<any> => {
     try {
@@ -43,7 +43,6 @@ const ItemDetails: React.FC<ItemType> = ({
     const fetchData = async () => {
       try {
         const list = await fetchCondimentsData();
-
         setCondiments(list);
       } catch (error) {
         console.error("Error occurred:", error);
@@ -91,8 +90,8 @@ const ItemDetails: React.FC<ItemType> = ({
 
             <hr className="mt-4 border-gray-300" />
 
-            {condimentList.length > 0 ? (
-              <AddOns condiments={condimentList} />
+            {condimentList !== null ? (
+              <AddOns condiments={condimentList} onReset={onReset} />
             ) : (
               <>
                 <SkeletonLoading />

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 import CategorySection from "../SideNav/CategorySection";
 import MenuItem from "./MenuItem";
-import { MenuCategory } from "../../../../fireStoreData/StoreList";
+import { MenuCategory } from "../../../../firestoreData/StoreList";
 
 type data = {
   id: string;

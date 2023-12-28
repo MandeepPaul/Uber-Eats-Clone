@@ -1,24 +1,38 @@
-import { useState } from "react";
-import { CondimentsList } from "../../../fireStoreData/StoreList";
+import { useEffect, useState } from "react";
+import { CondimentsList } from "../../../firestoreData/StoreList";
+import { findItemIndexById } from "../../../utility/findItemIndexById";
 import Checkbox from "../../UI/Checkbox";
 
 const ToppingSection: React.FC<{
   title: string;
   limit: number;
+  onSelection: (items: CondimentsList[]) => void;
   list: CondimentsList[];
-}> = ({ title, limit, list }) => {
-  const [checkedItems, setCheckedItems] = useState<string[]>([]);
+}> = ({ title, limit, list, onSelection }) => {
+  const [checkedItems, setCheckedItems] = useState<CondimentsList[]>([]);
 
-  const handleCheckboxChange = (id: string) => {
-    const index = checkedItems.indexOf(id);
+  const handleCheckboxChange = (selectedObj: CondimentsList) => {
+    if (!selectedObj.price) selectedObj.price = 0;
+    const index = findItemIndexById(selectedObj.id, checkedItems).index;
     if (index === -1) {
-      setCheckedItems([...checkedItems, id]);
+      if (checkedItems.length >= limit) {
+        console.log("Limit Exceed!");
+        return;
+      }
+      setCheckedItems((prevItems) => [...prevItems, selectedObj]);
     } else {
-      const updatedItems = [...checkedItems];
-      updatedItems.splice(index, 1);
-      setCheckedItems(updatedItems);
+      setCheckedItems((prevItems) => {
+        const updatedItems = [...prevItems];
+        updatedItems.splice(index, 1);
+        return updatedItems;
+      });
     }
   };
+
+  useEffect(() => {
+    onSelection(checkedItems);
+    // eslint-disable-next-line
+  }, [checkedItems]);
 
   return (
     <section className="flex flex-col">
@@ -29,8 +43,11 @@ const ToppingSection: React.FC<{
 
       <ul className="divide-y-2">
         {list.map(({ id, name, price, extraCalories, special }) => (
-          <li key={id} className="flex justify-between py-3 last:mb-4">
-            <label htmlFor={id} className="flex flex-col cursor-pointer">
+          <li key={id + title} className="flex justify-between py-3 last:mb-4">
+            <label
+              htmlFor={id + title}
+              className="flex flex-col cursor-pointer"
+            >
               <span className="md:text-[18px]">{name}</span>
               {price && (
                 <span className="font-thin">{`+$${price.toFixed(2)}`}</span>
@@ -47,9 +64,15 @@ const ToppingSection: React.FC<{
               </div>
             </label>
             <Checkbox
-              id={id}
-              isChecked={checkedItems.includes(id)}
-              onCheckboxChange={handleCheckboxChange.bind(this, id)}
+              id={id + title}
+              isChecked={findItemIndexById(id + title, checkedItems).isPresent}
+              onCheckboxChange={() =>
+                handleCheckboxChange({
+                  id: id + title,
+                  name,
+                  price,
+                })
+              }
             />
           </li>
         ))}

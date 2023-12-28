@@ -1,7 +1,10 @@
 import ButtonPair from "../../UI/ButtonPair";
 import DropDownMenu from "../../UI/DropDownMenu";
 
-const ButtonsManager = () => {
+const ButtonsManager: React.FC<{
+  onFirstButtonClick: () => void;
+  onSecondButtonClick: () => void;
+}> = ({ onFirstButtonClick, onSecondButtonClick }) => {
   return (
     <>
       <DropDownMenu
@@ -12,6 +15,8 @@ const ButtonsManager = () => {
       <ButtonPair
         text1={`Add 1 to order ${`\u2022`} $13.58`}
         text2={`See Details`}
+        onFirstButtonClick={onFirstButtonClick}
+        onSecondButtonClick={onSecondButtonClick}
       />
     </>
   );

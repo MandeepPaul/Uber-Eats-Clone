@@ -1,5 +1,5 @@
 import { FavHeartIcon } from "../../../SVG/svgIcon";
-import { Istores } from "../../../fireStoreData/StoreList";
+import { Istores } from "../../../firestoreData/StoreList";
 import Card from "../Wrappers/ImageCard";
 
 interface StoreDetailsProps

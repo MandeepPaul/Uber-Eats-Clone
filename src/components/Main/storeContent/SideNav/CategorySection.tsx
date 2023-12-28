@@ -1,4 +1,4 @@
-import { MenuCategory } from "../../../../fireStoreData/StoreList";
+import { MenuCategory } from "../../../../firestoreData/StoreList";
 
 const CategorySection: React.FC<{
   menu: MenuCategory[];
