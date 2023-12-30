@@ -1,17 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 
+import { MenuCategory } from "../../../../types/incomingDataType";
+import { restDetails } from "../../../../types/outgoingDataType";
+
 import CategorySection from "../SideNav/CategorySection";
 import MenuItem from "./MenuItem";
-import { MenuCategory } from "../../../../firestoreData/StoreList";
 
 type data = {
   id: string;
   value: Element | null;
-};
-
-export type restDetails = {
-  restId: string;
-  restName: string;
 };
 
 const MenuContent: React.FC<{
@@ -74,11 +71,11 @@ const MenuContent: React.FC<{
 
   const sectionRefHandler = (
     element: Element | null,
-    catId: string,
+    id: string,
     index: number
   ) => {
     const obj = {
-      id: catId,
+      id: id,
       value: element,
     };
     sectionRefs.current[index] = obj;

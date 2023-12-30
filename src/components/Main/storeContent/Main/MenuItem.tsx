@@ -2,8 +2,8 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 
 import { ThumbsUpIcon } from "../../../../SVG/svgIcon";
-import { MenuItem as MenuItemType } from "../../../../firestoreData/StoreList";
-import { restDetails } from "./MenuContent";
+import { MenuItem as MenuItemType } from "../../../../types/incomingDataType";
+import { restDetails } from "../../../../types/outgoingDataType";
 import ItemDetails from "../../../Overlays/Store/ItemDetails";
 import Button from "../../../UI/Wrappers/Button";
 import Card from "../../../UI/Wrappers/ImageCard";

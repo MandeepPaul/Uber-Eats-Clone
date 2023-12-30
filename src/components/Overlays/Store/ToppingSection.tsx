@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { CondimentsList } from "../../../firestoreData/StoreList";
+import { CondimentsList } from "../../../types/incomingDataType";
 import { findItemIndexById } from "../../../utility/findItemIndexById";
 
 import Checkbox from "../../UI/Checkbox";
@@ -9,12 +9,14 @@ const ToppingSection: React.FC<{
   title: string;
   limit: number;
   list: CondimentsList[];
-  onSelection: (items: CondimentsList[]) => void;
+  onSelection: (items: CondimentsList[], addOnPrice: number) => void;
 }> = ({ title, limit, list, onSelection }) => {
   const [checkedItems, setCheckedItems] = useState<CondimentsList[]>([]);
+  const [addOnPrice, setPrice] = useState(0);
 
   const handleCheckboxChange = (selectedObj: CondimentsList) => {
-    if (!selectedObj.price) selectedObj.price = 0; //Making sure price is not undefined!
+    const updatedPrice =
+      selectedObj.conPrice !== undefined ? selectedObj.conPrice : 0;
 
     const index = findItemIndexById(selectedObj.id, checkedItems).index;
     if (index === -1) {
@@ -23,19 +25,22 @@ const ToppingSection: React.FC<{
         return;
       }
       setCheckedItems((prevItems) => [...prevItems, selectedObj]);
+      setPrice((prevPrice) => prevPrice + updatedPrice);
     } else {
-      //When unchecked, it removes the object from list.
+      // When unchecked, it removes the object from the list.
       setCheckedItems((prevItems) => {
         const updatedItems = [...prevItems];
         updatedItems.splice(index, 1);
         return updatedItems;
       });
+
+      setPrice((prevPrice) => prevPrice - updatedPrice);
     }
   };
 
   //Everytime checkedItems change, it notify parent in order to update parent list.
   useEffect(() => {
-    onSelection(checkedItems);
+    onSelection(checkedItems, addOnPrice);
     // eslint-disable-next-line
   }, [checkedItems]);
 
@@ -47,15 +52,15 @@ const ToppingSection: React.FC<{
       </div>
 
       <ul className="divide-y-2">
-        {list.map(({ id, name, price, extraCalories, special }) => (
+        {list.map(({ id, conName, conPrice, extraCalories, special }) => (
           <li key={id + title} className="flex justify-between py-3 last:mb-4">
             <label
               htmlFor={id + title}
               className="flex flex-col cursor-pointer"
             >
-              <span className="md:text-[18px]">{name}</span>
-              {price && (
-                <span className="font-thin">{`+$${price.toFixed(2)}`}</span>
+              <span className="md:text-[18px]">{conName}</span>
+              {conPrice && (
+                <span className="font-thin">{`+$${conPrice.toFixed(2)}`}</span>
               )}
               <div className="flex gap-2">
                 {special && (
@@ -74,8 +79,8 @@ const ToppingSection: React.FC<{
               onCheckboxChange={() =>
                 handleCheckboxChange({
                   id: id + title,
-                  name,
-                  price,
+                  conName,
+                  conPrice,
                 })
               }
             />

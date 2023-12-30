@@ -1,4 +1,4 @@
-import { Istores } from "../../../../firestoreData/StoreList";
+import { Istores } from "../../../../types/incomingDataType";
 
 interface StoreDetailsProps
   extends Pick<Istores, "name" | "rating" | "deliveryFee" | "time"> {}

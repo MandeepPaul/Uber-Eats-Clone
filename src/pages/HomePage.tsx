@@ -6,7 +6,8 @@ import {
 } from "react-router-dom";
 import ReactDOM from "react-dom";
 
-import { fetchStoreData, Istores } from "../firestoreData/StoreList";
+import { fetchStoreData } from "../firestoreData/StoreList";
+import { Istores } from "../types/incomingDataType";
 
 import DeliveryDetails from "../components/Header/DeliveryDetails/DeliveryDetails";
 import Main from "../components/Main/HomeContent/Main";

@@ -1,10 +1,12 @@
 import { IndexRouteObject, useLoaderData } from "react-router-dom";
-import { Istores, fetchMenuData } from "../firestoreData/StoreList";
+import { fetchMenuData } from "../firestoreData/StoreList";
+import { Istores } from "../types/incomingDataType";
+
 import StoreDeliveryDetails from "../components/Main/StoreContent/StoreHeader/StoreDeliveryDetails";
 import ImageCard from "../components/Main/StoreContent/StoreHeader/ImageCard";
 import MenuContent from "../components/Main/StoreContent/Main/MenuContent";
 
-import { storeDataType } from "../firestoreData/StoreList";
+import { storeDataType } from "../types/incomingDataType";
 
 const StorePage = () => {
   const storeDetailsIncMenu = useLoaderData() as storeDataType;

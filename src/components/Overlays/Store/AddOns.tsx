@@ -1,36 +1,39 @@
 import { useEffect, useState } from "react";
 
-import { Condiments } from "../../../firestoreData/StoreList";
+import { Condiments } from "../../../types/incomingDataType";
+import { NewCondimentsInterface } from "../../../types/outgoingDataType";
 import { findItemIndexById } from "../../../utility/findItemIndexById";
 
 import ButtonsManager from "./ButtonsManager";
 import ToppingSection from "./ToppingSection";
 
-export type CondimentsWithoutLimit = Omit<Condiments, "limit">;
-
 const AddOns: React.FC<{
   condiments: Condiments[];
   onReset: () => void;
-  onAddToCart: (items: CondimentsWithoutLimit[], quantity: number) => void;
+  onAddToCart: (items: NewCondimentsInterface[], quantity: number) => void;
 }> = ({ condiments, onReset, onAddToCart }) => {
-  const [finalItem, setFinalItem] = useState<CondimentsWithoutLimit[]>([]);
+  const [finalItem, setFinalItem] = useState<NewCondimentsInterface[]>([]);
   const [quantity, setFinalQuantity] = useState(1);
 
-  const onSelectionHandler = (selectedCondType: CondimentsWithoutLimit) => {
-    //Avoids including data for type where condiments are not selected
-    if (selectedCondType.list.length <= 0) {
-      return;
-    }
-
+  const onSelectionHandler = (selectedCondType: NewCondimentsInterface) => {
     const index = findItemIndexById(selectedCondType.id, finalItem).index;
 
-    //Fills the array with objects of type Condiment or replace the nested list of condiments if modified.
-    if (index === -1) {
-      setFinalItem((prevItems) => [...prevItems, selectedCondType]);
+    // Avoids including data for type where condiments are not selected
+    if (selectedCondType.list.length === 0) {
+      setFinalItem((prevItems) => {
+        const updatedItems = [...prevItems].filter(
+          (item) => item.id !== selectedCondType.id
+        );
+        return updatedItems;
+      });
     } else {
       setFinalItem((prevItems) => {
         const updatedItems = [...prevItems];
-        updatedItems[index].list = selectedCondType.list;
+        if (index === -1) {
+          updatedItems.push(selectedCondType);
+        } else {
+          updatedItems[index] = selectedCondType;
+        }
         return updatedItems;
       });
     }
@@ -60,7 +63,9 @@ const AddOns: React.FC<{
           title={title}
           limit={limit}
           list={list}
-          onSelection={(list) => onSelectionHandler({ id, title, list })}
+          onSelection={(checkedList, addOnPrice) =>
+            onSelectionHandler({ id, title, list: checkedList, addOnPrice })
+          }
         />
       ))}
 

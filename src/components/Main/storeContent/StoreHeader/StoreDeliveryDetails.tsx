@@ -1,5 +1,5 @@
 import { AddFriendIcon, CalendarIcon } from "../../../../SVG/svgIcon";
-import { Istores } from "../../../../firestoreData/StoreList";
+import { Istores } from "../../../../types/incomingDataType";
 import Button from "../../../UI/Wrappers/Button";
 import OrderTypeToggle from "../../../Header/DeliveryDetails/OrderTypeToogle";
 

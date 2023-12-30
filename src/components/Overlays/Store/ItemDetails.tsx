@@ -1,34 +1,28 @@
+import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
+import { cartActions } from "../../../store/Slices/cartSlice";
+
 import { CrossIcon, ShareArrowIcon, ThumbsUpIcon } from "../../../SVG/svgIcon";
-import {
-  MenuItem,
-  Condiments,
-  fetchCondiments,
-} from "../../../firestoreData/StoreList";
+import { fetchCondiments } from "../../../firestoreData/StoreList";
+import { MenuItem, Condiments } from "../../../types/incomingDataType";
+import { orderedItemFormat, finalOrder } from "../../../types/outgoingDataType";
 
 import Modal from "../../UI/Backdrop/Modal";
 import Button from "../../UI/Wrappers/Button";
 import Card from "../../UI/Wrappers/ImageCard";
 import SkeletonLoading from "../../UI/Animations/Skeleton/SkeletonLoading";
 
-import AddOns, { CondimentsWithoutLimit } from "./AddOns";
-import { restDetails } from "../../Main/StoreContent/Main/MenuContent";
+import AddOns from "./AddOns";
+import {
+  restDetails,
+  NewCondimentsInterface,
+} from "../../../types/outgoingDataType";
 
+//For incoming props.
 type ItemType = MenuItem & {
   onReset: () => void;
   restDetails: restDetails;
 };
-
-export type orderedItemFormat = {
-  itemId: string;
-  itemName: string;
-  price: number;
-  quantity: number;
-  imageURL?: string;
-  condimentsData: CondimentsWithoutLimit[];
-};
-
-type finalOrder = restDetails & { orderedItem: orderedItemFormat };
 
 const ItemDetails: React.FC<ItemType> = ({
   onReset,
@@ -42,6 +36,7 @@ const ItemDetails: React.FC<ItemType> = ({
   restDetails,
 }) => {
   const [condimentList, setCondiments] = useState<Condiments[] | null>(null);
+  const dispatch = useDispatch();
 
   const fetchCondimentsData = async (): Promise<any> => {
     try {
@@ -70,7 +65,7 @@ const ItemDetails: React.FC<ItemType> = ({
   }, []);
 
   const addToCartHandler = (
-    condimentsData: CondimentsWithoutLimit[],
+    condimentsData: NewCondimentsInterface[],
     quantity: number
   ) => {
     const finalItem: orderedItemFormat = {
@@ -82,15 +77,21 @@ const ItemDetails: React.FC<ItemType> = ({
       quantity,
     };
 
+    condimentsData.forEach(({ addOnPrice }) => {
+      if (addOnPrice) finalItem.price += addOnPrice;
+    });
+
     const finalOrder: finalOrder = {
       restId: restDetails.restId,
       restName: restDetails.restName,
       orderedItem: finalItem,
     };
 
-    //useParams to get the store id then update the store
+    dispatch(cartActions.addToCart(finalOrder));
     console.log(finalOrder);
   };
+
+  console.log(condimentList);
 
   return (
     <Modal

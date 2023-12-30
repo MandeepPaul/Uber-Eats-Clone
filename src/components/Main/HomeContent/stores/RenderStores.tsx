@@ -1,5 +1,5 @@
 import { StringMappingType } from "typescript";
-import { Istores } from "../../../../firestoreData/StoreList";
+import { Istores } from "../../../../types/incomingDataType";
 import Store from "./Store";
 
 const RenderStores: React.FC<{

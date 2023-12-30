@@ -10,54 +10,14 @@ import {
   CollectionReference,
 } from "firebase/firestore";
 import db from "../firebase";
-
-export type CondimentsList = {
-  id: string;
-  name: string;
-  price?: number;
-  extraCalories?: number;
-  special?: string;
-};
-
-export type Condiments = {
-  id: string;
-  title: string;
-  limit: number;
-  list: CondimentsList[];
-};
-
-export type MenuItem = {
-  id: string;
-  name: string;
-  price: number;
-  calories?: number | string;
-  recommended?: number;
-  description?: string;
-  imageURL: string;
-  condimentsReference: DocumentReference<DocumentData>;
-};
-
-export type MenuCategory = {
-  id: string;
-  itemCategory: string;
-  items: MenuItem[];
-};
-
-export interface Istores {
-  id: string;
-  url: string;
-  offer?: string;
-  name: string;
-  deliveryFee: number;
-  time: number;
-  rating: number;
-  logoURL?: string;
-  category?: string;
-}
-
-export interface storeDataType extends Istores {
-  menuContent: MenuCategory[];
-}
+import {
+  Istores,
+  storeDataType,
+  MenuCategory,
+  MenuItem,
+  Condiments,
+  CondimentsList,
+} from "../types/incomingDataType";
 
 export const fetchStoreData = async (): Promise<Istores[]> => {
   const storesCollection = collection(db, "stores");
@@ -125,10 +85,26 @@ export async function fetchCondiments(
           const commonSnapshot: QuerySnapshot<DocumentData> = await getDocs(
             collection(listDoc.data().commonCondiment, "list")
           );
-          const sampleArray = commonSnapshot.docs.map((eachItem) => ({
-            id: eachItem.id,
-            ...(eachItem.data() as Omit<CondimentsList, "id">),
-          }));
+          const sampleArray = commonSnapshot.docs.map((eachItem) => {
+            const data: CondimentsList = {
+              id: eachItem.id,
+              conName: eachItem.data().name,
+            };
+
+            if (eachItem.data().price !== undefined) {
+              data.conPrice = eachItem.data().price;
+            }
+
+            if (eachItem.data().special !== undefined) {
+              data.special = eachItem.data().special;
+            }
+
+            if (eachItem.data().extraCalories !== undefined) {
+              data.extraCalories = eachItem.data().extraCalories;
+            }
+
+            return data;
+          });
           list = sampleArray;
         } else {
           list = await fetchCondimentList(listDoc.ref); // Call the fetchCondimentList function to populate the list

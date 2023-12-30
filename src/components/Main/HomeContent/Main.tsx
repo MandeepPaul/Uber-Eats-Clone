@@ -1,4 +1,4 @@
-import { Istores } from "../../../firestoreData/StoreList";
+import { Istores } from "../../../types/incomingDataType";
 import Categories from "./Categories";
 import SearchBar from "./SearchBar";
 import StoreSection from "./StoreSection";

@@ -2,7 +2,11 @@ import CartItem from "./CartItem";
 import ButtonPair from "../../UI/ButtonPair";
 import StoreCartDetails from "./StoreCartDetails";
 
-const FilledCart = () => {
+import { orderedItemFormat } from "../../../types/outgoingDataType";
+
+const FilledCart: React.FC<{ cartItems: orderedItemFormat[] }> = ({
+  cartItems,
+}) => {
   const checkoutButtonHandler = () => {};
 
   const addItemButtonhandler = () => {};
@@ -15,8 +19,9 @@ const FilledCart = () => {
           <StoreCartDetails />
 
           {/* Renders all the items in the cart */}
-          <CartItem />
-          <CartItem />
+          {cartItems.map((item) => (
+            <CartItem key={item.itemId} {...item} />
+          ))}
 
           <div className="py-2 text-xl font-semibold flex justify-between">
             <span>Subtotal</span>

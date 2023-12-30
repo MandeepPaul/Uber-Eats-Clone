@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { RightArrow } from "../../../../SVG/svgIcon";
 import RenderStores from "./RenderStores";
-import { Istores } from "../../../../firestoreData/StoreList";
+import { Istores } from "../../../../types/incomingDataType";
 
 const Allstores: React.FC<{ className?: string; storesData: Istores[] }> = ({
   className,
