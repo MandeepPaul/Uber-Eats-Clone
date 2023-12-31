@@ -1,3 +1,5 @@
-const CheckoutPage = () => {};
+const CheckoutPage = () => {
+  return <></>;
+};
 
 export default CheckoutPage;

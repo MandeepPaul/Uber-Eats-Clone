@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 import { CondimentsList } from "../../../types/incomingDataType";
 import { findItemIndexById } from "../../../utility/findItemIndexById";
-
 import Checkbox from "../../UI/Checkbox";
 
 const ToppingSection: React.FC<{
@@ -41,6 +40,7 @@ const ToppingSection: React.FC<{
   //Everytime checkedItems change, it notify parent in order to update parent list.
   useEffect(() => {
     onSelection(checkedItems, addOnPrice);
+    // console.log(checkedItems, addOnPrice);
     // eslint-disable-next-line
   }, [checkedItems]);
 
@@ -53,11 +53,8 @@ const ToppingSection: React.FC<{
 
       <ul className="divide-y-2">
         {list.map(({ id, conName, conPrice, extraCalories, special }) => (
-          <li key={id + title} className="flex justify-between py-3 last:mb-4">
-            <label
-              htmlFor={id + title}
-              className="flex flex-col cursor-pointer"
-            >
+          <li key={id} className="flex justify-between py-3 last:mb-4">
+            <label htmlFor={id} className="flex flex-col cursor-pointer">
               <span className="md:text-[18px]">{conName}</span>
               {conPrice && (
                 <span className="font-thin">{`+$${conPrice.toFixed(2)}`}</span>
@@ -74,11 +71,11 @@ const ToppingSection: React.FC<{
               </div>
             </label>
             <Checkbox
-              id={id + title}
-              isChecked={findItemIndexById(id + title, checkedItems).isPresent}
+              id={id}
+              isChecked={findItemIndexById(id, checkedItems).isPresent}
               onCheckboxChange={() =>
                 handleCheckboxChange({
-                  id: id + title,
+                  id,
                   conName,
                   conPrice,
                 })

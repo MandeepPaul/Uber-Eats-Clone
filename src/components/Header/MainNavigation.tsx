@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import ReactDOM from "react-dom";
 
-import { HamburgerMenuIcon, CartIcon } from "../../SVG/svgIcon";
 import SearchBar from "../Main/HomeContent/SearchBar";
 import Button from "../UI/Wrappers/Button";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 import Cart from "../Overlays/Cart/Cart";
 import SideNav from "../Main/HomeContent/SideNav/SideNav";
 import Logo from "./Logo";
+import { HamburgerMenuIcon, CartIcon } from "../../SVG/svgIcon";
+import { itemOrdered } from "../../store/Slices/cartSlice";
 
 const MainNavigation: React.FC<{
   className: string;
@@ -15,7 +17,11 @@ const MainNavigation: React.FC<{
 }> = ({ className, onAddressBarClick }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
   const [sideNavigation, setNavVisibility] = useState(false);
+  const [animateButton, setAnimate] = useState(false);
 
+  const cart: itemOrdered = useSelector(
+    (state: { cart: itemOrdered }) => state.cart
+  );
   const cartHandler = () => {
     setCartVisibility(true);
   };
@@ -23,6 +29,20 @@ const MainNavigation: React.FC<{
   const openSideNav = () => {
     sideNavigation ? setNavVisibility(false) : setNavVisibility(true);
   };
+
+  useEffect(() => {
+    if (cart.cartItemList.length === 0) {
+      return;
+    }
+    setAnimate(true);
+    const timer = setTimeout(() => {
+      setAnimate(false);
+    }, 300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [cart.cartItemList.length]);
 
   return (
     <div
@@ -42,12 +62,14 @@ const MainNavigation: React.FC<{
       <SearchBar className="hidden lg:inline-flex" />
 
       <Button
-        className="flex items-center space-x-1 bg-black rounded-full text-white px-3 lg:px-4 lg:py-3 hover:opacity-75"
+        className={`flex items-center space-x-1 bg-black rounded-full text-white px-3 lg:px-4 lg:py-3 hover:opacity-75 ${
+          animateButton ? "bump z-50" : ""
+        }`}
         onClick={cartHandler}
       >
         <CartIcon className="lg:h-5 lg:w-6" strokeColor="" />
 
-        <span>0</span>
+        <span>{cart.totalQuantity}</span>
         <span className="hidden lg:inline-flex">carts</span>
       </Button>
 

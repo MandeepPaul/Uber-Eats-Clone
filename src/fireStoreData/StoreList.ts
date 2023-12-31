@@ -19,6 +19,8 @@ import {
   CondimentsList,
 } from "../types/incomingDataType";
 
+import { v4 as uuidv4 } from "uuid";
+
 export const fetchStoreData = async (): Promise<Istores[]> => {
   const storesCollection = collection(db, "stores");
   const newStoresData: Istores[] = [];
@@ -60,7 +62,7 @@ export async function fetchCondiments(
 
       for (const listDoc of condSnapshot.docs) {
         const condData: Condiments = {
-          id: listDoc.id,
+          id: uuidv4(),
           title: listDoc.data().title,
           limit: listDoc.data().limit,
           list: [],
@@ -92,7 +94,7 @@ export async function fetchCondiments(
             };
 
             if (eachItem.data().price !== undefined) {
-              data.conPrice = eachItem.data().price;
+              data.conPrice = +eachItem.data().price;
             }
 
             if (eachItem.data().special !== undefined) {
@@ -138,7 +140,7 @@ async function fetchCondimentList(
       conName: eachCondData.data().name,
     };
 
-    const price = eachCondData.data().price;
+    const price = +eachCondData.data().price;
     const special = eachCondData.data().special;
 
     if (price !== undefined) {

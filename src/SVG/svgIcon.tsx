@@ -398,15 +398,15 @@ export const ShareArrowIcon = ({
 export const TickIcon = ({
   className = "",
   fill = "#FFFFFF",
-  width = "20",
-  height = "20",
+  // width = "20",
+  // height = "20",
   ...props
 }) => (
   <svg
     className={className}
     fill={fill}
-    width={width}
-    height={height}
+    // width={width}
+    // height={height}
     {...props}
     viewBox="0 0 26 26"
     xmlns="http://www.w3.org/2000/svg"

@@ -12,7 +12,7 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
       <div className="font-medium relative h-full flex flex-col justify-between">
         <div>
           <Button
-            className="hidden lg:block absolute top-3 left-3"
+            className="hidden lg:block absolute top-3 left-3 rounded-full hover:bg-slate-200 p-2"
             onClick={onReset}
           >
             <CrossIcon />

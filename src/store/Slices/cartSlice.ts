@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 
 import { orderedItemFormat, finalOrder } from "../../types/outgoingDataType";
 import { restDetails } from "../../types/outgoingDataType";
@@ -26,6 +27,7 @@ const cartState = createSlice({
       const { quantity, price } = orderedItem;
 
       if (state.cartItemList.length === 0) {
+        orderedItem.itemId = uuidv4(); //To uniquly identify each item in the cart
         state.restId = restId;
         state.restName = restName;
         state.totalQuantity += quantity;
@@ -36,6 +38,7 @@ const cartState = createSlice({
       }
 
       if (state.restId === restId) {
+        orderedItem.itemId = uuidv4();
         state.totalQuantity += quantity;
         state.totalAmount += price * quantity;
         state.cartItemList.push(orderedItem);

@@ -5,7 +5,8 @@ const ButtonsManager: React.FC<{
   onFirstButtonClick: () => void;
   onSecondButtonClick: () => void;
   quantityHandler: (value: number) => void;
-}> = ({ onFirstButtonClick, onSecondButtonClick, quantityHandler }) => {
+  price: number;
+}> = ({ onFirstButtonClick, onSecondButtonClick, quantityHandler, price }) => {
   return (
     <>
       <DropDownMenu
@@ -15,7 +16,7 @@ const ButtonsManager: React.FC<{
         quantityHandler={quantityHandler}
       />
       <ButtonPair
-        text1={`Add 1 to order ${`\u2022`} $13.58`}
+        text1={`Add 1 to order ${`\u2022`} $${price}`}
         text2={`See Details`}
         onFirstButtonClick={onFirstButtonClick}
         onSecondButtonClick={onSecondButtonClick}

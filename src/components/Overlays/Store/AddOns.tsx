@@ -11,7 +11,8 @@ const AddOns: React.FC<{
   condiments: Condiments[];
   onReset: () => void;
   onAddToCart: (items: NewCondimentsInterface[], quantity: number) => void;
-}> = ({ condiments, onReset, onAddToCart }) => {
+  initialPrice: number;
+}> = ({ condiments, onReset, onAddToCart, initialPrice }) => {
   const [finalItem, setFinalItem] = useState<NewCondimentsInterface[]>([]);
   const [quantity, setFinalQuantity] = useState(1);
 
@@ -74,6 +75,7 @@ const AddOns: React.FC<{
           onFirstButtonClick={addItemButtonhandler}
           onSecondButtonClick={seeDetailsButtonhandler}
           quantityHandler={setQuantity}
+          price={initialPrice * quantity}
         />
       </div>
     </div>

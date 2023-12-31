@@ -3,6 +3,7 @@ import ButtonPair from "../../UI/ButtonPair";
 import StoreCartDetails from "./StoreCartDetails";
 
 import { itemOrdered } from "../../../store/Slices/cartSlice";
+import { redirect } from "react-router-dom";
 
 const FilledCart: React.FC<itemOrdered> = ({
   restName,
@@ -10,7 +11,9 @@ const FilledCart: React.FC<itemOrdered> = ({
   totalQuantity,
   cartItemList,
 }) => {
-  const checkoutButtonHandler = () => {};
+  const checkoutButtonHandler = () => {
+    redirect("..");
+  };
 
   const addItemButtonhandler = () => {};
 
