@@ -132,10 +132,25 @@ async function fetchCondimentList(
     return [];
   }
 
-  return condListSnapshot.docs.map((eachCondData) => ({
-    id: eachCondData.id,
-    ...(eachCondData.data() as Omit<CondimentsList, "id">),
-  }));
+  return condListSnapshot.docs.map((eachCondData) => {
+    const data: CondimentsList = {
+      id: eachCondData.id,
+      conName: eachCondData.data().name,
+    };
+
+    const price = eachCondData.data().price;
+    const special = eachCondData.data().special;
+
+    if (price !== undefined) {
+      data.conPrice = price;
+    }
+
+    if (special !== undefined) {
+      data.special = special;
+    }
+
+    return data;
+  });
 }
 
 // Fetch items within a category

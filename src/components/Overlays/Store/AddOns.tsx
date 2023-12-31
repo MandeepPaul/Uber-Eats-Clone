@@ -40,7 +40,7 @@ const AddOns: React.FC<{
   };
 
   useEffect(() => {
-    console.log(finalItem);
+    // console.log(finalItem);
   }, [finalItem]);
 
   const addItemButtonhandler = () => {

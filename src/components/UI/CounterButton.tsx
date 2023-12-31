@@ -1,25 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Bin } from "../../SVG/svgIcon";
 
-const CounterButton: React.FC<{ className?: string; onDelete: () => void }> = ({
-  onDelete,
-  className,
-}) => {
-  const [counter, setCounter] = useState(1);
+const CounterButton: React.FC<{
+  className?: string;
+  onChange: (quantity: number) => void;
+  defaultValue: number;
+}> = ({ onChange, className, defaultValue }) => {
+  const [counter, setCounter] = useState(defaultValue);
 
   const counterHandler = (identifier: string) => {
-    if (counter === 1 && identifier === "minus") {
-      onDelete();
-      return;
-    }
     identifier === "minus"
       ? setCounter((prevState) => prevState - 1)
       : setCounter((prevState) => prevState + 1);
   };
 
+  useEffect(() => {
+    onChange(counter);
+  });
+
   return (
     <div
-      className={`flex justify-between items-center px-4 text-3xl font-medium bg-gray-200 rounded-full ${className}`}
+      className={`flex justify-between items-center px-4 text-2xl font-medium bg-gray-200 rounded-full ${className}`}
     >
       <button onClick={() => counterHandler("minus")}>
         {counter <= 1 ? <Bin strokeWidth="1" /> : <span>-</span>}

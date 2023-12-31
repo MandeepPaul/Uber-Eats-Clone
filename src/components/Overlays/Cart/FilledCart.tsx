@@ -2,10 +2,13 @@ import CartItem from "./CartItem";
 import ButtonPair from "../../UI/ButtonPair";
 import StoreCartDetails from "./StoreCartDetails";
 
-import { orderedItemFormat } from "../../../types/outgoingDataType";
+import { itemOrdered } from "../../../store/Slices/cartSlice";
 
-const FilledCart: React.FC<{ cartItems: orderedItemFormat[] }> = ({
-  cartItems,
+const FilledCart: React.FC<itemOrdered> = ({
+  restName,
+  totalAmount,
+  totalQuantity,
+  cartItemList,
 }) => {
   const checkoutButtonHandler = () => {};
 
@@ -16,16 +19,20 @@ const FilledCart: React.FC<{ cartItems: orderedItemFormat[] }> = ({
       <div className="mx-4 h-screen">
         <div className="pt-12 divide-y">
           {/* Renders store details */}
-          <StoreCartDetails />
+          <StoreCartDetails
+            restName={restName}
+            subTotal={totalAmount}
+            totalQuantity={totalQuantity}
+          />
 
           {/* Renders all the items in the cart */}
-          {cartItems.map((item) => (
+          {cartItemList.map((item) => (
             <CartItem key={item.itemId} {...item} />
           ))}
 
           <div className="py-2 text-xl font-semibold flex justify-between">
             <span>Subtotal</span>
-            <span>$17.76</span>
+            <span>{`$${totalAmount.toFixed(2)}`}</span>
           </div>
         </div>
       </div>

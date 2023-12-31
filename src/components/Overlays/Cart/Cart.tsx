@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { itemOrdered } from "../../../store/Slices/cartSlice";
-import { orderedItemFormat } from "../../../types/outgoingDataType";
 
 import { CrossIcon } from "../../../SVG/svgIcon";
 
@@ -11,11 +10,11 @@ import EmptyCart from "./EmptyCart";
 import FilledCart from "./FilledCart";
 
 const Cart: React.FC<{ onReset: () => void }> = ({ onReset }) => {
-  const cartItemList: orderedItemFormat[] = useSelector(
-    (state: { cart: itemOrdered }) => state.cart.cartItemList
+  const cart: itemOrdered = useSelector(
+    (state: { cart: itemOrdered }) => state.cart
   );
 
-  console.log(cartItemList);
+  console.log(cart);
   return (
     <Modal
       reset={onReset}
@@ -25,10 +24,10 @@ const Cart: React.FC<{ onReset: () => void }> = ({ onReset }) => {
         <Button className="absolute top-4 left-4" onClick={onReset}>
           <CrossIcon />
         </Button>
-        {cartItemList.length === 0 ? (
+        {cart.cartItemList.length === 0 ? (
           <EmptyCart onReset={onReset} />
         ) : (
-          <FilledCart cartItems={cartItemList} />
+          <FilledCart {...cart} />
         )}
       </div>
     </Modal>
