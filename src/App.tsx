@@ -35,11 +35,11 @@ function App() {
                 { index: true, element: <StorePage />, loader: menuLoader },
               ],
             },
-            {
-              path: "checkout",
-              children: [{ index: true, element: <CheckoutPage /> }],
-            },
           ],
+        },
+        {
+          path: "checkout",
+          children: [{ index: true, element: <CheckoutPage /> }],
         },
       ],
     },

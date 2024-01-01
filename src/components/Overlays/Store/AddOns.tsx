@@ -75,7 +75,7 @@ const AddOns: React.FC<{
           onFirstButtonClick={addItemButtonhandler}
           onSecondButtonClick={seeDetailsButtonhandler}
           quantityHandler={setQuantity}
-          price={initialPrice * quantity}
+          price={+(initialPrice * quantity).toFixed(2)}
         />
       </div>
     </div>

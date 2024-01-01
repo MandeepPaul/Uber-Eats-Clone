@@ -66,7 +66,7 @@ const Categories: React.FC<{ className?: string }> = (props) => {
   return (
     <>
       <ul
-        className={`flex overflow-x-auto overflow-y-hidden space-x-4 py-2 lg:mt-[100px] lg:justify-center ${props.className}`}
+        className={`flex overflow-x-auto overflow-y-hidden space-x-4 py-2 lg:mt-[120px] lg:justify-center ${props.className}`}
       >
         {DUMMY_CATEGORIES.map((item) => (
           <li

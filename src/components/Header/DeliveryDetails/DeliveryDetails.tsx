@@ -1,6 +1,6 @@
 import AddressDetails from "./AddressDetails";
 import OrderType from "./OrderType";
-import OrderTypeToggle from "./OrderTypeToogle";
+import OrderTypeToggle from "../../UI/OrderTypeToogle";
 
 const DeliveryDetails: React.FC<{
   className?: string;

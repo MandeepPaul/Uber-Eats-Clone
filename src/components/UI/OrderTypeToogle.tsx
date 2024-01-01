@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../UI/Wrappers/Button";
+import Button from "./Wrappers/Button";
 
 type OrderTypeToggleProps = {
   className?: string;

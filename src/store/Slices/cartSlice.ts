@@ -5,14 +5,16 @@ import { orderedItemFormat, finalOrder } from "../../types/outgoingDataType";
 import { restDetails } from "../../types/outgoingDataType";
 
 export type itemOrdered = restDetails & {
+  changedFlag: boolean;
   totalAmount: number;
   totalQuantity: number;
   cartItemList: orderedItemFormat[];
 };
 
-const initialState: itemOrdered = {
+export const initialState: itemOrdered = {
   restId: "",
   restName: "",
+  changedFlag: false,
   totalAmount: 0,
   totalQuantity: 0,
   cartItemList: [],
@@ -26,12 +28,14 @@ const cartState = createSlice({
       const { restId, restName, orderedItem } = action.payload;
       const { quantity, price } = orderedItem;
 
+      state.changedFlag = true;
+
       if (state.cartItemList.length === 0) {
         orderedItem.itemId = uuidv4(); //To uniquly identify each item in the cart
         state.restId = restId;
         state.restName = restName;
         state.totalQuantity += quantity;
-        state.totalAmount += price * quantity;
+        state.totalAmount += +(price * quantity).toFixed(2);
         state.cartItemList.push(orderedItem);
 
         return;
@@ -40,7 +44,7 @@ const cartState = createSlice({
       if (state.restId === restId) {
         orderedItem.itemId = uuidv4();
         state.totalQuantity += quantity;
-        state.totalAmount += price * quantity;
+        state.totalAmount += +(price * quantity).toFixed(2);
         state.cartItemList.push(orderedItem);
         return;
       }
@@ -51,20 +55,26 @@ const cartState = createSlice({
     removeFromCart(state: itemOrdered, action: PayloadAction<string>) {
       const removableItemId = action.payload;
       const list = state.cartItemList;
+
+      state.changedFlag = true;
+
       if (list.length === 1 && list[0].itemId === removableItemId) {
         return initialState;
       }
-      console.log("removed");
 
       state.cartItemList = state.cartItemList.filter(
         (item) => item.itemId !== removableItemId
       );
+      state.totalQuantity--;
     },
     changeQuantity(
       state: itemOrdered,
       action: PayloadAction<{ id: string; newQuantity: number }>
     ) {
       const { id, newQuantity } = action.payload;
+
+      state.changedFlag = true;
+
       const itemToUpdate = state.cartItemList.find(
         (item) => item.itemId === id
       );
@@ -80,15 +90,17 @@ const cartState = createSlice({
         state.totalQuantity += diffQuantity;
 
         // Recalculate the total amount by iterating through all items in the cart
-        state.totalAmount = state.cartItemList.reduce(
-          (total, item) => total + item.price * item.quantity,
-          0
-        );
+        state.totalAmount = +state.cartItemList
+          .reduce((total, item) => total + item.price * item.quantity, 0)
+          .toFixed(2);
       }
+    },
+    replaceCart(state: itemOrdered, action: PayloadAction<itemOrdered>) {
+      return { ...action.payload };
     },
   },
 });
 
 export const cartActions = cartState.actions;
 
-export default cartState;
+export default cartState.reducer;

@@ -1,7 +1,7 @@
 import { AddFriendIcon, CalendarIcon } from "../../../../SVG/svgIcon";
 import { Istores } from "../../../../types/incomingDataType";
 import Button from "../../../UI/Wrappers/Button";
-import OrderTypeToggle from "../../../Header/DeliveryDetails/OrderTypeToogle";
+import OrderTypeToggle from "../../../UI/OrderTypeToogle";
 
 const StoreDeliveryDetails: React.FC<Istores> = ({
   name,

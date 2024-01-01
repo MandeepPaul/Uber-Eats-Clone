@@ -37,6 +37,7 @@ const ItemDetails: React.FC<ItemType> = ({
 }) => {
   const [condimentList, setCondiments] = useState<Condiments[] | null>(null);
   const dispatch = useDispatch();
+
   const fetchCondimentsData = async (): Promise<any> => {
     try {
       const condimentsData: Condiments[] = await fetchCondiments(
@@ -77,7 +78,7 @@ const ItemDetails: React.FC<ItemType> = ({
     };
 
     condimentsData.forEach(({ addOnPrice }) => {
-      if (addOnPrice) finalItem.price += +addOnPrice;
+      if (addOnPrice) finalItem.price += addOnPrice;
     });
 
     const finalOrder: finalOrder = {
@@ -89,11 +90,11 @@ const ItemDetails: React.FC<ItemType> = ({
     dispatch(cartActions.addToCart(finalOrder));
 
     // outgoing data.
-    console.log(finalOrder);
+    // console.log(finalOrder);
   };
 
   //To see incoming data.
-  console.log(condimentList);
+  // console.log(condimentList);
 
   return (
     <Modal

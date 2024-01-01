@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import ReactDOM from "react-dom";
 
 import SearchBar from "../Main/HomeContent/SearchBar";
-import Button from "../UI/Wrappers/Button";
+import SideNav from "../Main/HomeContent/SideNav/SideNav";
 import DeliveryDetails from "./DeliveryDetails/DeliveryDetails";
 import Cart from "../Overlays/Cart/Cart";
-import SideNav from "../Main/HomeContent/SideNav/SideNav";
+import NotificationWrapper from "../UI/Wrappers/NotificationWrapper";
+import Button from "../UI/Wrappers/Button";
 import Logo from "./Logo";
 import { HamburgerMenuIcon, CartIcon } from "../../SVG/svgIcon";
 import { itemOrdered } from "../../store/Slices/cartSlice";
@@ -45,46 +46,48 @@ const MainNavigation: React.FC<{
   }, [cart.cartItemList.length]);
 
   return (
-    <div
-      className={`flex flex-row justify-between w-full bg-white max-w-[1440px] py-3 md:text-sm xl:text-base lg:px-10 lg:items-center lg:fixed lg:top-0 lg:z-20 lg:shadow-lg ${className}`}
-    >
-      <Button onClick={openSideNav} className="pr-6">
-        <HamburgerMenuIcon />
-      </Button>
-
-      <Logo />
-
-      <DeliveryDetails
-        className="hidden lg:inline-flex lg:gap-3"
-        onAddressBarClick={onAddressBarClick}
-      />
-
-      <SearchBar className="hidden lg:inline-flex" />
-
-      <Button
-        className={`flex items-center space-x-1 bg-black rounded-full text-white px-3 lg:px-4 lg:py-3 hover:opacity-75 ${
-          animateButton ? "bump z-50" : ""
-        }`}
-        onClick={cartHandler}
+    <NotificationWrapper>
+      <div
+        className={`flex flex-row justify-between w-full py-3 md:text-sm xl:text-base lg:px-10 lg:items-center ${className}`}
       >
-        <CartIcon className="lg:h-5 lg:w-6" strokeColor="" />
+        <Button onClick={openSideNav} className="pr-6">
+          <HamburgerMenuIcon />
+        </Button>
 
-        <span>{cart.totalQuantity}</span>
-        <span className="hidden lg:inline-flex">carts</span>
-      </Button>
+        <Logo />
 
-      {cartVisibility &&
-        ReactDOM.createPortal(
-          <Cart onReset={() => setCartVisibility(false)} />,
-          document.getElementById("back-drop") as Element
-        )}
+        <DeliveryDetails
+          className="hidden lg:inline-flex lg:gap-3"
+          onAddressBarClick={onAddressBarClick}
+        />
 
-      {sideNavigation &&
-        ReactDOM.createPortal(
-          <SideNav onReset={() => setNavVisibility(false)} />,
-          document.getElementById("back-drop") as Element
-        )}
-    </div>
+        <SearchBar className="hidden lg:inline-flex" />
+
+        <Button
+          className={`flex items-center space-x-1 bg-black rounded-full text-white px-3 lg:px-4 lg:py-3 hover:opacity-75 ${
+            animateButton ? "bump z-50" : ""
+          }`}
+          onClick={cartHandler}
+        >
+          <CartIcon className="lg:h-5 lg:w-6" strokeColor="" />
+
+          <span>{cart.totalQuantity}</span>
+          <span className="hidden lg:inline-flex">carts</span>
+        </Button>
+
+        {cartVisibility &&
+          ReactDOM.createPortal(
+            <Cart onReset={() => setCartVisibility(false)} />,
+            document.getElementById("back-drop") as Element
+          )}
+
+        {sideNavigation &&
+          ReactDOM.createPortal(
+            <SideNav onReset={() => setNavVisibility(false)} />,
+            document.getElementById("back-drop") as Element
+          )}
+      </div>
+    </NotificationWrapper>
   );
 };
 

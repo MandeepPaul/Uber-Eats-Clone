@@ -18,13 +18,11 @@ const CartItem: React.FC<orderedItemFormat> = ({
 
   const removeItemHandler = () => {
     dispatch(cartActions.removeFromCart(itemId));
-    console.log(itemId, itemName);
   };
 
   const quantityChangeHandler = (newQuantity: number) => {
     if (newQuantity === 0) {
       removeItemHandler();
-      return;
     }
 
     dispatch(cartActions.changeQuantity({ id: itemId, newQuantity }));
@@ -34,29 +32,26 @@ const CartItem: React.FC<orderedItemFormat> = ({
     <CartItemWrapper>
       <div className="flex flex-col col-span-2">
         <span>{itemName}</span>
-        {condimentsData.map((data) => (
-          <p key={data.id} className="font-light text-sm">
-            {`${data.title}: `}
-            {data.list
-              .map(({ conName, conPrice }) =>
-                conPrice ? `${conName}: ($${conPrice})` : conName
-              )
-              .join(", ")}
-          </p>
-        ))}
+        {condimentsData &&
+          condimentsData.map((data) => (
+            <p key={data.id} className="font-light text-sm">
+              {`${data.title}: `}
+              {data.list
+                .map(({ conName, conPrice }) =>
+                  conPrice ? `${conName}: ($${conPrice})` : conName
+                )
+                .join(", ")}
+            </p>
+          ))}
       </div>
 
       <Card className="h-12 w-12 justify-self-end" url={imageURL || ""} />
 
-      <CounterButton
-        className=""
-        onChange={quantityChangeHandler}
-        defaultValue={quantity}
-      />
+      <CounterButton onChange={quantityChangeHandler} defaultValue={quantity} />
 
-      <span className="place-self-end col-span-2">{`$${price.toFixed(
-        2
-      )}`}</span>
+      <span className="place-self-end col-span-2">{`$${(
+        price * quantity
+      ).toFixed(2)}`}</span>
     </CartItemWrapper>
   );
 };
