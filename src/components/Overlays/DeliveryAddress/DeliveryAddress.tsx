@@ -27,7 +27,7 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
           <AddressSection
             svg={LocationPinSVG}
             place="Home"
-            description="1720 Pembina Hwy, Winnipeg, MB R3T 5T4, CA"
+            description="Pembina Highway, Winnipeg"
             buttonTitle="Change"
           />
 

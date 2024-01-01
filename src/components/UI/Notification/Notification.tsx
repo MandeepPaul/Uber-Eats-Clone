@@ -24,7 +24,7 @@ const Notification: React.FC<{
     >
       <div
         className={`w-full flex justify-between items-center ${
-          status === "default" ? "inline-block animate-marquee" : ""
+          status === "default" ? "inline-block animate-marquee gap-2" : ""
         }`}
       >
         <h2>{title}</h2>

@@ -1,5 +1,7 @@
 import { StringMappingType } from "typescript";
 import { Istores } from "../../../../types/incomingDataType";
+import { useAppSelector } from "../../../../types/hooks";
+import { findItemIndexById } from "../../../../utility/findItemIndexById";
 import Store from "./Store";
 
 const RenderStores: React.FC<{
@@ -7,6 +9,8 @@ const RenderStores: React.FC<{
   isGrid: boolean;
   className?: StringMappingType;
 }> = ({ storeData, isGrid, className }) => {
+  const favStoreList = useAppSelector((state) => state.favSlice);
+
   return (
     <ul
       className={
@@ -15,21 +19,16 @@ const RenderStores: React.FC<{
           : `flex justify-start gap-4 pb-3 overflow-x-auto`
       }
     >
-      {storeData.map(({ id, url, offer, name, deliveryFee, time, rating }) => (
+      {storeData.map((store) => (
         <li
-          key={id}
+          key={store.id}
           className={
             isGrid ? "mt-4" : "mt-4 flex-shrink-0 w-[85%] md:w-[40%] lg:w-[32%]"
           }
         >
           <Store
-            id={id}
-            url={url}
-            offer={offer}
-            name={name}
-            deliveryFee={deliveryFee}
-            time={time}
-            rating={rating}
+            favFlag={findItemIndexById(store.id, favStoreList).isPresent}
+            {...store}
           />
         </li>
       ))}

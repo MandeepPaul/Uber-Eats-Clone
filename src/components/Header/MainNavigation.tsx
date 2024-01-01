@@ -43,7 +43,7 @@ const MainNavigation: React.FC<{
     return () => {
       clearTimeout(timer);
     };
-  }, [cart.cartItemList.length]);
+  }, [cart.cartItemList]);
 
   return (
     <NotificationWrapper>

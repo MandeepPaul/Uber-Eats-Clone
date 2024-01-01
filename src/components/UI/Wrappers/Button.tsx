@@ -5,18 +5,32 @@ interface ButtonProps {
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
   className?: string;
-  onClick?: () => void;
+  onClick?: ((event: React.MouseEvent<HTMLButtonElement>) => void) | string;
 }
 
-const Button: React.FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> = ({
+  children,
+  type,
+  disabled,
+  className,
+  onClick,
+}) => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (typeof onClick === "function") {
+      onClick(event); // If onClick is a function, execute it
+    } else if (typeof onClick === "string") {
+      // If onClick is a string, navigate to the specified URL
+      window.location.href = onClick;
+    }
+  };
   return (
     <button
-      className={props.className}
-      type={props.type || "button"}
-      onClick={props.onClick}
-      disabled={props.disabled}
+      className={className}
+      type={type || "button"}
+      onClick={handleClick}
+      disabled={disabled}
     >
-      {props.children}
+      {children}
     </button>
   );
 };
