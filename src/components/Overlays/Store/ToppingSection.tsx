@@ -53,7 +53,7 @@ const ToppingSection: React.FC<{
 
       <ul className="divide-y-2">
         {list.map(({ id, conName, conPrice, extraCalories, special }) => (
-          <li key={id} className="flex justify-between py-3 last:mb-4">
+          <li key={id + title} className="flex justify-between py-3 last:mb-4">
             <label htmlFor={id} className="flex flex-col cursor-pointer">
               <span className="md:text-[18px]">{conName}</span>
               {conPrice && (
@@ -71,11 +71,11 @@ const ToppingSection: React.FC<{
               </div>
             </label>
             <Checkbox
-              id={id}
-              isChecked={findItemIndexById(id, checkedItems).isPresent}
+              id={id + title}
+              isChecked={findItemIndexById(id + title, checkedItems).isPresent}
               onCheckboxChange={() =>
                 handleCheckboxChange({
-                  id,
+                  id: id + title,
                   conName,
                   conPrice,
                 })

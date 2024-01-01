@@ -8,6 +8,7 @@ import { loader as storesLoader } from "./pages/HomePage";
 import { loader as menuLoader } from "./pages/StorePage";
 import RootPage from "./layout/RootLayout";
 import CheckoutPage from "./pages/CheckoutPage";
+import FavStorePage from "./pages/FavStorePage";
 
 function App() {
   const router = createBrowserRouter([
@@ -28,6 +29,10 @@ function App() {
             {
               path: "offers",
               element: <OffersPage />,
+            },
+            {
+              path: "favourite",
+              element: <FavStorePage />,
             },
             {
               path: ":storeId",

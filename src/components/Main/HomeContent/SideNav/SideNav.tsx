@@ -11,7 +11,7 @@ const SideNav: React.FC<{ onReset: () => void }> = ({ onReset }) => {
     >
       <aside className="py-7 font-ubermove h-screen">
         <Profile />
-        <Options />
+        <Options onReset={onReset} />
         <ExtraOptions />
       </aside>
     </Modal>

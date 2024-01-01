@@ -1,12 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SubOption: React.FC<{
   title: string;
   icon: React.ReactNode;
   description?: string;
-}> = ({ icon, title, description }) => {
+  onReset: () => void;
+}> = ({ icon, title, description, onReset }) => {
+  let linkHref = "..";
+  if (title === "Favorites") linkHref = "stores/favourite";
   return (
-    <div className="flex gap-4 items-center">
+    <Link to={linkHref} className="flex gap-4 items-center" onClick={onReset}>
       {icon}
       <div className="flex flex-col">
         <span>{title}</span>
@@ -18,7 +22,7 @@ const SubOption: React.FC<{
           {description}
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

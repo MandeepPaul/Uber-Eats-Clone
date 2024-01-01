@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 import { FavHeartIcon, TrophyIcon } from "../../../../SVG/svgIcon";
 import { Istores } from "../../../../types/incomingDataType";
@@ -27,13 +26,9 @@ const Store: React.FC<StoreDetailsProps> = (props) => {
     className,
     favFlag,
   } = props;
-
   const dispatch = useAppDispatch();
 
-  const favListHandler = (
-    store: Istores,
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const favListHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault(); // Prevent default link behavior
 
     dispatch(favListActions.handleFavrourite(id));
@@ -49,9 +44,7 @@ const Store: React.FC<StoreDetailsProps> = (props) => {
           </div>
         )}
         <Button
-          onClick={(event) =>
-            favListHandler(props as Omit<StoreDetailsProps, "className">, event)
-          }
+          onClick={(event) => favListHandler(event)}
           className="absolute top-3 right-3"
         >
           <FavHeartIcon

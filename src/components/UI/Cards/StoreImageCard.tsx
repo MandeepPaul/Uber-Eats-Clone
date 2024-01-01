@@ -1,16 +1,17 @@
 import { FavHeartIcon } from "../../../SVG/svgIcon";
 import { Istores } from "../../../types/incomingDataType";
+import { useAppDispatch } from "../../../types/hooks";
+import { favListActions } from "../../../store/Slices/favStores";
 import Card from "../Wrappers/ImageCard";
+import Button from "../Wrappers/Button";
 
-interface StoreDetailsProps
-  extends Pick<
-    Istores,
-    "name" | "rating" | "deliveryFee" | "time" | "offer" | "url"
-  > {
+interface StoreDetailsProps extends Istores {
   className?: string;
+  favFlag: boolean;
 }
 
 const StoreImageCard: React.FC<StoreDetailsProps> = ({
+  id,
   name,
   rating,
   deliveryFee,
@@ -18,20 +19,32 @@ const StoreImageCard: React.FC<StoreDetailsProps> = ({
   offer,
   url,
   className,
+  favFlag,
 }) => {
+  const dispatch = useAppDispatch();
+
+  const favListHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault(); // Prevent default link behavior
+
+    dispatch(favListActions.handleFavrourite(id));
+  };
+
   return (
     <div className={`flex gap-3 mt-3 ${className}`}>
       <Card
         className="rounded-xl min-h-[100px] min-w-[100px] relative"
         url={url}
       >
-        <div className="absolute top-1.5 right-1.5">
+        <Button
+          onClick={(event) => favListHandler(event)}
+          className="absolute top-1.5 right-1.5"
+        >
           <FavHeartIcon
-            className="hover:fill-white "
-            width="32px"
-            height="32px"
+            width="22px"
+            height="22px"
+            className={`hover:fill-white ${favFlag && "fill-white"}`}
           />
-        </div>
+        </Button>
       </Card>
 
       <div className="flex-grow overflow-hidden">
@@ -54,7 +67,7 @@ const StoreImageCard: React.FC<StoreDetailsProps> = ({
             <span className="text-gray-500">&#x2022;{` ${time}min`}</span>
           </p>
           <span className="text-sm font-medium truncate text-green-700">
-            {`${offer}`}
+            {offer && `${offer}`}
           </span>
         </div>
       </div>

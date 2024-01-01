@@ -94,7 +94,7 @@ export async function fetchCondiments(
             };
 
             if (eachItem.data().price !== undefined) {
-              data.conPrice = +eachItem.data().price;
+              data.conPrice = eachItem.data().price;
             }
 
             if (eachItem.data().special !== undefined) {
@@ -104,7 +104,6 @@ export async function fetchCondiments(
             if (eachItem.data().extraCalories !== undefined) {
               data.extraCalories = eachItem.data().extraCalories;
             }
-
             return data;
           });
           list = sampleArray;
@@ -140,7 +139,7 @@ async function fetchCondimentList(
       conName: eachCondData.data().name,
     };
 
-    const price = +eachCondData.data().price;
+    const price = eachCondData.data().price;
     const special = eachCondData.data().special;
 
     if (price !== undefined) {

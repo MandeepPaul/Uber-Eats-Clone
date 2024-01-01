@@ -1,6 +1,3 @@
-import { CondimentsList } from "../types/incomingDataType";
-import { NewCondimentsInterface } from "../types/outgoingDataType";
-
 type ItemWithId = { id: string }; // Define a type with an 'id' property
 
 // Utility function to find item index by ID in an array

@@ -999,6 +999,11 @@ video {
   margin-bottom: 2rem;
 }
 
+.mx-\[50\%\]{
+  margin-left: 50%;
+  margin-right: 50%;
+}
+
 .mb-16{
   margin-bottom: 4rem;
 }
@@ -1195,18 +1200,6 @@ video {
   height: 100vh;
 }
 
-.h-\[p0\%\]{
-  height: p0%;
-}
-
-.h-\[90\%\]{
-  height: 90%;
-}
-
-.h-\[0\%\]{
-  height: 0%;
-}
-
 .max-h-10{
   max-height: 2.5rem;
 }
@@ -1223,8 +1216,12 @@ video {
   min-height: 126px;
 }
 
-.min-h-\[90\%\]{
-  min-height: 90%;
+.min-h-\[80\%\]{
+  min-height: 80%;
+}
+
+.min-h-\[150\%\]{
+  min-height: 150%;
 }
 
 .w-10{
@@ -1711,6 +1708,11 @@ video {
 .bg-gray-200{
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+.bg-green-400{
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
 
 .bg-green-600{
@@ -2201,6 +2203,20 @@ video {
           transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.hover\:scale-50:hover{
+  --tw-scale-x: .5;
+  --tw-scale-y: .5;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:scale-110:hover{
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  -webkit-transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .hover\:bg-gray-100:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -2391,6 +2407,10 @@ video {
 
   .lg\:mt-\[130px\]{
     margin-top: 130px;
+  }
+
+  .lg\:mt-\[150px\]{
+    margin-top: 150px;
   }
 
   .lg\:block{

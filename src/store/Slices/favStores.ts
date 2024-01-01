@@ -22,4 +22,3 @@ const favStores = createSlice({
 
 export const favListActions = favStores.actions;
 export default favStores.reducer;
-//  const favStoreList = useAppSelector((state)=>state.favSlice)
