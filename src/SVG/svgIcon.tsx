@@ -434,6 +434,29 @@ export const LocationPinSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
     <path d="M12,2a8.009,8.009,0,0,0-8,8c0,3.255,2.363,5.958,4.866,8.819,0.792,0.906,1.612,1.843,2.342,2.791a1,1,0,0,0,1.584,0c0.73-.948,1.55-1.885,2.342-2.791C17.637,15.958,20,13.255,20,10A8.009,8.009,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"></path>
   </svg>
 );
+export const doorSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = "fill-black h-[24px]",
+  fill = "currentColor",
+  width = "12",
+  height = "12",
+  ...props
+}) => (
+  <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 100 100"
+  >
+    <path d="M74 13v78h-6V17c0-1.1-.9-2-2-2H34c-1.1 0-2 .9-2 2v74h-6V13c0-2.21 1.79-4 4-4h40c2.21 0 4 1.79 4 4zm-38 6h28v72H36V19zm18 31c0 .54.21 1.04.59 1.41.37.38.88.59 1.41.59s1.04-.21 1.41-.59c.38-.37.59-.87.59-1.41 0-.53-.21-1.04-.59-1.41-.09-.1-.19-.18-.3-.25s-.22-.14-.35-.19a1.994 1.994 0 0 0-2.17.44c-.38.37-.59.88-.59 1.41z"></path>
+  </svg>
+);
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" id="door">
+  <path d="M74 13v78h-6V17c0-1.1-.9-2-2-2H34c-1.1 0-2 .9-2 2v74h-6V13c0-2.21 1.79-4 4-4h40c2.21 0 4 1.79 4 4zm-38 6h28v72H36V19zm18 31c0 .54.21 1.04.59 1.41.37.38.88.59 1.41.59s1.04-.21 1.41-.59c.38-.37.59-.87.59-1.41 0-.53-.21-1.04-.59-1.41-.09-.1-.19-.18-.3-.25s-.22-.14-.35-.19a1.994 1.994 0 0 0-2.17.44c-.38.37-.59.88-.59 1.41z"></path>
+</svg>;
 
 export const ClockIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
   className = "",

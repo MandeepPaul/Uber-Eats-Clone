@@ -29,7 +29,7 @@ const Cart: React.FC<{ onReset: () => void }> = ({ onReset }) => {
         {cart.cartItemList.length === 0 ? (
           <EmptyCart onReset={onReset} />
         ) : (
-          <FilledCart {...cart} />
+          <FilledCart cart={cart} onReset={onReset} />
         )}
       </div>
     </Modal>

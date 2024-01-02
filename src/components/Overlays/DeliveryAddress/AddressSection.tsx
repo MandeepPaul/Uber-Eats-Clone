@@ -18,7 +18,7 @@ const AddressSection: React.FC<{
         </span>
       </div>
 
-      <Button className="bg-gray-200 px-2 py-1 font-normal rounded-full">
+      <Button className="bg-gray-200 px-3 py-2 text-sm rounded-full">
         {buttonTitle}
       </Button>
     </section>

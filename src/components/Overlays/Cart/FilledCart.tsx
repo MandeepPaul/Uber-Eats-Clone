@@ -1,16 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import CartItem from "./CartItem";
 import ButtonPair from "../../UI/ButtonPair";
 import StoreCartDetails from "./StoreCartDetails";
 
 import { itemOrdered } from "../../../store/Slices/cartSlice";
 
-const FilledCart: React.FC<itemOrdered> = ({
-  restName,
-  totalAmount,
-  totalQuantity,
-  cartItemList,
+const FilledCart: React.FC<{ cart: itemOrdered; onReset: () => void }> = ({
+  cart,
+  onReset,
 }) => {
-  const checkoutButtonHandler = () => {};
+  const { restName, totalAmount, totalQuantity, cartItemList } = cart;
+  const navigate = useNavigate();
+
+  const checkoutButtonHandler = () => {
+    navigate("/checkout");
+    onReset();
+  };
 
   const addItemButtonhandler = () => {};
 

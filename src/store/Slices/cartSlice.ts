@@ -14,6 +14,7 @@ export type itemOrdered = restDetails & {
 export const initialState: itemOrdered = {
   restId: "",
   restName: "",
+  restImg: "",
   changedFlag: false,
   totalAmount: 0,
   totalQuantity: 0,

@@ -3,6 +3,7 @@ import { Condiments } from "./incomingDataType";
 export type restDetails = {
   restId: string;
   restName: string;
+  restImg: string;
 };
 
 export interface NewCondimentsInterface

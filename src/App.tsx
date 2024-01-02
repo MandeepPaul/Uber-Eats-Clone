@@ -7,6 +7,7 @@ import StorePage from "./pages/StorePage";
 import { loader as storesLoader } from "./pages/HomePage";
 import { loader as menuLoader } from "./pages/StorePage";
 import RootPage from "./layout/RootLayout";
+import CheckoutLayout from "./layout/CheckoutLayout";
 import CheckoutPage from "./pages/CheckoutPage";
 import FavStorePage from "./pages/FavStorePage";
 
@@ -42,11 +43,12 @@ function App() {
             },
           ],
         },
-        {
-          path: "checkout",
-          children: [{ index: true, element: <CheckoutPage /> }],
-        },
       ],
+    },
+    {
+      path: "/checkout",
+      element: <CheckoutLayout />,
+      children: [{ index: true, element: <CheckoutPage /> }],
     },
   ]);
 

@@ -66,7 +66,7 @@ export const sendCartData = (cart: itemOrdered, flag: boolean) => {
       );
 
       const sendData = async () => {
-        const { changedFlag, ...rest } = cart;
+        const { changedFlag, restImg, ...rest } = cart;
         const response = await fetch(
           "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone/cart.json",
           {

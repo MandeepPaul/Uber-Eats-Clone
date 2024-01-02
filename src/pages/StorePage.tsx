@@ -33,6 +33,7 @@ const StorePage = () => {
           restaurantDetails={{
             restId: storeDetailsIncMenu.id,
             restName: storeDetailsIncMenu.name,
+            restImg: storeDetailsIncMenu.url,
           }}
         />
         {/* Ensuring 'menuContent' is an array */}

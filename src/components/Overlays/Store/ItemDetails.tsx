@@ -84,6 +84,7 @@ const ItemDetails: React.FC<ItemType> = ({
     const finalOrder: finalOrder = {
       restId: restDetails.restId,
       restName: restDetails.restName,
+      restImg: restDetails.restImg,
       orderedItem: finalItem,
     };
 
