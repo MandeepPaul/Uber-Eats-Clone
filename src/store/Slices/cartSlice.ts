@@ -14,11 +14,12 @@ export type itemOrdered = restDetails & {
 export const initialState: itemOrdered = {
   restId: "",
   restName: "",
-  restImg: "",
-  changedFlag: false,
+  deliveryFee: 0,
   totalAmount: 0,
   totalQuantity: 0,
   cartItemList: [],
+  restImg: "",
+  changedFlag: false,
 };
 
 const cartState = createSlice({
@@ -26,7 +27,8 @@ const cartState = createSlice({
   initialState,
   reducers: {
     addToCart(state: itemOrdered, action: PayloadAction<finalOrder>) {
-      const { restId, restName, orderedItem } = action.payload;
+      const { restId, restName, restImg, deliveryFee, orderedItem } =
+        action.payload;
       const { quantity, price } = orderedItem;
 
       state.changedFlag = true;
@@ -35,6 +37,8 @@ const cartState = createSlice({
         orderedItem.itemId = uuidv4(); //To uniquly identify each item in the cart
         state.restId = restId;
         state.restName = restName;
+        state.restImg = restImg;
+        state.deliveryFee = deliveryFee;
         state.totalQuantity += quantity;
         state.totalAmount += +(price * quantity).toFixed(2);
         state.cartItemList.push(orderedItem);

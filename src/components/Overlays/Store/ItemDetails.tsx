@@ -85,6 +85,7 @@ const ItemDetails: React.FC<ItemType> = ({
       restId: restDetails.restId,
       restName: restDetails.restName,
       restImg: restDetails.restImg,
+      deliveryFee: restDetails.deliveryFee,
       orderedItem: finalItem,
     };
 

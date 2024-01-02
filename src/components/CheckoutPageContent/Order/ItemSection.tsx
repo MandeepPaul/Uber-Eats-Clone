@@ -1,16 +1,29 @@
-const ItemSection = () => {
+import { orderedItemFormat } from "../../../types/outgoingDataType";
+
+const ItemSection: React.FC<orderedItemFormat> = ({
+  itemName,
+  quantity,
+  price,
+  condimentsData,
+}) => {
   return (
     <section className="flex justify-between items-start gap-4 py-4">
-      <span className="bg-gray-200 px-2">4</span>
+      <span className="bg-gray-200 px-2">{quantity}</span>
       <div className="flex flex-col grow">
-        <span className="font-medium ">Name</span>
-        <p className="text-sm text-gray-400">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum
-          voluptas iste facilis. Veniam, molestias? Perferendis adipisci aliquam
-          provident eveniet nostr.
-        </p>
+        <span className="font-medium ">{itemName}</span>
+        {condimentsData &&
+          condimentsData.map((data) => (
+            <p key={data.id} className="text-sm text-gray-400">
+              {`${data.title}: `}
+              {data.list
+                .map(({ conName, conPrice }) =>
+                  conPrice ? `${conName}: ($${conPrice})` : conName
+                )
+                .join(", ")}
+            </p>
+          ))}
       </div>
-      <span className="text-sm text-gray-600">$30.56</span>
+      <span className="text-sm text-gray-600">{`$${price.toFixed(2)}`}</span>
     </section>
   );
 };

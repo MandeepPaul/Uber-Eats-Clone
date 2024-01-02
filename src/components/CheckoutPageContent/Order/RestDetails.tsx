@@ -1,13 +1,20 @@
-const RestDetails = () => {
+const RestDetails: React.FC<{
+  restName: string;
+  restImg: string;
+  totalQuantity: number;
+}> = ({ restImg, restName, totalQuantity }) => {
   return (
     <div className="flex justify-between items-center gap-4 pb-4">
       <img
-        src="https://tb-static.uber.com/prod/image-proc/processed_images/e1244ff68a32fe72d9ee6345c724dcf6/97ef7458dde62fa918635bc21265d9f5.jpeg"
+        src={restImg}
+        alt="Restaurant"
         className="h-10 w-10 rounded-full bg-green-500 "
       />
       <div className="flex flex-col grow">
-        <span>A&W</span>
-        <span className="text-sm text-gray-400">{`5 items`} </span>
+        <span>{restName} </span>
+        <span className="text-sm text-gray-400">
+          {`${totalQuantity} items`}{" "}
+        </span>
       </div>
     </div>
   );

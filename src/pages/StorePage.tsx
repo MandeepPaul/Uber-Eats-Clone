@@ -34,6 +34,7 @@ const StorePage = () => {
             restId: storeDetailsIncMenu.id,
             restName: storeDetailsIncMenu.name,
             restImg: storeDetailsIncMenu.url,
+            deliveryFee: storeDetailsIncMenu.deliveryFee,
           }}
         />
         {/* Ensuring 'menuContent' is an array */}

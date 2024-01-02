@@ -1,8 +1,15 @@
 import Button from "../../UI/Wrappers/Button";
 import ItemSection from "./ItemSection";
 import RestDetails from "./RestDetails";
+import { itemOrdered } from "../../../store/Slices/cartSlice";
 
-const OrderSummary = () => {
+const OrderSummary: React.FC<itemOrdered> = ({
+  cartItemList,
+  totalAmount,
+  deliveryFee,
+  ...rest
+}) => {
+  // console.log(rest);
   return (
     <section className="px-4 py-2 bg-white">
       <div className="flex justify-between items-center ">
@@ -14,25 +21,28 @@ const OrderSummary = () => {
         </Button>
       </div>
 
-      <RestDetails />
+      <RestDetails {...rest} />
 
-      <div className="divide-y-2 ">
-        <ItemSection />
-        <ItemSection />
+      <div className="divide-y-2">
+        {cartItemList.length > 0
+          ? cartItemList.map((eachItem) => (
+              <ItemSection key={eachItem.itemId} {...eachItem} />
+            ))
+          : ""}
       </div>
 
       <div className="flex flex-col gap-1">
         <div className="flex justify-between items-center font-light ">
           <span>Subtotal</span>
-          <span>$40</span>
+          <span>{`$${totalAmount?.toFixed(2)}`}</span>
         </div>
         <div className="flex justify-between items-center font-light ">
           <span>Delivery Fee</span>
-          <span>$0.99</span>
+          <span>{`$${deliveryFee?.toFixed(2)}`}</span>
         </div>
         <div className="flex justify-between items-center text-lg font-semibold">
           <span>Total</span>
-          <span>$50.66</span>
+          <span>{`$${(totalAmount + deliveryFee)?.toFixed(2)}`}</span>
         </div>
       </div>
     </section>
