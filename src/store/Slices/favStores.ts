@@ -1,21 +1,32 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const initialState: string[] = [];
+export type favStoreType = {
+  list: string[];
+  changeFlag: boolean;
+};
+
+export const initialFavState: favStoreType = {
+  list: [],
+  changeFlag: false,
+};
 
 const favStores = createSlice({
   name: "FavStoreList",
-  initialState,
+  initialState: initialFavState,
 
   reducers: {
-    handleFavrourite(state, action: PayloadAction<string>) {
+    handleFavourite(state, action: PayloadAction<string>) {
+      state.changeFlag = true;
       const id = action.payload;
 
-      if (state.includes(id)) {
-        return state.filter((ids) => ids !== id);
+      if (state.list.includes(id)) {
+        state.list = state.list.filter((ids) => ids !== id); // Update state with the filtered array
+      } else {
+        state.list.push(id); // If not present, add the ID to the list
       }
-      console.log(state.length);
-
-      state.push(id);
+    },
+    replaceFavourite(state, action: PayloadAction<string[]>) {
+      state.list = action.payload;
     },
   },
 });

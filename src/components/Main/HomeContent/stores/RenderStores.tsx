@@ -27,7 +27,7 @@ const RenderStores: React.FC<{
           }
         >
           <Store
-            favFlag={findItemIndexById(store.id, favStoreList).isPresent}
+            favFlag={findItemIndexById(store.id, favStoreList.list).isPresent}
             {...store}
           />
         </li>

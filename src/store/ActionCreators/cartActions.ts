@@ -1,6 +1,5 @@
-import { uiActions } from "./Slices/uiSlice";
-import { cartActions, initialState } from "./Slices/cartSlice";
-import { itemOrdered } from "./Slices/cartSlice";
+import { uiActions } from "../Slices/uiSlice";
+import { cartActions, initialState, itemOrdered } from "../Slices/cartSlice";
 
 export const sendCartData = (cart: itemOrdered, flag: boolean) => {
   return async (dispatch: any) => {
@@ -16,7 +15,7 @@ export const sendCartData = (cart: itemOrdered, flag: boolean) => {
 
       const receiveData = async () => {
         const response = await fetch(
-          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone.json"
+          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone/cart.json"
         );
 
         if (!response.ok) {
@@ -69,7 +68,7 @@ export const sendCartData = (cart: itemOrdered, flag: boolean) => {
       const sendData = async () => {
         const { changedFlag, ...rest } = cart;
         const response = await fetch(
-          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone.json",
+          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone/cart.json",
           {
             method: "PUT",
             body: JSON.stringify({

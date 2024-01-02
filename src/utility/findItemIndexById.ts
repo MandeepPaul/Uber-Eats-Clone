@@ -6,16 +6,26 @@ export const findItemIndexById = <T extends ItemWithId | string>(
   items: T[]
 ) => {
   let indexNum = -1;
-  items.some((item, index) => {
-    if (
-      (typeof item === "string" && item === id) ||
-      (item as ItemWithId).id === id
-    ) {
-      indexNum = index;
-      return true;
-    }
-    return false;
-  });
+
+  if (items.length === 0) {
+    return { isPresent: false, index: -1 };
+  }
+
+  if (Array.isArray(items)) {
+    items.some((item, index) => {
+      if (
+        (typeof item === "string" && item === id) ||
+        (item as ItemWithId).id === id
+      ) {
+        indexNum = index;
+        return true;
+      }
+      return false;
+    });
+  } else {
+    console.error("Items is not an array.");
+    return { isPresent: false, index: -1 };
+  }
 
   return { isPresent: indexNum !== -1, index: indexNum };
 };

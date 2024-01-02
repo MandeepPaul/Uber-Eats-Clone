@@ -9,7 +9,7 @@ const Format: React.FC<{
   title: string;
   message?: string;
 }> = ({ storesData, title, message }) => {
-  const favourite = useAppSelector((state) => state.favSlice);
+  const favourite = useAppSelector((state) => state.favSlice.list);
 
   return (
     <div className="mx-4 lg:mt-[150px]" style={{ height: "60vh" }}>

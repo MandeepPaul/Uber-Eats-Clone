@@ -6,7 +6,7 @@ import { useAppSelector } from "../types/hooks";
 
 const FavStorePage = () => {
   const data = useRouteLoaderData("store-details");
-  const favourite = useAppSelector((state) => state.favSlice);
+  const favourite = useAppSelector((state) => state.favSlice.list);
 
   const storesData = data as Istores[];
 

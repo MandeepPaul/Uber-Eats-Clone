@@ -26,7 +26,7 @@ const StoreImageCard: React.FC<StoreDetailsProps> = ({
   const favListHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault(); // Prevent default link behavior
 
-    dispatch(favListActions.handleFavrourite(id));
+    dispatch(favListActions.handleFavourite(id));
   };
 
   return (
