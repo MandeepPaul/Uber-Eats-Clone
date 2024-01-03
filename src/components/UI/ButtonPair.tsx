@@ -16,7 +16,7 @@ const ButtonPair: React.FC<{
       </Button>
       <Button
         onClick={onSecondButtonClick}
-        className="bg-white w-full py-4 mb-6 mt-1 rounded-lg md:text-lg lg:text-xl hover:bg-gray-100"
+        className="bg-white w-full py-4 mb-6 mt-1 rounded-lg md:text-lg lg:text-xl hover:bg-gray-200"
       >
         <span className="font-medium">{text2}</span>
       </Button>

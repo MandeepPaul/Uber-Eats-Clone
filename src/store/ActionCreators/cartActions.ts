@@ -15,7 +15,7 @@ export const sendCartData = (cart: itemOrdered, flag: boolean) => {
 
       const receiveData = async () => {
         const response = await fetch(
-          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone/cart.json"
+          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone/orderInfo.json"
         );
 
         if (!response.ok) {
@@ -40,6 +40,7 @@ export const sendCartData = (cart: itemOrdered, flag: boolean) => {
         if (cartData === null) {
           dispatch(cartActions.replaceCart(initialState));
         } else {
+          if (!cartData.cartItemList) cartData.cartItemList = []; //In case if array is missing from database.
           dispatch(cartActions.replaceCart(cartData));
         }
       } catch (error) {
@@ -66,9 +67,9 @@ export const sendCartData = (cart: itemOrdered, flag: boolean) => {
       );
 
       const sendData = async () => {
-        const { changedFlag, restImg, ...rest } = cart;
+        const { changedFlag, ...rest } = cart;
         const response = await fetch(
-          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone/cart.json",
+          "https://reactiverse-2842e-default-rtdb.firebaseio.com/UberEatsClone/orderInfo.json",
           {
             method: "PUT",
             body: JSON.stringify({

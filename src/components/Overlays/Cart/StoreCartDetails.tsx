@@ -7,7 +7,7 @@ const StoreCartDetails: React.FC<{
   totalQuantity: number;
 }> = ({ restName, subTotal, totalQuantity }) => {
   return (
-    <CartItemWrapper>
+    <CartItemWrapper className="sticky top-10 bg-white">
       <div className="col-span-2">
         <h2 className="text-3xl font-medium">{restName}</h2>
         <span className="font-light text-[14px]">Deliver to Pembina Hwy</span>

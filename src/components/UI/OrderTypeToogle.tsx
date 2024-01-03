@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Wrappers/Button";
 
 type OrderTypeToggleProps = {
@@ -6,6 +6,7 @@ type OrderTypeToggleProps = {
   buttonPadding?: string;
   deliveryDetails?: string;
   pickupDetails?: string;
+  currentState?: (id: string) => void;
 };
 
 const OrderTypeToggle: React.FC<OrderTypeToggleProps> = ({
@@ -13,12 +14,19 @@ const OrderTypeToggle: React.FC<OrderTypeToggleProps> = ({
   deliveryDetails,
   pickupDetails,
   buttonPadding = "",
+  currentState,
 }) => {
   const [orderType, setOrderType] = useState("DELIVERY");
 
   const toggleHandler = (tab: string) => {
     setOrderType(tab);
   };
+
+  useEffect(() => {
+    if (currentState) {
+      currentState(orderType);
+    }
+  }, [orderType, currentState]);
 
   const deliveryButtonClasses = `z-10 w-[50%] ${buttonPadding}`;
   const pickupButtonClasses = `z-10 w-[50%] ${buttonPadding}`;

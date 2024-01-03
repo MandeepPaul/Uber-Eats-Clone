@@ -2,6 +2,14 @@ import OrderTypeToggle from "../../UI/OrderTypeToogle";
 import AddressSection from "../../Overlays/DeliveryAddress/AddressSection";
 import { LocationPinSVG, doorSVG } from "../../../SVG/svgIcon";
 const Address = () => {
+  const onButtonClick = (identifier: string) => {
+    console.log(identifier);
+  };
+
+  const onToggleUpdate = (type: string) => {
+    console.log(type);
+  };
+
   return (
     <section className=" bg-white px-4 py-2">
       <div>
@@ -9,19 +17,22 @@ const Address = () => {
         <OrderTypeToggle
           className="py-2 flex w-full"
           buttonPadding="px-[12px]"
+          currentState={onToggleUpdate}
         />
       </div>
       <AddressSection
         svg={LocationPinSVG}
         place="Home"
-        description="Pembin Highway"
+        description="Address..."
         buttonTitle="Edit"
+        onClick={() => onButtonClick("address")}
       />
       <AddressSection
         svg={doorSVG}
         place="Leave at my door"
         description="Buzz-111"
         buttonTitle="Edit"
+        onClick={() => onButtonClick("information")}
       />
     </section>
   );

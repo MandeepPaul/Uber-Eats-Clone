@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import ReactDOM from "react-dom";
 
@@ -20,6 +20,9 @@ const MainNavigation: React.FC<{
   const [sideNavigation, setNavVisibility] = useState(false);
   const [animateButton, setAnimate] = useState(false);
 
+  //To prevent animation when component renders first time
+  let firstRender = useRef(true);
+
   const cart: itemOrdered = useSelector(
     (state: { cart: itemOrdered }) => state.cart
   );
@@ -32,9 +35,15 @@ const MainNavigation: React.FC<{
   };
 
   useEffect(() => {
-    if (cart.cartItemList.length === 0) {
+    if (cart?.cartItemList?.length === 0) {
       return;
     }
+
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+
     setAnimate(true);
     const timer = setTimeout(() => {
       setAnimate(false);
@@ -65,7 +74,7 @@ const MainNavigation: React.FC<{
 
         <Button
           className={`flex items-center space-x-1 bg-black rounded-full text-white px-3 lg:px-4 lg:py-3 hover:opacity-75 ${
-            animateButton ? "bump z-50" : ""
+            animateButton ? "bump z-30" : ""
           }`}
           onClick={cartHandler}
         >

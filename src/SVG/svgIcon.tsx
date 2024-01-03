@@ -157,8 +157,8 @@ export const TrophyIcon: FC<SVGIncomingProp> = (props) => (
 
 export const RightArrow: FC<SVGIncomingProp> = (props) => (
   <SVGIcon
-    path="M1 5h12m0 0L9 1m4 4L9 9"
-    fill="none"
+    path="M12.2929 4.29289C12.6834 3.90237 13.3166 3.90237 13.7071 4.29289L20.7071 11.2929C21.0976 11.6834 21.0976 12.3166 20.7071 12.7071L13.7071 19.7071C13.3166 20.0976 12.6834 20.0976 12.2929 19.7071C11.9024 19.3166 11.9024 18.6834 12.2929 18.2929L17.5858 13H4C3.44772 13 3 12.5523 3 12C3 11.4477 3.44772 11 4 11H17.5858L12.2929 5.70711C11.9024 5.31658 11.9024 4.68342 12.2929 4.29289Z"
+    fill="#FFFFFF"
     width="24"
     height="24"
     stroke="currentColor"
@@ -166,7 +166,7 @@ export const RightArrow: FC<SVGIncomingProp> = (props) => (
     strokeLinejoin="round"
     strokeWidth="2"
     {...props}
-    viewBox="0 0 14 10"
+    viewBox="0 0 24 24"
   />
 );
 
@@ -341,31 +341,6 @@ export const ThumbsUpIcon = ({
   </svg>
 );
 
-export const CalendarIcon = ({
-  className = "",
-  fill = "currentColor",
-  width = "1em",
-  height = "1em",
-  strokeWidth = "2",
-  ...props
-}) => (
-  <svg
-    className={className}
-    fill={fill}
-    width={width}
-    height={height}
-    {...props}
-    aria-hidden="true"
-    viewBox="0 0 20 20"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      strokeWidth={strokeWidth}
-      d="M0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm14-7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm-5-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm-5-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4Z"
-    />
-  </svg>
-);
-
 export const ShareArrowIcon = ({
   className = "",
   fill = "none",
@@ -434,6 +409,58 @@ export const LocationPinSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
     <path d="M12,2a8.009,8.009,0,0,0-8,8c0,3.255,2.363,5.958,4.866,8.819,0.792,0.906,1.612,1.843,2.342,2.791a1,1,0,0,0,1.584,0c0.73-.948,1.55-1.885,2.342-2.791C17.637,15.958,20,13.255,20,10A8.009,8.009,0,0,0,12,2Zm0,11a3,3,0,1,1,3-3A3,3,0,0,1,12,13Z"></path>
   </svg>
 );
+
+export const CalendarIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = "",
+  fill = "currentColor",
+  width = "1em",
+  height = "1em",
+  strokeWidth = "2",
+  ...props
+}) => (
+  <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
+    aria-hidden="true"
+    viewBox="0 0 20 20"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeWidth={strokeWidth}
+      d="M0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm14-7.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm-5-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm-5-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1Zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1ZM20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4Z"
+    />
+  </svg>
+);
+
+export const lighteningIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className = "",
+  fill = "#008000",
+  width = "1em",
+  height = "1em",
+  strokeWidth = "2",
+  ...props
+}) => (
+  <svg
+    className={className}
+    fill={fill}
+    width={width}
+    height={height}
+    {...props}
+    aria-hidden="true"
+    viewBox="0 0 32 32"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M26.8,11.5l-12,19C14.7,30.8,14.3,31,14,31c-0.1,0-0.2,0-0.3-0.1c-0.4-0.2-0.7-0.6-0.6-1.1L14.8,17H6
+			c-0.4,0-0.7-0.2-0.9-0.5c-0.2-0.3-0.1-0.7,0.1-1l10-14c0.3-0.4,0.7-0.5,1.1-0.4C16.7,1.2,17,1.6,17,2v8h9c0.4,0,0.7,0.2,0.9,0.5
+			C27,10.8,27,11.2,26.8,11.5z"
+    ></path>
+  </svg>
+);
+
 export const doorSVG: React.FC<React.SVGProps<SVGSVGElement>> = ({
   className = "fill-black h-[24px]",
   fill = "currentColor",

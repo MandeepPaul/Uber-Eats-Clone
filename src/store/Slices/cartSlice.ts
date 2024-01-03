@@ -15,6 +15,7 @@ export const initialState: itemOrdered = {
   restId: "",
   restName: "",
   deliveryFee: 0,
+  deliveryTime: 0,
   totalAmount: 0,
   totalQuantity: 0,
   cartItemList: [],
@@ -32,7 +33,6 @@ const cartState = createSlice({
       const { quantity, price } = orderedItem;
 
       state.changedFlag = true;
-
       if (state.cartItemList.length === 0) {
         orderedItem.itemId = uuidv4(); //To uniquly identify each item in the cart
         state.restId = restId;

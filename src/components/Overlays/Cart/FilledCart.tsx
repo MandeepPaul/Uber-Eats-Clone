@@ -1,15 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import CartItem from "./CartItem";
 import ButtonPair from "../../UI/ButtonPair";
 import StoreCartDetails from "./StoreCartDetails";
 
 import { itemOrdered } from "../../../store/Slices/cartSlice";
+import LoadingIndicator from "../../UI/Animations/LoadingIndicator";
 
 const FilledCart: React.FC<{ cart: itemOrdered; onReset: () => void }> = ({
   cart,
   onReset,
 }) => {
   const { restName, totalAmount, totalQuantity, cartItemList } = cart;
+  const navigation = useNavigation();
   const navigate = useNavigate();
 
   const checkoutButtonHandler = () => {
@@ -17,12 +19,15 @@ const FilledCart: React.FC<{ cart: itemOrdered; onReset: () => void }> = ({
     onReset();
   };
 
-  const addItemButtonhandler = () => {};
+  const addItemButtonhandler = () => {
+    navigate(`../stores/${cart.restId}`);
+    onReset();
+  };
 
   return (
     <>
-      <div className="mx-4 h-screen">
-        <div className="pt-12 divide-y">
+      <div className="mx-4 mb-[500px] h-screen">
+        <div className="divide-y">
           {/* Renders store details */}
           <StoreCartDetails
             restName={restName}
@@ -31,18 +36,18 @@ const FilledCart: React.FC<{ cart: itemOrdered; onReset: () => void }> = ({
           />
 
           {/* Renders all the items in the cart */}
-          {cartItemList.map((item) => (
+          {cartItemList?.map((item) => (
             <CartItem key={item.itemId} {...item} />
           ))}
 
-          <div className="py-2 text-xl font-semibold flex justify-between">
+          <div className="pt-2 text-xl font-semibold flex justify-between">
             <span>Subtotal</span>
             <span>{`$${totalAmount.toFixed(2)}`}</span>
           </div>
         </div>
       </div>
 
-      <div className="fixed bottom-0 w-full lg:w-[50%] xl:w-[33%] px-4 border-t-2 ">
+      <div className="fixed bottom-0 w-full lg:w-[50%] xl:w-[33%] px-4 border-t-2">
         <ButtonPair
           onFirstButtonClick={checkoutButtonHandler}
           onSecondButtonClick={addItemButtonhandler}
@@ -50,6 +55,7 @@ const FilledCart: React.FC<{ cart: itemOrdered; onReset: () => void }> = ({
           text2="Add items"
         />
       </div>
+      {navigation.state === "loading" && <LoadingIndicator />}
     </>
   );
 };

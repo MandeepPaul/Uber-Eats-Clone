@@ -4,6 +4,7 @@ import AddressSection from "./AddressSection";
 import { LocationPinSVG, ClockIcon, CrossIcon } from "../../../SVG/svgIcon";
 
 const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
+  const onButtonClick = (identifier: string) => {};
   return (
     <Modal
       reset={onReset}
@@ -29,11 +30,17 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
             place="Home"
             description="Pembina Highway, Winnipeg"
             buttonTitle="Change"
+            onClick={() => onButtonClick("address")}
           />
 
           <hr className="border-t-2 border-gray-200 ml-[55px]" />
 
-          <AddressSection svg={ClockIcon} place="Now" buttonTitle="Schedule" />
+          <AddressSection
+            svg={ClockIcon}
+            place="Now"
+            buttonTitle="Schedule"
+            onClick={() => onButtonClick("information")}
+          />
         </div>
 
         <div className="flex justify-center">
