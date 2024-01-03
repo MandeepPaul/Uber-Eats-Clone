@@ -6,6 +6,7 @@ export type restDetails = {
   restImg: string;
   deliveryFee: number;
   deliveryTime: string | number;
+  orderType: string;
 };
 
 export interface NewCondimentsInterface

@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Button from "./Wrappers/Button";
+import { cartActions } from "../../store/Slices/cartSlice";
+import { useAppDispatch, useAppSelector } from "../../types/hooks";
 
 type OrderTypeToggleProps = {
   className?: string;
   buttonPadding?: string;
   deliveryDetails?: string;
   pickupDetails?: string;
-  currentState?: (id: string) => void;
 };
 
 const OrderTypeToggle: React.FC<OrderTypeToggleProps> = ({
@@ -14,19 +15,13 @@ const OrderTypeToggle: React.FC<OrderTypeToggleProps> = ({
   deliveryDetails,
   pickupDetails,
   buttonPadding = "",
-  currentState,
 }) => {
-  const [orderType, setOrderType] = useState("DELIVERY");
+  const dispatch = useAppDispatch();
+  const orderType = useAppSelector((state) => state.cart.orderType);
 
   const toggleHandler = (tab: string) => {
-    setOrderType(tab);
+    dispatch(cartActions.changeOrderType(tab));
   };
-
-  useEffect(() => {
-    if (currentState) {
-      currentState(orderType);
-    }
-  }, [orderType, currentState]);
 
   const deliveryButtonClasses = `z-10 w-[50%] ${buttonPadding}`;
   const pickupButtonClasses = `z-10 w-[50%] ${buttonPadding}`;

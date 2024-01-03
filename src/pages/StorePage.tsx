@@ -7,9 +7,14 @@ import ImageCard from "../components/Main/StoreContent/StoreHeader/ImageCard";
 import MenuContent from "../components/Main/StoreContent/Main/MenuContent";
 
 import { storeDataType } from "../types/incomingDataType";
+import { useAppSelector } from "../types/hooks";
 
 const StorePage = () => {
   const storeDetailsIncMenu = useLoaderData() as storeDataType;
+  const orderType = useAppSelector((state) => state.cart.orderType);
+
+  const { id, name, url, logoURL, deliveryFee, time, menuContent } =
+    storeDetailsIncMenu;
 
   //Show message in case of an error!
   let content = (
@@ -24,18 +29,19 @@ const StorePage = () => {
     content = (
       <>
         <ImageCard
-          imageURL={storeDetailsIncMenu.url || ""} // Accessing 'url' property, ensuring it exists
-          logoURL={storeDetailsIncMenu.logoURL || ""} // Accessing 'logoURL' property, ensuring it exists
+          imageURL={url || ""} // Accessing 'url' property, ensuring it exists
+          logoURL={logoURL || ""} // Accessing 'logoURL' property, ensuring it exists
         />
         <StoreDeliveryDetails {...(storeDetailsIncMenu as Istores)} />
         <MenuContent
-          categoryList={storeDetailsIncMenu.menuContent || []}
+          categoryList={menuContent || []}
           restaurantDetails={{
-            restId: storeDetailsIncMenu.id,
-            restName: storeDetailsIncMenu.name,
-            restImg: storeDetailsIncMenu.url,
-            deliveryFee: storeDetailsIncMenu.deliveryFee,
-            deliveryTime: storeDetailsIncMenu.time,
+            restId: id,
+            restName: name,
+            restImg: url,
+            deliveryFee: deliveryFee,
+            deliveryTime: time,
+            orderType: orderType,
           }}
         />
         {/* Ensuring 'menuContent' is an array */}

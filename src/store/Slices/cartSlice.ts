@@ -16,6 +16,7 @@ export const initialState: itemOrdered = {
   restName: "",
   deliveryFee: 0,
   deliveryTime: 0,
+  orderType: "DELIVERY",
   totalAmount: 0,
   totalQuantity: 0,
   cartItemList: [],
@@ -28,7 +29,7 @@ const cartState = createSlice({
   initialState,
   reducers: {
     addToCart(state: itemOrdered, action: PayloadAction<finalOrder>) {
-      const { restId, restName, restImg, deliveryFee, orderedItem } =
+      const { restId, restName, restImg, deliveryFee, orderType, orderedItem } =
         action.payload;
       const { quantity, price } = orderedItem;
 
@@ -38,6 +39,7 @@ const cartState = createSlice({
         state.restId = restId;
         state.restName = restName;
         state.restImg = restImg;
+        state.orderType = orderType;
         state.deliveryFee = deliveryFee;
         state.totalQuantity += quantity;
         state.totalAmount += +(price * quantity).toFixed(2);
@@ -102,6 +104,15 @@ const cartState = createSlice({
     },
     replaceCart(state: itemOrdered, action: PayloadAction<itemOrdered>) {
       return { ...action.payload };
+    },
+    changeOrderType(state: itemOrdered, action: PayloadAction<string>) {
+      const changedType = action.payload;
+      if (changedType === "DELIVERY" || changedType === "PICKUP") {
+        state.orderType = changedType;
+        return;
+      }
+
+      console.log("Not a valid order type!");
     },
   },
 });

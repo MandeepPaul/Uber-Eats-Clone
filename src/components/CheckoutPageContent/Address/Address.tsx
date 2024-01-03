@@ -6,10 +6,6 @@ const Address = () => {
     console.log(identifier);
   };
 
-  const onToggleUpdate = (type: string) => {
-    console.log(type);
-  };
-
   return (
     <section className=" bg-white px-4 py-2">
       <div>
@@ -17,7 +13,6 @@ const Address = () => {
         <OrderTypeToggle
           className="py-2 flex w-full"
           buttonPadding="px-[12px]"
-          currentState={onToggleUpdate}
         />
       </div>
       <AddressSection

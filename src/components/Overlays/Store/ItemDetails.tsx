@@ -82,18 +82,14 @@ const ItemDetails: React.FC<ItemType> = ({
     });
 
     const finalOrder: finalOrder = {
-      restId: restDetails.restId,
-      restName: restDetails.restName,
-      restImg: restDetails.restImg,
-      deliveryFee: restDetails.deliveryFee,
-      deliveryTime: restDetails.deliveryTime,
+      ...restDetails,
       orderedItem: finalItem,
     };
 
     dispatch(cartActions.addToCart(finalOrder));
 
     // outgoing data.
-    // console.log(finalOrder);
+    console.log(finalOrder);
   };
 
   //To see incoming data.
