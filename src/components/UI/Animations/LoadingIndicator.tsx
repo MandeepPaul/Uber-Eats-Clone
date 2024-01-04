@@ -1,6 +1,17 @@
+import { useEffect } from "react";
 import Backdrop from "../Backdrop/Backdrop";
 
 const LoadingIndicator = () => {
+  useEffect(() => {
+    const rootElement = document.getElementById("root");
+    rootElement?.classList.add("no-scroll");
+
+    return () => {
+      //Cleanup function will run when component unmount.
+      rootElement?.classList.remove("no-scroll");
+    };
+  }, []); // Empty dependency array to run the effect only once
+
   return (
     <Backdrop backdrop="grid place-content-center h-screen">
       <div className="absolute left-0 top-0 z-40 w-full h-full grid place-content-center">

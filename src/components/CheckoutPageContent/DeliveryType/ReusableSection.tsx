@@ -3,7 +3,7 @@ const ReusableSection: React.FC<{
   deliveryTime?: number | string;
   svg: React.FC<React.SVGProps<SVGSVGElement>>;
 }> = ({ deliveryTime, type, svg: SVGComponent }) => {
-  console.log(deliveryTime);
+  // console.log(deliveryTime);
   return (
     <div className="flex justify-between items-center p-4 gap-4 border-2 rounded-lg min-h-[80px]">
       <SVGComponent width="20" height="20" />
@@ -16,7 +16,7 @@ const ReusableSection: React.FC<{
             </span>
           )}
         </p>
-        {deliveryTime && (
+        {deliveryTime !== 0 && (
           <span className="text-sm text-gray-400">{`${deliveryTime}`}</span>
         )}{" "}
       </div>

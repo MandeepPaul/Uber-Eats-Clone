@@ -25,6 +25,10 @@ const MenuItem: React.FC<{
   const [showItemDetail, setVisibility] = useState(false);
 
   const showItemDetailOverlay = () => {
+    if (showItemDetail) {
+      setVisibility(false);
+      return;
+    }
     setVisibility(true);
   };
 
@@ -79,7 +83,7 @@ const MenuItem: React.FC<{
         ReactDOM.createPortal(
           <ItemDetails
             id={id}
-            onReset={() => setVisibility(false)}
+            onReset={showItemDetailOverlay}
             name={name}
             calories={calories}
             price={price}

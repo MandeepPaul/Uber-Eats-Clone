@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Button from "./Wrappers/Button";
 import { cartActions } from "../../store/Slices/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../types/hooks";
