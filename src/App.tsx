@@ -6,6 +6,7 @@ import StorePage from "./pages/StorePage";
 
 import { loader as storesLoader } from "./pages/HomePage";
 import { loader as menuLoader } from "./pages/StorePage";
+import { loader as orderLoader } from "./pages/OrdersPage";
 import RootPage from "./layout/RootLayout";
 import CheckoutLayout from "./layout/CheckoutLayout";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -47,6 +48,7 @@ function App() {
         {
           path: "orders",
           element: <OrderPage />,
+          loader: orderLoader,
         },
       ],
     },

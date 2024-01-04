@@ -9,6 +9,7 @@ const SubOption: React.FC<{
 }> = ({ icon, title, description, onReset }) => {
   let linkHref = "..";
   if (title === "Favorites") linkHref = "stores/favourite";
+  if (title === "Orders") linkHref = "../orders";
   return (
     <Link to={linkHref} className="flex gap-4 items-center" onClick={onReset}>
       {icon}

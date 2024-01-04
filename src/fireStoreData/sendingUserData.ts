@@ -3,7 +3,7 @@ import { itemOrdered } from "../store/Slices/cartSlice";
 import { userDetails } from "../store/Slices/userSlice";
 import db from "../firebase";
 
-type finalData = {
+export type finalData = {
   userInfo: userDetails;
   orderDetails: itemOrdered;
 };
