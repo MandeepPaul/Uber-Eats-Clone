@@ -1,6 +1,8 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { cartActions } from "../../../store/Slices/cartSlice";
+import { uiActions } from "../../../store/Slices/uiSlice";
+import { useAppSelector } from "../../../types/hooks";
 
 import { CrossIcon, ShareArrowIcon, ThumbsUpIcon } from "../../../SVG/svgIcon";
 import { fetchCondiments } from "../../../firestoreData/StoreList";
@@ -36,6 +38,7 @@ const ItemDetails: React.FC<ItemType> = ({
   restDetails,
 }) => {
   const [condimentList, setCondiments] = useState<Condiments[] | null>(null);
+  const cartSelector = useAppSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const fetchCondimentsData = async (): Promise<any> => {
@@ -85,6 +88,21 @@ const ItemDetails: React.FC<ItemType> = ({
       ...restDetails,
       orderedItem: finalItem,
     };
+
+    if (
+      cartSelector.restId !== "" &&
+      cartSelector.restId !== finalOrder.restId
+    ) {
+      dispatch(
+        uiActions.showNotification({
+          status: "warning",
+          title: "Cart already exist from another store",
+          message: "Clear it first to proceed!",
+        })
+      );
+
+      return;
+    }
 
     dispatch(cartActions.addToCart(finalOrder));
 

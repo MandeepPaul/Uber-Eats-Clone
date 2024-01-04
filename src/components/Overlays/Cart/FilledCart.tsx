@@ -20,8 +20,8 @@ const FilledCart: React.FC<{ cart: itemOrdered; onReset: () => void }> = ({
   };
 
   const addItemButtonhandler = () => {
-    navigate(`../stores/${cart.restId}`);
     onReset();
+    navigate(`../stores/${cart.restId}`);
   };
 
   return (

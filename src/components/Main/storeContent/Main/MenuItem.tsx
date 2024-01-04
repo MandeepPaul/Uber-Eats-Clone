@@ -33,7 +33,10 @@ const MenuItem: React.FC<{
   };
 
   return (
-    <div className="group min-h-[126px] flex justify-between items-center p-2 lg:flex-col-reverse lg:justify-end lg:items-start lg:gap-1 lg:grow lg:min-h-[320px] lg:hover:shadow-xl">
+    <Button
+      onClick={showItemDetailOverlay}
+      className="group min-h-[126px] flex justify-between items-center p-2 lg:flex-col-reverse lg:justify-end lg:items-start lg:gap-1 lg:grow lg:min-h-[320px] lg:hover:shadow-xl"
+    >
       {/* Individual Card */}
       <div className="overflow-hidden lg:flex lg:flex-col lg:justify-start h-full">
         <span className="text-base font-medium lg:text-lg">{name}</span>
@@ -95,7 +98,7 @@ const MenuItem: React.FC<{
           />,
           document.getElementById("back-drop") as Element
         )}
-    </div>
+    </Button>
   );
 };
 

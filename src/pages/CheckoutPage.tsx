@@ -11,24 +11,31 @@ import { initialState as cartInitialState } from "../store/Slices/cartSlice";
 import { initialState as userInitialState } from "../store/Slices/userSlice";
 import { cartActions } from "../store/Slices/cartSlice";
 import { userActions } from "../store/Slices/userSlice";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutPage = () => {
   const [isValid, setValidity] = useState(true);
+  const [isSubmitting, setSubmit] = useState("");
+
+  const navigate = useNavigate();
+
   const dispatch = useAppDispatch();
   const cart = useAppSelector((state) => state.cart);
   const user = useAppSelector((state) => state.userSlice);
   const orderType = cart.orderType;
 
-  const placeOrderHandler = () => {
+  const placeOrderHandler = async () => {
     if (user.userAddress1 === "") {
       setValidity(false);
       return;
     }
-    saveOrderToFirestore(cart, user);
+    setSubmit("submitting");
+    await saveOrderToFirestore(cart, user);
 
-    //Clear the cart after placing an order.
+    // Clear the cart after placing an order.
     dispatch(cartActions.replaceCart(cartInitialState));
     dispatch(userActions.replaceInfo(userInitialState));
+    navigate("../orders");
   };
 
   return (
@@ -50,7 +57,7 @@ const CheckoutPage = () => {
           onClick={placeOrderHandler}
           className="bg-black w-full py-4 my-6 rounded-lg md:text-lg lg:text-xl text-white hover:opacity-75"
         >
-          Place Order
+          {isSubmitting !== "" ? `Placing Order...` : `Place Order`}
         </Button>
       </div>
     </main>

@@ -10,6 +10,7 @@ import RootPage from "./layout/RootLayout";
 import CheckoutLayout from "./layout/CheckoutLayout";
 import CheckoutPage from "./pages/CheckoutPage";
 import FavStorePage from "./pages/FavStorePage";
+import OrderPage from "./pages/OrdersPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -42,6 +43,10 @@ function App() {
               ],
             },
           ],
+        },
+        {
+          path: "orders",
+          element: <OrderPage />,
         },
       ],
     },

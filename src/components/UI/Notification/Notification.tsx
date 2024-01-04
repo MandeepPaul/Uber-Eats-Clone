@@ -18,6 +18,10 @@ const Notification: React.FC<{
     specialClasses = "bg-green-600";
   }
 
+  if (status === "warning") {
+    specialClasses = "bg-red-900";
+  }
+
   return (
     <section
       className={`h-4 p-4 z-60 flex justify-between items-center text-white bg-blue-500 overflow-hidden whitespace-nowrap ${specialClasses}`}
