@@ -1,22 +1,12 @@
 import OrderCard from "../components/OrdersPageContent/OrderCard";
 import fetchOrdersFromFirestore from "../firestoreData/fetchingOrderData";
-import {
-  IndexRouteObject,
-  useLoaderData,
-  useNavigate,
-  useNavigation,
-} from "react-router-dom";
+import { IndexRouteObject, useLoaderData } from "react-router-dom";
 import { finalData } from "../firestoreData/sendingUserData";
 import LoadingIndicator from "../components/UI/Animations/LoadingIndicator";
 
 const OrderPage = () => {
   const orderData = useLoaderData();
   const prevOrdersData = orderData as finalData[];
-  const navigate = useNavigate();
-  const navigation = useNavigation();
-  const viewStoreHandler = (id: string) => {
-    navigate(`../stores/${id}`);
-  };
 
   return (
     <main className="lg:mt-[150px] m-4 lg:p-4">
@@ -24,11 +14,7 @@ const OrderPage = () => {
 
       <div className="divide-y-2">
         {prevOrdersData.map((order, index) => (
-          <OrderCard
-            key={index}
-            order={order.orderDetails}
-            onViewStore={(id) => viewStoreHandler(id)}
-          />
+          <OrderCard key={index} {...order.orderDetails} />
         ))}
         {prevOrdersData.length === 0 && (
           <span className="pt-[50px]">
@@ -36,7 +22,6 @@ const OrderPage = () => {
           </span>
         )}
       </div>
-      {navigation.state === "loading" && <LoadingIndicator />}
     </main>
   );
 };

@@ -1,20 +1,23 @@
 import { itemOrdered } from "../../store/Slices/cartSlice";
 import { orderedItemFormat } from "../../types/outgoingDataType";
+import LoadingIndicator from "../UI/Animations/LoadingIndicator";
+import { useNavigate, useNavigation } from "react-router-dom";
 import Button from "../UI/Wrappers/Button";
-
-const OrderCard: React.FC<{
-  order: itemOrdered;
-  onViewStore: (id: string) => void;
-}> = ({ order, onViewStore }) => {
-  const {
-    restId,
-    restImg,
-    restName,
-    cartItemList,
-    totalAmount,
-    totalQuantity,
-  } = order;
+const OrderCard: React.FC<itemOrdered> = ({
+  restId,
+  restImg,
+  restName,
+  cartItemList,
+  totalAmount,
+  totalQuantity,
+}) => {
   const itemsOrdered = cartItemList as orderedItemFormat[];
+  const navigate = useNavigate();
+  const navigation = useNavigation();
+
+  const viewStoreHandler = () => {
+    navigate(`../orders/${restId}`);
+  };
 
   return (
     <div className="py-2 lg:grid lg:grid-cols-3 lg:gap-6 lg:items-start lg:justify-between lg:py-4">
@@ -47,11 +50,13 @@ const OrderCard: React.FC<{
         </ul>
       </div>
       <Button
-        onClick={() => onViewStore(restId)}
+        onClick={viewStoreHandler}
         className="bg-black w-full py-4 rounded-lg md:text-lg lg:text-xl text-white hover:opacity-75"
       >
         View Store
       </Button>
+
+      {navigation.state === "loading" && <LoadingIndicator />}
     </div>
   );
 };
