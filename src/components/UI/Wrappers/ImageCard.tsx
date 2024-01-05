@@ -5,9 +5,11 @@ const ImageCard: React.FC<{
   style?: React.CSSProperties;
   url: string;
   children?: React.ReactNode;
+  onClick?: () => void;
 }> = (props) => {
   return (
     <div
+      onClick={props.onClick}
       className={` ${props.className}`}
       style={{
         backgroundImage: `url(${props.url})`,

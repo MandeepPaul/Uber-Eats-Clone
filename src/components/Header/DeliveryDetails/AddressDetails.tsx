@@ -1,9 +1,11 @@
 import Button from "../../UI/Wrappers/Button";
 import { ArrowDownSVG, LocationPinSVG } from "../../../SVG/svgIcon";
+import { useAppSelector } from "../../../types/hooks";
 
 const AddressDetails: React.FC<{ onAddressBarClick?: () => void }> = ({
   onAddressBarClick,
 }) => {
+  const userSelector = useAppSelector((state) => state.userSlice);
   return (
     <div className="flex flex-col">
       <span className="lg:hidden text-sm">Deliver now</span>
@@ -16,7 +18,7 @@ const AddressDetails: React.FC<{ onAddressBarClick?: () => void }> = ({
           <LocationPinSVG />
         </div>
 
-        <p className="truncate">Pembina Highway</p>
+        <p className="truncate">{`${userSelector.userAddress1}`}</p>
 
         <span className="hidden lg:inline-block">Now</span>
 

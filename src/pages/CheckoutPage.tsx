@@ -30,6 +30,17 @@ const CheckoutPage = () => {
       return;
     }
     setSubmit("submitting");
+    const currentDate = new Date(); // Replace this with your desired date
+    // Using toLocaleString() method with options for formatting
+    const formattedDate = currentDate.toLocaleString("en-US", {
+      month: "short", // Short month name (e.g., Jan, Feb)
+      day: "numeric", // Day of the month (e.g., 1, 2, ...)
+      hour: "numeric", // Hour (e.g., 1, 2, ... 12)
+      minute: "numeric", // Minute (e.g., 0, 15, 30, ...)
+      hour12: true, // Use 12-hour clock
+    });
+
+    dispatch(userActions.setOrderTime(formattedDate));
     await saveOrderToFirestore(cart, user);
 
     // Clear the cart after placing an order.

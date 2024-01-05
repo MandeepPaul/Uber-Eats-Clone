@@ -2,19 +2,22 @@ import OrderCard from "../components/OrdersPageContent/OrderCard";
 import fetchOrdersFromFirestore from "../firestoreData/fetchingOrderData";
 import { IndexRouteObject, useLoaderData } from "react-router-dom";
 import { finalData } from "../firestoreData/sendingUserData";
-import LoadingIndicator from "../components/UI/Animations/LoadingIndicator";
 
 const OrderPage = () => {
   const orderData = useLoaderData();
   const prevOrdersData = orderData as finalData[];
 
   return (
-    <main className="lg:mt-[150px] m-4 lg:p-4">
+    <main className="lg:mt-[150px] m-4 lg:p-4" style={{ minHeight: "50vh" }}>
       <h2 className="font-bold text-2xl">Past Orders</h2>
 
       <div className="divide-y-2">
         {prevOrdersData.map((order, index) => (
-          <OrderCard key={index} {...order.orderDetails} />
+          <OrderCard
+            key={index}
+            order={order.orderDetails}
+            userData={order.userInfo}
+          />
         ))}
         {prevOrdersData.length === 0 && (
           <span className="pt-[50px]">

@@ -25,18 +25,11 @@ const MenuItem: React.FC<{
   const [showItemDetail, setVisibility] = useState(false);
 
   const showItemDetailOverlay = () => {
-    if (showItemDetail) {
-      setVisibility(false);
-      return;
-    }
     setVisibility(true);
   };
 
   return (
-    <div
-      onClick={showItemDetailOverlay}
-      className="group min-h-[126px] flex justify-between items-center p-2 lg:flex-col-reverse lg:justify-end lg:items-start lg:gap-1 lg:grow lg:min-h-[320px] lg:hover:shadow-xl"
-    >
+    <div className="group min-h-[126px] flex justify-between items-center p-2 lg:flex-col-reverse lg:justify-end lg:items-start lg:gap-1 lg:grow lg:min-h-[320px] lg:hover:shadow-xl">
       {/* Individual Card */}
       <div className="overflow-hidden lg:flex lg:flex-col lg:justify-start h-full">
         <span className="text-base flex-grow font-medium lg:text-lg">
@@ -67,19 +60,14 @@ const MenuItem: React.FC<{
       </div>
 
       <Card
+        onClick={showItemDetailOverlay}
         className="min-h-[100px] min-w-[100px] rounded-lg relative lg:min-h-[220px] lg:min-w-[200px] lg:max-w-[350px] lg:rounded-none lg:self-stretch"
         url={imageURL}
       >
-        <Button
-          onClick={showItemDetailOverlay}
-          className="absolute right-1 bottom-1 bg-white w-7 h-7 flex justify-center items-center rounded-full lg:hidden"
-        >
+        <Button className="absolute right-1 bottom-1 bg-white w-7 h-7 flex justify-center items-center rounded-full shadow-lg lg:hidden">
           <span className="self-center text-2xl">+</span>
         </Button>
-        <Button
-          onClick={showItemDetailOverlay}
-          className="hidden lg:group-hover:block bg-white p-2 rounded-full absolute bottom-2 left-1/2 transform translate-x-[-50%] border-2 border-gray-200"
-        >
+        <Button className="hidden lg:group-hover:block bg-white p-2 rounded-full absolute bottom-2 left-1/2 transform translate-x-[-50%] border-2 border-gray-200">
           <span className="font-medium">Quick view</span>
         </Button>
       </Card>
@@ -88,7 +76,7 @@ const MenuItem: React.FC<{
         ReactDOM.createPortal(
           <ItemDetails
             id={id}
-            onReset={showItemDetailOverlay}
+            onReset={() => setVisibility(false)}
             name={name}
             calories={calories}
             price={price}

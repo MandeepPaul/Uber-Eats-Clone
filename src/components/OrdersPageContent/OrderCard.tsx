@@ -1,16 +1,21 @@
 import { itemOrdered } from "../../store/Slices/cartSlice";
+import { userDetails } from "../../store/Slices/userSlice";
 import { orderedItemFormat } from "../../types/outgoingDataType";
 import LoadingIndicator from "../UI/Animations/LoadingIndicator";
 import { useNavigate, useNavigation } from "react-router-dom";
 import Button from "../UI/Wrappers/Button";
-const OrderCard: React.FC<itemOrdered> = ({
-  restId,
-  restImg,
-  restName,
-  cartItemList,
-  totalAmount,
-  totalQuantity,
+const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
+  order,
+  userData,
 }) => {
+  const {
+    restId,
+    restImg,
+    restName,
+    cartItemList,
+    totalAmount,
+    totalQuantity,
+  } = order;
   const itemsOrdered = cartItemList as orderedItemFormat[];
   const navigate = useNavigate();
   const navigation = useNavigation();
@@ -31,7 +36,7 @@ const OrderCard: React.FC<itemOrdered> = ({
 
         <p className="text-sm py-1 text-gray-400">{`${totalQuantity} items for $${totalAmount.toFixed(
           2
-        )} - Mar 16 at 1:05 a.m`}</p>
+        )} - ${userData.orderTime}`}</p>
         <span className="underline underline-offset-2 text-sm">
           View receipt
         </span>
