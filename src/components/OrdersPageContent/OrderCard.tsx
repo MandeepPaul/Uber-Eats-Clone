@@ -21,14 +21,14 @@ const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
   const navigation = useNavigation();
 
   const viewStoreHandler = () => {
-    navigate(`../orders/${restId}`);
+    navigate(`../stores/${restId}`);
   };
 
   return (
-    <div className="py-2 lg:grid lg:grid-cols-3 lg:gap-6 lg:items-start lg:justify-between lg:py-4">
+    <div className="py-4 lg:grid lg:grid-cols-3 lg:gap-6 lg:items-start lg:justify-between">
       <img
         alt="Restaurant"
-        className="py-2 h-[150px] w-full object-cover lg:py-0"
+        className="h-[150px] w-full object-cover lg:h-[163px] lg:py-0"
         src={restImg}
       />
       <div>
@@ -56,7 +56,7 @@ const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
       </div>
       <Button
         onClick={viewStoreHandler}
-        className="bg-black w-full py-4 rounded-lg md:text-lg lg:text-xl text-white hover:opacity-75"
+        className="bg-black w-full py-4 mt-4 rounded-lg md:text-lg lg:mt-0 lg:text-xl text-white hover:opacity-75"
       >
         View Store
       </Button>
