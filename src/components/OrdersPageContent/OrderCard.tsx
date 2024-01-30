@@ -4,6 +4,7 @@ import { orderedItemFormat } from "../../types/outgoingDataType";
 import LoadingIndicator from "../UI/Animations/LoadingIndicator";
 import { useNavigate, useNavigation } from "react-router-dom";
 import Button from "../UI/Wrappers/Button";
+import { useState } from "react";
 const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
   order,
   userData,
@@ -16,6 +17,7 @@ const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
     totalAmount,
     totalQuantity,
   } = order;
+  const [showMore, setShowMore] = useState(false);
   const itemsOrdered = cartItemList as orderedItemFormat[];
   const navigate = useNavigate();
   const navigation = useNavigation();
@@ -24,11 +26,15 @@ const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
     navigate(`../stores/${restId}`);
   };
 
+  const toggleHandler = () => {
+    showMore ? setShowMore(false) : setShowMore(true);
+  };
+
   return (
     <div className="py-4 lg:grid lg:grid-cols-3 lg:gap-6 lg:items-start lg:justify-between">
       <img
         alt="Restaurant"
-        className="h-[150px] w-full object-cover lg:h-[163px] lg:py-0"
+        className="h-[150px] w-full object-cover lg:h-[185px] lg:py-0"
         src={restImg}
       />
       <div>
@@ -41,18 +47,41 @@ const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
           View receipt
         </span>
         <ul>
-          {itemsOrdered?.map((eachItem, index) => (
-            <li
-              key={index}
-              className="py-2 flex justify-start items-center gap-4 font-light"
-            >
-              <span className="border-[1px] px-1.5 text-sm">
-                {eachItem.quantity}
-              </span>
-              <span>{eachItem.itemName}</span>
-            </li>
-          ))}
+          {(() => {
+            const renderedItems = [];
+            let visibleItems = itemsOrdered.length;
+
+            if (itemsOrdered.length >= 2 && !showMore) {
+              visibleItems = 2;
+            }
+
+            for (let index = 0; index < visibleItems; index++) {
+              const eachItem = itemsOrdered[index];
+
+              renderedItems.push(
+                <li
+                  key={index}
+                  className="py-2 flex justify-start items-center gap-4 font-light"
+                >
+                  <span className="border-[1px] px-1.5 text-sm">
+                    {eachItem.quantity}
+                  </span>
+                  <span>{eachItem.itemName}</span>
+                </li>
+              );
+            }
+
+            return renderedItems;
+          })()}
         </ul>
+        {itemsOrdered.length > 2 && (
+          <button
+            onClick={toggleHandler}
+            className="text-sm underline underline-offset-2"
+          >
+            {showMore ? "Show Less" : "Show More"}
+          </button>
+        )}
       </div>
       <Button
         onClick={viewStoreHandler}
