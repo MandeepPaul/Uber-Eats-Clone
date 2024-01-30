@@ -8,8 +8,8 @@ import Dietry from "./Dietary";
 
 const Filter: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <div className={`pr-6 pt-2 text-xl ${className}`}>
-      <div className="sticky left-0 top-[120px] max-h-screen">
+    <div className={`pr-6 pt-2 text-xl pb-[200px] ${className}`}>
+      <div className="sticky left-0 top-[120px] min-h-screen">
         <h2 className="hidden lg:block text-3xl font-bold mb-2">All stores</h2>
         <>
           <ToggleSection title="Sort">

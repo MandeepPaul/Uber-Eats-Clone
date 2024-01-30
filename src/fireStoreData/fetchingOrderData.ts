@@ -1,12 +1,16 @@
 import db from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 import { finalData } from "./sendingUserData";
 // Function to retrieve order details from Firestore
 export const fetchOrdersFromFirestore = async () => {
   try {
     const ordersRef = collection(db, "orders");
-    const querySnapshot = await getDocs(ordersRef);
+    const orderedQuery = query(
+      ordersRef,
+      orderBy("userInfo.orderTime", "desc")
+    );
+    const querySnapshot = await getDocs(orderedQuery);
 
     const orders: finalData[] = [];
 
