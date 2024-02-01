@@ -44,7 +44,7 @@ const DeliveryAddress: React.FC<{ onReset: () => void }> = ({ onReset }) => {
             <AddressSection
               svg={LocationPinSVG}
               place="Home"
-              description={userDetails.userAddress1}
+              description={userDetails.userAddress}
               buttonTitle="Change"
               onClick={() => onButtonClick("address")}
             />

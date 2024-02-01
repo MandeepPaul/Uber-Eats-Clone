@@ -32,14 +32,14 @@ const Address: React.FC<{ className: string }> = ({ className }) => {
           <AddressSection
             svg={LocationPinSVG}
             place="Delivery details"
-            description={address.userAddress1}
+            description={address.userAddress}
             buttonTitle="Add"
             onClick={() => onButtonClick("address")}
           />
           <AddressSection
             svg={doorSVG}
             place="Leave at my door"
-            description={address.userAddress2}
+            description={address.userAddress}
             buttonTitle="Add"
             onClick={() => onButtonClick("information")}
           />

@@ -103,11 +103,12 @@ const cartState = createSlice({
       }
     },
     replaceCart(state: itemOrdered, action: PayloadAction<itemOrdered>) {
-      return { ...action.payload };
+      Object.assign(state, action.payload);
     },
     changeOrderType(state: itemOrdered, action: PayloadAction<string>) {
       const changedType = action.payload;
       if (changedType === "DELIVERY" || changedType === "PICKUP") {
+        state.changedFlag = true;
         state.orderType = changedType;
         return;
       }

@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "../types/hooks";
 import DeliveryEstimateSection from "../components/CheckoutPageContent/DeliveryType/DeliverEstimateSection";
 import Address from "../components/CheckoutPageContent/Address/Address";
 import OrderSummary from "../components/CheckoutPageContent/Order/OrderSummary";
@@ -5,13 +8,8 @@ import Button from "../components/UI/Wrappers/Button";
 
 import saveOrderToFirestore from "../firestoreData/sendingUserData";
 
-import { useAppSelector, useAppDispatch } from "../types/hooks";
-import { useState } from "react";
 import { initialState as cartInitialState } from "../store/Slices/cartSlice";
-import { initialState as userInitialState } from "../store/Slices/userSlice";
-import { cartActions } from "../store/Slices/cartSlice";
-import { userActions } from "../store/Slices/userSlice";
-import { useNavigate } from "react-router-dom";
+import { sendCartData } from "../store/ActionCreators/cartActions";
 
 const CheckoutPage = () => {
   const [isValid, setValidity] = useState(true);
@@ -25,28 +23,23 @@ const CheckoutPage = () => {
   const orderType = cart.orderType;
 
   const placeOrderHandler = async () => {
-    if (user.userAddress1 === "") {
+    if (user.userAddress === "") {
       setValidity(false);
       return;
     }
     setSubmit("submitting");
-    const currentDate = new Date(); // Replace this with your desired date
-    // Using toLocaleString() method with options for formatting
-    const formattedDate = currentDate.toLocaleString("en-US", {
-      month: "short", // Short month name (e.g., Jan, Feb)
-      day: "numeric", // Day of the month (e.g., 1, 2, ...)
-      hour: "numeric", // Hour (e.g., 1, 2, ... 12)
-      minute: "numeric", // Minute (e.g., 0, 15, 30, ...)
-      hour12: true, // Use 12-hour clock
-    });
 
-    dispatch(userActions.setOrderTime(formattedDate));
-    await saveOrderToFirestore(cart, user);
+    const response = await saveOrderToFirestore(cart, user);
+    const resetState = {
+      ...cartInitialState,
+      changedFlag: true,
+    };
 
-    // Clear the cart after placing an order.
-    dispatch(cartActions.replaceCart(cartInitialState));
-    dispatch(userActions.replaceInfo(userInitialState));
-    navigate("../orders");
+    if (!response?.error) {
+      // Clear the cart after placing an order.
+      dispatch(sendCartData(resetState, false));
+      navigate("../orders");
+    }
   };
 
   return (

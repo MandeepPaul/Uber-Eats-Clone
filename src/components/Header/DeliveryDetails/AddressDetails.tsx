@@ -16,7 +16,7 @@ const AddressDetails: React.FC<{ onAddressBarClick?: () => void }> = ({
           <LocationPinSVG />
         </div>
 
-        <p className="truncate">{`${userSelector.userAddress1}`}</p>
+        <p className="truncate">{`${userSelector.userAddress}`}</p>
 
         <span className="hidden lg:inline-block">Now</span>
       </Button>

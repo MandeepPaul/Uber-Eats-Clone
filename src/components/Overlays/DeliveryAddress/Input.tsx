@@ -9,7 +9,7 @@ const Input = React.forwardRef<
     setParentValue: (value: string) => void;
   }
 >(({ svg: SVGComponent, className = "", placeholder, setParentValue }, ref) => {
-  const address = useAppSelector((state) => state.userSlice.userAddress1);
+  const address = useAppSelector((state) => state.userSlice.userAddress);
 
   const [value, setValue] = useState(address);
 

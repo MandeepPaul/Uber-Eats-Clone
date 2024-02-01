@@ -2,18 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type userDetails = {
   userName: string;
-  userAddress1: string;
-  userAddress2: string;
-  orderTime: string; // Added orderTime field to track order time
-  changedFlag: boolean;
+  userAddress: string;
 };
 
 export const initialState: userDetails = {
   userName: "",
-  userAddress1: "",
-  userAddress2: "",
-  orderTime: "null", // Initialize orderTime as null
-  changedFlag: false,
+  userAddress: "",
 };
 
 const userSlice = createSlice({
@@ -21,16 +15,10 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     addDeliveryDetails(state: userDetails, action: PayloadAction<string>) {
-      state.changedFlag = true;
-      state.userAddress1 = action.payload;
-    },
-    // Action to set order time
-    setOrderTime(state: userDetails, action: PayloadAction<string>) {
-      state.orderTime = action.payload;
-      console.log(action.payload);
+      state.userAddress = action.payload;
     },
     replaceInfo(state: userDetails, action: PayloadAction<userDetails>) {
-      return { ...action.payload };
+      Object.assign(state, action.payload);
     },
   },
 });

@@ -5,10 +5,10 @@ import LoadingIndicator from "../UI/Animations/LoadingIndicator";
 import { useNavigate, useNavigation } from "react-router-dom";
 import Button from "../UI/Wrappers/Button";
 import { useState } from "react";
-const OrderCard: React.FC<{ order: itemOrdered; userData: userDetails }> = ({
-  order,
-  userData,
-}) => {
+const OrderCard: React.FC<{
+  order: itemOrdered;
+  userData: userDetails & { orderTime: string };
+}> = ({ order, userData }) => {
   const {
     restId,
     restImg,

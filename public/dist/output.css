@@ -2305,10 +2305,6 @@ video {
   text-underline-offset: 2px;
 }
 
-.underline-offset-1{
-  text-underline-offset: 1px;
-}
-
 .opacity-70{
   opacity: 0.7;
 }
@@ -2704,8 +2700,8 @@ video {
     height: 1.25rem;
   }
 
-  .lg\:h-\[163px\]{
-    height: 163px;
+  .lg\:h-\[185px\]{
+    height: 185px;
   }
 
   .lg\:h-\[250px\]{
@@ -2726,22 +2722,6 @@ video {
 
   .lg\:h-\[70px\]{
     height: 70px;
-  }
-
-  .lg\:h-\[173px\]{
-    height: 173px;
-  }
-
-  .lg\:h-\[180px\]{
-    height: 180px;
-  }
-
-  .lg\:h-\[183px\]{
-    height: 183px;
-  }
-
-  .lg\:h-\[185px\]{
-    height: 185px;
   }
 
   .lg\:min-h-\[220px\]{

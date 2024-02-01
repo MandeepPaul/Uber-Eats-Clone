@@ -106,8 +106,8 @@ const ItemDetails: React.FC<ItemType> = ({
 
     dispatch(cartActions.addToCart(finalOrder));
 
-    // outgoing data.
-    console.log(finalOrder);
+    // To see outgoing data.
+    // console.log(finalOrder);
   };
 
   //To see incoming data.
